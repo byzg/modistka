@@ -1,0 +1,506 @@
+html {min-height: 100%;}
+body {font-size: 12px; color: #000000; background: #42012d url(letmag/bgr_bot.gif) no-repeat 50% 100%;}
+body, input, textarea, select {font-family: Tahoma, Verdana, sans-serif;}
+
+input, textarea, select {font-size: 100%;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin: 0; padding: 0;}
+table, td, th {border-collapse: collapse; border-spacing: 0; vertical-align: top; text-align: left;}
+fieldset,img {border: 0;}
+
+a {color: #0c529f;}
+/*a:active, a:focus, a:hover {outline: none;}*/
+
+/* globals */
+ul.g-layout {list-style: none;}
+.g-clear {clear: both; height: 0; overflow: hidden;}
+
+.g-link {display: block; float: left; margin-right: 20px; padding: 4px 15px 7px 19px; color: #ffffff; background: #1a4dba url(letmag/bullet_link.gif) no-repeat 10px 10px; text-decoration: none;}
+
+.g-none {text-decoration: none;}
+.g-underline {font-size: 12px; color: #000000; text-decoration: underline;}
+.g-item {padding: 4px 0 6px 16px; background: url(letmag/bullet_star.gif) no-repeat 3px 8px;}
+.g-item-24 {background-image: url(letmag/bullet_star_24.gif);}
+.g-big {font-size: 22px;}
+.g-input {width: 308px; padding: 7px 12px 8px;}
+.g-select {width: 334px; height: 31px; padding: 0; padding-left: 12px;}
+.g-input, .g-select {color: #767676; border: 1px solid #b5bfbf;}
+.g-input:focus {border-color: #ffe680;}
+.g-radio {vertical-align: middle;}
+.g-dashed, .g-dashed:hover {border-bottom: 1px dashed; text-decoration: none; display: inline-block;}
+.g-error a, .g-buttons-hint {color: #0c5aab; /*border-color: #0c5aab !important;*/}
+.g-error {color: red; margin-bottom: 1em;}
+.g-ast {color: #d4006c;}
+.g-radio {vertical-align: middle; margin: 4px 4px 4px 0;}
+.g-input-empty {border: 1px solid #0c5aab;}
+.g-input-short {width: 30px; margin-right: 5px;}
+.g-input-prefix {width: 40px;}
+.g-input-phone {width: 217px;}
+.g-input-mobile {width: 293px;}
+.g-textarea {height: 150px;}
+.g-textarea-wide {width: 504px; height: 150px;}
+.g-input-disabled {background-color: #f2f2f2;}
+.g-clear {clear: left;}
+.g-anchor {padding-top: 1em;}
+
+.g-captcha-image {padding-right: 10px;}
+.g-captcha-image-box {width: 120px; height: 60px; background: url(/letmag/ajax_loader.gif) no-repeat center;}
+.g-captcha-input .g-input {width: 80px;}
+.g-captcha-input-label {margin-bottom: 3px; margin-top: -2px;}
+
+.g-line {height: 2px; overflow: hidden; margin: 5px 0; background: #e5e5e5;}
+
+.g-buttons-hint {margin-bottom: 1em;}
+
+.g-item-li {clear: left; padding-left: 9px; padding-right: 12px; margin-bottom: 7px; background: url(letmag/bullet_item.gif) no-repeat 0 5px;}
+.g-item-li-active {font-weight: bold;}
+
+.g-checkbox {float: left; margin: -3px 0 0 -3px\9}/* ie */
+.g-checkbox-label {display: block; margin-left: 1.7em;}
+
+.g-input-day {width: 65px;}
+.g-input-month {width: 105px;}
+.g-input-year {width: 80px;}
+.g-input-focused {color: #000104;}
+
+.g-dialog {position: absolute; display: none; padding: 15px 20px 19px; background: #ffffff; border: 1px solid #ff8400;}
+.g-dialog-close {float: right; margin: -5px -10px 10px 20px;}
+.g-dialog-close a {border-bottom: 0 !important;}
+
+.g-noborder {border: 0 !important;}
+
+.g-load {background: url(letmag/load.gif) no-repeat;}
+.g-load * {visibility: hidden;}
+
+.g-highlight {color: #d4006c;}
+
+.g-item-pad {float: left; padding-left: 19px; padding-right: 12px; background: url(letmag/bullet_item.gif) no-repeat 10px 5px;}
+.g-item-pad-active {padding-top: 4px; padding-bottom: 7px; margin-top: -4px; background: #1a4dba url(letmag/bullet_link.gif) no-repeat 10px 10px !important;}
+.g-item-pad-active a {color: #ffffff; text-decoration: none; cursor: default;}
+.g-item-pad-title {float: left; margin-right: .5em; color: #970097;}
+
+.g-new {margin: 5px 0; color: #d4006c;}
+
+.info {position: absolute; display: none; width: 233px; background-color: #ffffff;}
+.info-top {height: 4px; overflow: hidden; background: url(letmag/info_top.gif) no-repeat;}
+.info-content {padding: 0 8px; border-width: 0 1px; border-style: solid; border-color: #dfdfdf;}
+.info-bottom {height: 8px; overflow: hidden; background: url(letmag/info_bottom.gif) no-repeat;}
+.info-close {float: right; clear: right; margin-top: 6px;}
+.info-content-title {border-bottom: 1px solid #dfdfdf; padding-bottom: 2px;}
+.info-content-body {padding: 7px 0 7px 16px;}
+.info-content-body-item {padding-bottom: 2px;}
+.info-content-line {height: 1px; overflow: hidden; margin: 8px 0 6px; background-color: #dfdfdf;}
+.info-content-body-link {padding-top: 8px; padding-bottom: 4px;}
+.info-content-body-link a {text-decoration: underline;}
+.info-content-load {margin: 50px 0 45px 90px;}
+
+/* layout */
+.body-box {background: url(letmag/bgr_top.gif) no-repeat 50% 0;}
+.main {width: 956px; margin: 0 auto; padding-top: 64px; background: url(letmag/bgr_top_main.gif) no-repeat;}
+.main-header {color: #6e86af; background: #093277 url(letmag/header_bgr.gif) no-repeat;}
+.main-header-box {height: 110px; background: url(letmag/header_line.gif) repeat-x 30px 31px;}
+
+.main-header-logo {position: absolute; margin: 14px 0 0 35px;}
+.main-header-phone {position: absolute; margin: 14px 0 0 516px;}
+.main-header-w-anons .main-header-phone {margin-left: 440px;}
+.header-phone-top {height: 12px; margin-bottom: 22px; font-size: 10px; text-transform: uppercase;}
+.header-phone-mid {height: 42px; font-size: 18px; line-height: 13px; color: #00478b;}
+.header-phone-bot {font-size: 11px;}
+
+.main-header-account {position: absolute; margin: 14px 0 0 713px;}
+.main-header-w-anons .main-header-account {margin-left: 630px;}
+.header-account-title {height: 29px; font-size: 10px; text-transform: uppercase;}
+.header-account-form-input {float: left; padding-left: 8px; margin-right: 20px; background: #00478b url(letmag/account_input_bgrs.gif) no-repeat;}
+.header-account-form-input div {float: left; height: 19px; overflow: hidden; padding-right: 8px; background: url(letmag/account_input_bgrs.gif) no-repeat 100% -19px;}
+.header-account-form-input input {width: 90px; padding: 2px; font-size: 11px; color: #ffffff; background: #00478b; border: none; outline: none;}
+.main-header-w-anons .header-account-form-input {margin-right: 8px;}
+.main-header-w-anons .header-account-form-input input {width: 80px;}
+
+.main-header-anons {position: absolute; width: 976px; margin: -89px 0 0 0; text-align: right; z-index: 0;}
+
+.header-account-form-popup {position: absolute; z-index: 1000; width: 235px; padding: 11px 0 11px 18px; margin: -13px 0 0 -20px; background: #ffffff; border: 2px solid #e3e3e3;}
+.header-account-form-extra {padding-top: 7px;}
+.header-account-form-extra-title {padding-bottom: 5px; font-size: 10px; font-weight: bold; color: #6e86af; text-transform: uppercase;}
+.header-account-form-extra-left {float: left; width: 120px;}
+.header-account-form-extra-right {margin-left: 120px;}
+.header-account-form-close {display: none; float: right; margin-right: 7px;}
+.header-account-form-close img {margin: 2px 0 0 3px; vertical-align: top;}
+
+.header-account-banner-title {width: 171px; overflow: hidden; padding-right: 10px; background: url(/letmag/arrow_banner.gif) no-repeat 100% 3px;}
+.header-account-banner-title a {color: #ffecbb; text-decoration: none;}
+.header-account-banner-title-shadow {margin-top: -1px; margin-left: 1px; color: #001a44;}
+.header-account-banner-title, .header-account-banner-title-shadow {position: absolute; top: 77px; font-size: 10px; white-space: nowrap; text-transform: uppercase;}
+
+.main-menu {padding: 6px 0 18px; background: url(letmag/menu_bgr.jpg) no-repeat;}
+.main-menu-box {padding-left: 7px; background: #fcde92 url(letmag/menu_bgrs.gif) no-repeat; text-align: center;}
+.main-menu-box2 {padding-right: 7px; background: url(letmag/menu_bgrs.gif) no-repeat 100% -29px;}
+.main-menu-box3 {height: 29px; overflow: hidden; background: url(letmag/menu_bgrs.gif) repeat-x 0 -58px; }
+.main-menu li {display: inline; padding: 7px 15px /* 17px */; font-size: 14px; line-height: 28px; background: url(letmag/menu_dots.gif) no-repeat 0 11px; white-space: nowrap;}
+.main-menu li:first-child {background: url(letmag/fm-bg.png) no-repeat; color: #000000; border-right: 1px solid #1d324f; }
+.main-menu li:first-child a {color: #000000}
+.main-menu a {color: #000000; text-decoration: none;}
+
+.main-top-banner {padding-bottom: 11px; background: url(letmag/menu_bgr.jpg) no-repeat bottom;}
+.main-top-banner img, .main-top-banner object {margin-top: -5px;}
+
+.main-center {height: 322px;}
+.main-center-left {float: left; width: 630px; height: 321px; background: url(letmag/center_bgr.jpg) no-repeat 100% 0;}
+.main-center-right {margin-left: 630px;}
+.right-block1 {padding-bottom: 12px; background: url(letmag/center_right_bgr.jpg) no-repeat 0 100%;}
+.right-block2 {padding-bottom: 12px; background: url(letmag/center_right_bgr2.jpg) no-repeat 0 100%;}
+.right-block-box {background: #ffe680;}
+.right-block-item {display: block; height: 99px; overflow: hidden; background: url(letmag/center_right_block_bgr.jpg) no-repeat 100% 0; text-decoration: none;}
+.right-block-item-top {display: block; height: 52px; overflow: hidden; padding: 13px 15px 0; font-size: 14px; color: #000000; line-height: 1em;}
+.right-block-item-bot {display: block; height: 30px; overflow: hidden; padding: 4px 15px 0; color: #b1c1e1; line-height: 1em;}
+
+.right-popup {position: absolute; right: -520px; z-index: 1000;}
+.right-popup-top {padding-left: 40px; background: url(letmag/p_tl.png) no-repeat;}
+.right-popup-top div {padding-right: 40px; background: url(letmag/p_tr.png) no-repeat 100% 0;}
+.right-popup-top div div {width: 460px; height: 40px; padding-right: 0; background: url(letmag/p_t.png) repeat-x;}
+.right-popup-main {padding-left: 40px; background: url(letmag/p_l.png) repeat-y;}
+.right-popup-main-box {padding-right: 40px; background: url(letmag/p_r.png) repeat-y right;}
+.right-popup-main-box2 {width: 440px; padding: 10px; background: #ffffff url(letmag/p_bgr.gif) repeat-x bottom;}
+.right-popup-bot {padding-left: 40px; background: url(letmag/p_bl.png) no-repeat;}
+.right-popup-bot div {padding-right: 40px; background: url(letmag/p_br.png) no-repeat 100% 0;}
+.right-popup-bot div div {width: 460px; height: 40px; padding-right: 0; background: url(letmag/p_b.png) repeat-x;}
+.right-popup-main-pic { padding-right: 20px;}
+.right-popup-main-text-title {margin-bottom: 1em; padding-right: 80px; font-size: 16px;}
+.right-popup-main-text-title a {color: #333333;}
+.right-popup-main-text-desc {line-height: 1.3em;}
+.right-popup-close {position: absolute; right: 40px; width: 40px; height: 40px; background: url(letmag/p_close.gif) no-repeat;}
+
+.main-nav {clear: both;}
+.main-nav-share {float: right;}
+.nav-prev {float: left; width: 115px;}
+.nav-prev, .nav-next {font-size: 15px; color: #a1a1a1;}
+.nav-prev a, .nav-next a {display: block; color: #f3b71e; text-decoration: none;}
+.nav-prev a {float: left; padding-left: 15px; background: url(letmag/nav_prev.gif) no-repeat 0 4px;}
+.nav-next a {float: right; padding-right: 15px; background: url(letmag/nav_next2.gif) no-repeat 100% 4px;}
+.nav-body {float: left; width: 332px; text-align: center;}
+.nav-item {display: inline-block; font-size: 14px; vertical-align: middle;}
+.nav-item a {display: inline-block; padding: 3px 8px 5px; color: #a1a1a1; text-decoration: none;}
+.nav-item-active {margin-left: -1px; background-color: #f3b71e;}
+.nav-item-active a {color: #000000;}
+.nav-slash {display: inline-block; width: 1px; height: 19px; ovesrflow: hidden; background: url(letmag/nav_slash.gif) no-repeat; vertical-align: middle;	}
+.nav-next {float: right; width: 115px;}
+
+.main-links {padding-bottom: 13px;}
+.main-links-item {float: left; padding-top: 163px;}
+.main-links-item-title {margin-bottom: 7px; font-size: 15px; color: #ffad14;}
+.main-links-item li {margin-bottom: 5px; padding-left: 11px; background: url(letmag/bullet_main.gif) no-repeat 0 5px; line-height: 1.4em;}
+.main-links-item a {color: #ffffff;}
+.main-links-item-shop {width: 190px; padding-right: 18px; background: url(letmag/links_shop.jpg) no-repeat;}
+.main-links-item-ps {width: 196px; background: url(letmag/links_ps.jpg) no-repeat;}
+.main-links-item-personal {width: 160px; padding-left: 37px; background: url(letmag/links_personal.jpg) no-repeat;}
+.main-links-item-special {width: 113px; padding-left: 37px; padding-right: 18px; background: url(letmag/links_special.jpg) no-repeat;}
+.main-links-item-events {width: 169px; padding-left: 18px; background: url(letmag/links_events.jpg) no-repeat;}
+
+.main-events {padding-top: 1px; background: #281d52 url(letmag/main_pad_top.gif) no-repeat;}
+.main-events-box {background: url(letmag/main_pad_bgr.gif) repeat-y;}
+.main-events-box2 {padding: 18px 36px 32px; background: url(letmag/main_pad_bot.jpg) no-repeat 0 100%;}
+.main-events-title {margin-bottom: 18px;}
+.main-events-title, .main-events-title a {font-size: 18px; color: #ffad14;}
+.main-events-body {clear: left;}
+.main-events-item {float: left; width: 262px; margin-left: 49px; color: #ffffff;}
+.main-events-item a {color: #ffffff;}
+.main-events-item-first {margin-left: 0;}
+.main-events-item-date {margin-bottom: 3px;}
+.main-events-item-title {margin-bottom: 5px;}
+.main-events-item-title, .main-events-item-title a {font-size: 16px; color: #c600a8;}
+.main-events-item-text {line-height: 1.4em;}
+.main-events-item-link {margin-top: 18px;}
+.main-events-block-loader {padding-top: 20px;}
+
+.main-left {float: left; width: 220px; min-height: 165px; padding-right: 16px; background: url(letmag/left_bgr.gif) no-repeat}
+.main-left-title {padding: 10px 15px 10px 27px; font-size: 17px; color: #000104; background: #ffe992 url(letmag/left_title_bgr.gif) no-repeat 100% 100%;}
+.main-left-menu {margin-bottom: 16px; color: #000104; background: #ffffff;}
+.left-menu-item {background: url(letmag/left_menu_bgr.gif) repeat-x bottom;}
+.left-menu-item-link {display: block; padding: 12px 27px 14px; color: #000104; background: url(letmag/bullet_menu.gif) no-repeat 13px 17px;}
+.left-menu-item-active {color: #ffffff; background: #1b4ebb url(letmag/left_menu_bgr_active.gif) repeat-x bottom;}
+.left-menu-item-active .left-menu-item-link {color: #ffffff; background-image: url(letmag/bullet_menu_active.gif);}
+.main-left-submenu {margin-top: -8px; padding-bottom: 8px;}
+.left-submenu-item {padding: 0 10px 5px 50px; background: url(letmag/bullet_submenu.gif) no-repeat 39px 4px;}
+.left-submenu-item-link {color: #000104; text-decoration: none;}
+.left-menu-item-active .left-submenu-item {background-image: url(letmag/bullet_menu_active.gif);}
+.left-menu-item-active .left-submenu-item-link {color: #ffffff;}
+.left-submenu-item-active {font-weight: bold;}
+
+.main-left-banner {margin-bottom: 16px;}
+
+.main-left-tags {margin-bottom: 16px; line-height: 21px;}
+.main-left-block-tag {padding-right: 10px; white-space: nowrap;}
+.main-left-block-tag a {color: #658fe8; text-decoration: none;}
+.main-left-block-tag a:hover {text-decoration: underline;}
+.main-left-block {padding: 15px 20px; background: #ffffff;}
+
+.tag-size-1 {font-size: 9px;}
+.tag-size-2 {font-size: 11px;}
+.tag-size-3 {font-size: 14px;}
+.tag-size-4 {font-size: 15px;}
+.tag-size-5 {font-size: 16px;}
+/*.tag-size-6 {font-size: 20px;}
+.tag-size-7 {font-size: 20px;}*/
+
+.main-right {margin-left: 236px;}
+.main-wide {margin-left: 0;}
+.main-right-box {float: left; width: 100%; background: #ffffff;}
+.main-right-box2 {padding: 19px 31px 23px;}
+.main-right-title {margin-bottom: 33px;}
+.main-right-title-left {float: left;}
+.main-right-title h1 {margin-bottom: 0; padding-left: 24px;}
+.main-right-title-pad {position: absolute; width: 9px; height: 31px; background: #932698 url(letmag/title_pad.gif) no-repeat 0 50%;}
+.main-right-title-right {float: right;}
+
+.main-right-banner {float: left; padding-top: 16px; background-color: #43022d;}
+
+.main-footer {height: 30px; padding: 130px 0 20px; font-size: 11px; color: #ffffff;}
+.main-footer a {color: #ffffff;}
+.main-footer-left {float: left;}
+.main-footer-right {float: right;}
+.main-footer-left-copyright {float: left;}
+.main-footer-left-social {float: left; margin-top: -10px; padding-left: 38px;}
+.main-footer-left-social a {padding-right: 3px;}
+.main-footer-left-social img {margin-top: -1px;}
+.main-footer-right-rss {float: left; margin-top: -4px; padding-right: 30px;}
+.main-footer-right-rss a {padding-right: 3px;}
+.main-footer-right-rss a span {display: block; float: right; padding-top: 4px;}
+.main-footer-right-rss img {margin-top: -6px;}
+
+.content-nav {clear: left; margin-top: 1.5em;}
+
+.main-subscription {margin-top: 30px;}
+.main-subscription .g-input {float: left; width: 169px; padding: 2px 12px 4px; border: 0; font-size: 12px;}
+.main-subscription .g-link {border: 0; margin-left: 5px; margin-top: -1px; padding: 4px 15px 5px 20px; line-height: 12px; background-position: 10px 8px;}
+
+/* index */
+.page-index .main-links-item {padding-top: 128px; background-position: 0 -35px;}
+
+.main-content-promo-left-frame {position: absolute; width: 621px; height: 321px; overflow: hidden; background: #ffffff url(letmag/load.gif) no-repeat center 46%;}
+.main-content-promo-left-nav {position: absolute; z-index: 1; width: 621px; height: 45px; overflow: hidden; margin-top: 296px; text-align: center;}
+.main-content-promo-left-prev, .main-content-promo-left-next {position: absolute; z-index: 1; display: block; width: 40px; height: 40px; margin-top: 139px; visibility: hidden;}
+.main-content-promo-left-prev {background: url(letmag/banner_main_prev.png) no-repeat;}
+.main-content-promo-left-next {margin-left: 581px; background: url(letmag/banner_main_next.png) no-repeat;}
+
+.frame-nav-link {display: inline-block; width: 17px; height: 16px; font-size: 11px; line-height: 15px; color: #ffffff; background: url(letmag/banner_main_pin.png) no-repeat; text-decoration: none; letter-spacing: 1px;}
+.frame-nav-link-active {background-position: 0 -16px;}
+
+/* news */
+.news-item {float: left; width: 186px; margin-left: 32px; padding-bottom: 45px; overflow: hidden;}
+.news-item-left {clear: left; margin-left: 0;}
+.news-item-title {padding-bottom: 4px; margin-bottom: 10px; font-size: 14px; border-bottom: 1px solid #dcdcdc;}
+.news-item-image {margin-bottom: 10px;}
+.news-item-body {margin-bottom: 12px;}
+.news-item-date {margin-bottom: 5px; color: #9b9b9b;}
+
+.news-single {margin-bottom: 1.5em;}
+
+.news-tags {margin: -.5em 0 2em; font-size: 12px;}
+.news-tags-title {padding-right: 1em; font-weight: bold;}
+.news-tags-title, .news-tags-control, .news-tags-item {line-height: 2em;}
+.news-tags-popup {margin-top: 3px; padding: 10px; border-color: #1a4dba !important; }
+.news-tags-popup-col {width: 100px; padding: 10px 20px 0 15px;}
+.news-tags-popup-submit {text-align: center;}
+.news-tags-popup-submit a {display: inline-block; float: none !important; color: #ffffff !important; text-decoration: none !important;}
+.news-tags-control {padding-right: 2em;}
+.news-tags-control, .news-tags-clear {color: #bd2cc9;}
+.news-tags-item {padding-right: 2em; color: #969696; white-space: nowrap;}
+.news-tags-clear {white-space: nowrap;}
+
+.news-folder-title {clear: left; margin-bottom: .5em; font-size: 27px; color: #cb3acb;}
+.news-narrow .news-item {width: 120px; margin-left: 55px;}
+.news-narrow .news-item-left {margin-left: 0;}
+
+.news-wide .news-item {width: 100%; margin-left: 0;}
+
+/* articles */
+.content_section {margin-bottom: 1.5em;}
+.content_section_title {font-weight: bold; margin-bottom: 1em;}
+.content_section_articles, .content_section_level3, .content_section_level4, .content_section_level5 {padding-left: 1.5em;}
+.content_section_level1 {margin-bottom: 3em;}
+.content_section_title_level1 {font-size: 17px; font-weight: normal;}
+.content_section_title_level2 {font-size: 14px; font-weight: normal;}
+.content-article-link {margin-bottom: .35em;}
+
+.article-feedback  {clear: both; margin-bottom: 100px !important;}
+
+/* shops */
+.main-content-wide-col4 {width: 240px;}
+.main-content-wide-col4 h1 {margin-top: .5em; margin-bottom: 0.1em;}
+.main-content-wide-col4 .g-item {padding-right: 2em;}
+
+.shop-city-select {height: 40px; font-size: 12px;}
+.shop-city-select-item img {margin-right: .35em; vertical-align: middle;}
+
+.shop-event-select {padding-left: 30px;}
+.shop-event-select-title {margin-left: 30px;}
+.shop-event-pics .shop-city-select-item, .shop-event-pics .active {background-image: none !important; padding-left: 8px; padding-right: 11px;}
+
+.select-dropdown {position: absolute; display: none; z-index: 10; min-width: 150px; max-height: 498px; overflow: auto; padding: 5px; border: 2px solid #cecece;  background-color: #f6f6f6; line-height: normal; /*
+border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px;*/}
+.select-dropdown-toggle {float: left; padding-right: 13px; background: url(letmag/arrow_gray.gif) no-repeat 100% 7px; white-space: nowrap;}
+.select-dropdown-toggle a {color: #0066cc; text-decoration: none; border-bottom: 1px dotted #0066cc;}
+.select-dropdown div {margin-bottom: 5px; white-space: nowrap;}
+.select-dropdown a {position: relative; color: #0066cc; text-decoration: underline;}
+.select-dropdown-close {float: right; padding-left: 10px;}
+.select-dropdown a.active {color: #adadad; background: #ffffff}
+.select-dropdown-content {padding-right: 20px;}
+label .select-dropdown-toggle {float: none; background-position: 100% 7px;}
+.select-dropdown-cols td {padding-right: 30px;}
+div.select-dropdown-all {margin-bottom: 10px;}
+.select-dropdown-content-active {font-weight: bold;}
+
+.event-select-dropdown {top: 231px; margin-left: 53px;}
+.shop-select-dropdown {margin-left: 568px; margin-top: -2px;}
+.event-type-select {height: 30px;}
+.event-brand-select {display: none; height: 50px;}
+
+.events-header {float: left;}
+.city-select {float: left; margin-left: 12px; margin-top: 6px;}
+.city-select-next-line {float: right; margin-top: -2px;}
+
+.shop-single-info {float: left; width: 202px;}
+.shop-single-info h3 {font-weight: bold;}
+.shop-single-map {float: left; width: 690px;}
+.shop-single-map iframe {width: 100%; height: 419px; border: 1px solid #e4e4e4; margin-bottom: 1.5em;}
+.shop-single-info-image {width: 224px; overflow: hidden; padding-top: .5em;}
+.shop-single-info-image img {border: 1px solid #e4e4e4;}
+.shop-event {margin-bottom: 20px; padding-right: 10px;}
+.shop-event-date {color: #adadad;}
+.shop-event-title {margin-bottom: 5px; font-weight: bold;}
+.shop-event-more {margin-bottom: 1.5em;}
+.shop-event-more a {color: #0066cc; text-decoration: underline;}
+.shop-event-more-block {display: none;}
+
+.map-events {max-width: 400px; padding: 20px 0 5px 15px;}
+.map-events-sale {background: url(letmag/point_sale.gif) no-repeat 0 23px;}
+.map-events-consultation {background: url(letmag/point_consultation.gif) no-repeat 0 23px;}
+
+
+/* anketa */
+.block {padding: 19px 62px 26px 31px; border: 3px solid #dee6e6;}
+.form-label {width: 177px; padding-right: 12px; vertical-align: middle;}
+.form-input {color: #343434;}
+.form-label-subtitle, .form-hint {color: #b68e44;}
+.form-label, .form-input, .form-hint {padding-bottom: 17px;}
+.form-row-w-hint .form-label, .form-row-w-hint .form-input {padding-bottom: 2px;}
+.form-title {margin-bottom: 4px; font-size: 14px; color: #0c529f;}
+.form-input-ndk {width: 300px; padding: 10px 15px; border: 2px solid #e3e3e3; background: #f6f6f6;}
+.form-row-with-comment .form-label, .form-row-with-comment .form-input {padding-bottom: 2px;}
+
+/* vacancies */
+.bookmark {margin-top: 1em;}
+.bookmark-left {float: left; width: 336px;}
+.bookmark-right {margin-left: 336px;}
+.bookmark-content {clear: left; padding-top: 25px;}
+.bookmark-title {font-size: 17px; margin-bottom: .5em;}
+
+/* account */
+.page-account .g-input {width: 295px; margin-bottom: 7px;}
+.account {margin-bottom: 1.5em; margin-top: 10px;}
+.account-left {float: left; width: 150px;}
+.account-right {margin-left: 150px;}
+.account-card {margin-bottom: 3.5em;}
+.account-number {margin-bottom: 2em;}
+.account-view .form-title {margin-bottom: 10px;}
+.account-check {padding-top: 1.5em;}
+
+/* events */
+.main-content-col2 {width: 50%; padding-right: 30px;}
+
+.city-event {margin-bottom: 15px;}
+.city-event-item {margin-bottom: 30px;}
+.city-event-day {font-size: 19px; font-weight: bold; margin-bottom: 25px;}
+.city-event-day-date {padding-left: 1em; font-weight: normal; color: #adadad;}
+.city-event-title {margin-bottom: 3px; font-size: 19px;}
+.city-event-date {margin-bottom: 9px; color: #adadad;}
+.city-event-text {margin-bottom: 9px;}
+.city-event-link a {color: #0066cc; text-decoration: underline;}
+.city-event-box {padding-left: 25px;}
+
+/* fotokonkurs */
+.fotokonkurs-mode-selector {margin-bottom: 30px;}
+.fotokonkurs-mode-selector .g-item-pad-title {margin-left: 30px;}
+.fotokonkurs-item {float: left; width: 200px; height: 300px; margin-right: 25px;}
+.fotokonkurs-item-right {margin-right: 0;}
+.fotokonkurs-item-image img {display: block;}
+.fotokonkurs-item-info {padding: 10px 0;}
+.fotokonkurs-item-nick {padding-left: 13px; padding-bottom: 5px; font-weight: bold; background: url(letmag/bullet_star.gif) no-repeat 0 3px;}
+.fotokonkurs-item .fotokonkurs-item-rating {padding-left: 13px;}
+.fotokonkurs-single-image {margin: 1em 0;}
+.fotokonkurs-single-desc {margin-bottom: 2em;}
+.fotokonkurs-vote img {position: absolute; margin-top: -.5em; float: right;}
+.fotokonkurs-order {clear: left; padding: .5em 0 1.5em 13px;}
+.fotokonkurs-order a {padding-right: 2em;}
+.fotokonkurs-item-rating-votes {color: #666666; white-space: nowrap;}
+.fotokonkurs-item .fotokonkurs-item-rating-votes {display: block; margin-top: 3px;}
+
+/* new shops */
+.content-banners-bar {position: relative; height: 69px; padding-bottom: 20px; background: url(letmag/menu_bgr.jpg) -170px 100%;}
+.content-banners-left {position: absolute; width: 17px; height: 69px; background: url(letmag/banner_scroll_left_bgr.gif) no-repeat;}
+.content-banners {position: absolute; width: 918px; height: 67px; overflow: hidden; left: 17px; border-top: 1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; background: #efefef url(letmag/banner_scroll_bgr.gif) repeat-x; white-space: nowrap;}
+.content-banners-box {height: 36px; padding: 17px 0 15px 107px; background: url(letmag/banner_scroll_pic.gif) no-repeat 11px 13px;}
+.content-banners-right {position: absolute; width: 21px; height: 69px; left: 935px; background: url(letmag/banner_scroll_right_bgr.gif) no-repeat;}
+.content-banners-item {display: inline-block; border-left: 1px solid #d7d7d7; padding-left: 14px; padding-right: 23px;}
+.content-banners-item-title {margin-bottom: 2px; color: #242424;}
+.content-banners-item-link a {color: #9b9b9b; text-decoration: underline;}
+a.content-banners-item-link-inactive {text-decoration: none;}
+.content-banners-left a, .content-banners-right a {display: none;}
+.content-banners-item-hidden {visibility: hidden;}
+
+/* magazine */
+.magazine {margin: 30px 0 20px 15px;}
+.magazine-image {margin-left: -20px;/*width: 660px; overflow: hidden;*/}
+.magazine-item {float: left; display: block; border: 1px solid #ffffff; margin-right: 15px;}
+.magazine-item img {height: 90px; border: 1px solid #b8b8b8;}
+.magazine-item.active {border: 2px solid #771475; position: relative; cursor: default;}
+.magazine-item.active img {border: 0;}
+.magazine-control-prev, .magazine-control-next, .magazine-scroll {float: left;}
+.magazine-control-prev, .magazine-control-next {width: 11px; height: 21px; margin-top: 35px;}
+.magazine-control-prev {margin-right: 45px; background: url(letmag/magazine_prev.gif) no-repeat;}
+.magazine-control-next {margin-left: 29px; background: url(letmag/magazine_next.gif) no-repeat;}
+.magazine-control-prev.disabled, .magazine-control-next.disabled {visibility: hidden;}
+
+.magazine-scroll {position: relative; overflow: hidden; height: 94px; padding-top: 1px;}
+.magazine-scroll, .magazine-scroll-items div {width: 536px;}
+.magazine-scroll-items {width: 20000em; position: absolute; clear: both;}
+.magazine-scroll-items div {float: left;}
+
+.magazine-scroll-navi {height:20px; margin: 0 auto; margin-top: 2em;}
+.magazine-scroll-navi a {width:8px;	height:8px;	float:left;	margin:3px;	background: url(letmag/navigator.png) 0 0 no-repeat; display:block; font-size:1px;}
+.magazine-scroll-navi a:hover {background-position:0 -8px;}
+.magazine-scroll-navi a.active {background-position:0 -16px;}
+
+.magazine-popup {position: absolute; width: 956px; height: 646px; z-index: 1000; padding-right: 15px; background: #ffffff;}
+.magazine-popup-header {position: absolute; top: 0px; width: 100%;}
+.magazine-popup-title {padding: 5px 0 0 20px; font-size: 17px; color: #c28012;}
+.magazine-popup-close {float: right; padding: 10px 20px;}
+.magazine-popup-flash {position: absolute; top: 0;}
+.magazine-popup-footer {position: absolute; width: 100%; top: 610px; text-align: right;}
+.magazine-popup-footer-box {padding-right: 22px;}
+
+.magazine-share {text-align: right;}
+
+.fader { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 25; background: black;}
+.faderIn { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 26;}
+.geo { position: relative; left: 50%; top: 50%; width: 550px; height: 311px; margin-left: -275px; margin-top: -155px;  background: url(/letmag/geo_back.png) no-repeat;}
+.geo-close {float: right; clear: right; margin-top: 15px; margin-right: 15px;}
+.geo-title { padding-top: 35px; padding-left: 15px; }
+.geo-cities { padding-left: 10px; padding-top: 10px; }
+.geo-city { padding: 4px 40px 8px 40px; background: url(letmag/bullet_star.gif) no-repeat 25px 8px;}
+.geo-detected a{ color: #df001a; font-size: 14px;}
+.geo-choice { position: absolute; top: 20px; z-index: 2; font-size: 14px; color: white; font-size: 14px;}
+.geo-choice a { color: white; }
+.geo-content-bottom { position: absolute; bottom: 15px; width: 550px;}
+.geo-autocomplete-title { padding: 0px 0px 10px 15px; }
+.geo-autocomplete { padding-left: 15px; float: left;}
+.geo-button { float: right; padding-right: 15px;}
+
+
+/* jquery autocomplete */
+.acResults { padding: 0px; border: 1px solid WindowFrame; background-color: Window; overflow: hidden; z-index: 100; }
+.acResults ul { margin: 0px; padding: 0px;list-style-position: outside; list-style: none;}
+.acResults ul li { margin: 0px; padding: 2px 5px; cursor: pointer; display: block; font: menu; font-size: 14px; overflow: hidden;}
+.acLoading { background : url('/letmag/indicator.gif') right center no-repeat;}
+.acSelect { background-color: Highlight; color: HighlightText;}
+#btn-geo { cursor: pointer;}
+.acAlert { border: 1px solid red; -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 0, 0, 1); -moz-box-shadow: 0px 0px 10px 0px rgba(255, 0, 0, 1); box-shadow: 0px 0px 10px 0px rgba(255, 0, 0, 1); }
+.grayscale { -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); filter: url(/letmag/grayscale.svg#grayscale); filter: gray;}

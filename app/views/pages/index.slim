@@ -1,0 +1,908 @@
+.fader style=("display: none;")
+.faderIn style=("display: none;")
+.body-box.page-magazine
+  .main
+    .geo-choice
+      | Мой город:
+      a href="" onclick=("changeCity(); return false")
+        | МОСКВА
+    .main-header.main-header-w-anons
+      .main-header-box
+        .main-header-logo
+          a href="/"
+            = image_tag 'letmag/letoile_logo2.gif'
+        .main-header-phone
+          .header-phone-top
+            | Телефон горячей линии
+          .header-phone-mid
+            | 8 800 200 2345
+          .header-phone-bot
+            | Звонок по России бесплатный
+        .main-header-account
+          .header-account-form
+            javascript:
+              |
+              $(function () {
+                |
+                var f = $("form[name='quick_account_form']");
+                |
+                var num_input = $("input[name='card_number']", f);
+                |
+                var num_text = num_input.val();
+                |
+                num_input
+                        .click(function (event) {
+                          |
+                          event.stopPropagation();
+                          |
+                          if (!ieie) {
+                          |
+                            if ("header-account-form-popup" != f.parent().attr("class")) {
+                            |
+                              f.wrap('<div class="header-account-form-popup" />');
+                            |
+                            }
+                          |
+                            $(".header-account-form-popup").click(function (event) {
+                              |
+                              event.stopPropagation();
+                              |
+                            });
+                          |
+                            $(".header-account-form-close").show();
+                          |
+                            $(".header-account-form-extra").slideDown();
+                          |
+                            this.focus();
+                          |
+                          }
+                          |
+                          if (num_text == this.value) this.value = "";
+                          |
+                        })
+                        .blur(function () {
+                          |
+                          if ("" == this.value) this.value = num_text;
+                          |
+                        });
+                |
+                if (!ieie) {
+                |
+                  $(".header-account-form-close").click(function () {
+                    |
+                    if ("header-account-form-popup" == f.parent().attr("class")) {
+                    |
+                      $(".header-account-form-close").hide();
+                    |
+                      $(".header-account-form-extra").hide();
+                    |
+                      f.unwrap();
+                    |
+                    }
+                    |
+                    return false;
+                    |
+                  });
+                |
+                  $("body").click(function () {
+                    |
+                    $(".header-account-form-close").triggerHandler("click");
+                    |
+                  });
+                |
+                }
+                |
+              });
+            form action="/club/cards/account#account-check-block" method="get" name="quick_account_form"
+              span.header-account-form-close
+                a href="#"
+                  img alt="Закрыть" src="/letmag/dialog_close_gray.gif" /
+              .header-account-form-extra style=("display: none;")
+                .header-account-form-extra-title Выберите цвет Вашей карты:
+                .header-account-form-extra-left
+                  div
+                    input#card1.g-radio name="card_type" type="radio" value="2" /
+                    label for="card1"  рубиновая
+                  div
+                    input#card2.g-radio name="card_type" type="radio" value="3" /
+                    label for="card2"  сапфировая
+                  div
+                    input#card3.g-radio name="card_type" type="radio" value="4" /
+                    label for="card3"  аметистовая
+                  div
+                    input#card4.g-radio name="card_type" type="radio" value="5" /
+                    label for="card4"  бриллиантовая
+                .header-account-form-extra-right
+                  div
+                    input#card0_old.g-radio name="card_type" type="radio" value="1_old" /
+                    label for="card0_old"  зеленая
+                  div
+                    input#card1_old.g-radio name="card_type" type="radio" value="2_old" /
+                    label for="card1_old"  красная
+                  div
+                    input#card2_old.g-radio name="card_type" type="radio" value="3_old" /
+                    label for="card2_old"  синяя
+                  div
+                    input#card3_old.g-radio name="card_type" type="radio" value="4_old" /
+                    label for="card3_old"  серебряная
+                  div
+                    input#card4_old.g-radio name="card_type" type="radio" value="5_old" /
+                    label for="card4_old"  золотая
+          .header-account-banner-title-shadow Журнал Л’Этуаль
+          .header-account-banner-title
+            a href="/company/letmag/"  Журнал Л’Этуаль
+    .main-menu
+      .main-menu-box
+        .main-menu-box2
+          .main-menu-box3
+            ul.g-layout
+              li
+                a href="http://letu.ru" target="_blank"  Интернет-магазин
+              li
+                a href="/retail/"  Магазины
+              li
+                a href="/club/events/?menu=72"  Акции
+              li
+                a href="/recommend/"  Рекомендуем
+              li
+                a href="/company/carrier/vacancies/?menu=62"  Работа
+              li
+                a href="/news/news/"  Новости
+              li
+                a href="/company/history/"  О нас
+              li
+                a href="/company/supply/?menu=388"  Поставщикам/Suppliers
+    .main-top-banner
+    /! /* OpenX Javascript Tag v2.8.10 */
+      javascript:
+
+      script src="https://www.letoile.ru/openx/www/delivery/ajs.php?zoneid=4&amp;cb=93738439052&amp;charset=windows-1251&amp;loc=https%3A//www.letoile.ru/company/letmag/%3Fnews%3D4747&amp;referer=https%3A//www.letoile.ru/company/letmag/&amp;zone_id=1" type="text/javascript"
+      noscript &lt;a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a81caf20&amp;amp;cb=2310' target='_blank'&gt;&lt;img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=4&amp;amp;cb=2310&amp;amp;n=a81caf20' border='0' alt='' /&gt;&lt;/a&gt;
+    .main-left
+      .main-left-title
+        | О нас
+      ul.main-left-menu.g-layout
+        li.left-menu-item
+          a.left-menu-item-link href="/company/beauty_studio/"  Студия КРАСОТЫ Л’Этуаль
+        li.left-menu-item
+          a.left-menu-item-link href="/company/subscribe/"  Подписка на новости
+        li.left-menu-item
+          a.left-menu-item-link href="/company/history/"  История
+        li.left-menu-item
+          a.left-menu-item-link href="/company/ndk/"  Условия получения Дисконтной Карты Л’Этуаль
+        li.left-menu-item
+          a.left-menu-item-link href="/company/obmenkart/"  Обмен Карт
+        li.left-menu-item
+          a.left-menu-item-link href="/company/supply/"  Поставщикам/Suppliers
+        li.left-menu-item
+          a.left-menu-item-link href="/company/tenders/"  Тендеры
+          ul.main-left-submenu.g-layout
+            li.left-submenu-item
+              a.left-submenu-item-link href="/company/tenders/current/"  Текущие тендеры
+            li.left-submenu-item
+              a.left-submenu-item-link href="/company/tenders/archive/"  Архив тендеров
+        li.left-menu-item
+          a.left-menu-item-link href="/company/exclusive/"  Эксклюзивно в Л'Этуаль
+        li.left-menu-item.left-menu-item-active
+          a.left-menu-item-link href="/company/letmag/"  Журнал Л'Этуаль
+          ul.main-left-submenu.g-layout
+            li.left-submenu-item
+              a.left-submenu-item-link href="/company/letmag/advertizing_rus/"  Для рекламодателей
+            li.left-submenu-item
+              a.left-submenu-item-link href="/company/letmag/advertizing_eng/"  For advertisers
+        li.left-menu-item
+          a.left-menu-item-link href="/company/carrier/"  Карьера
+          ul.main-left-submenu.g-layout
+            li.left-submenu-item
+              a.left-submenu-item-link href="/company/carrier/vacancies/"  Вакансии
+        li.left-menu-item
+          a.left-menu-item-link href="/services/unsubscribe.phtml"  Отказаться от e-mail / смс рассылки
+        li.left-menu-item
+          a.left-menu-item-link href="/company/contacts/"  Контакты
+        li.left-menu-item
+          a.left-menu-item-link href="/feedback/"  Обратная связь
+      .main-left-banner
+      /! /* OpenX Javascript Tag v2.8.10 */
+        javascript:
+
+        script src="https://www.letoile.ru/openx/www/delivery/ajs.php?zoneid=2&amp;cb=79493695686&amp;charset=windows-1251&amp;loc=https%3A//www.letoile.ru/company/letmag/%3Fnews%3D4747&amp;referer=https%3A//www.letoile.ru/company/letmag/&amp;zone_id=1" type="text/javascript"
+        noscript &lt;a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a688b6c2&amp;amp;cb=379531' target='_blank'&gt;&lt;img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=2&amp;amp;cb=379531&amp;amp;n=a688b6c2' border='0' alt='' /&gt;&lt;/a&gt;
+      .main-left-tags
+      .main-left-banner
+      /! /* OpenX Javascript Tag v2.8.10 */
+        javascript:
+
+        script src="https://www.letoile.ru/openx/www/delivery/ajs.php?zoneid=3&amp;cb=10223956485&amp;charset=windows-1251&amp;loc=https%3A//www.letoile.ru/company/letmag/%3Fnews%3D4747&amp;referer=https%3A//www.letoile.ru/company/letmag/&amp;zone_id=1" type="text/javascript"
+        noscript &lt;a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=acb41b3e&amp;amp;cb=124932' target='_blank'&gt;&lt;img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=3&amp;amp;cb=124932&amp;amp;n=acb41b3e' border='0' alt='' /&gt;&lt;/a&gt;
+    .main-right
+      .main-right-box
+        .main-right-box2
+          .main-right-title
+            .main-right-title-pad
+            h1 Журнал Л'Этуаль: Май 2016
+          .news-single.text-content
+            .magazine-image
+              a href="javascript:;" title=("Следующая страница")
+                img src="/uploads/letmag/letoile_mag/2016_05/012.jpg" /
+            script src="/jquery.tools.min.js" type="text/javascript"
+            javascript:
+              |
+              $(function () {
+                |
+                ya_share_init(window.location.href, "Журнал Л'Этуаль. Май 2016", $(".magazine-image img").attr("src"));
+
+                |
+                $(".magazine-scroll").scrollable().navigator();
+
+                |
+                if ($(".magazine-scroll-navi a").length * 14 > 660)
+                        |
+                {
+                |
+                  w = 660;
+                |
+                }
+                | else
+                |
+                {
+                |
+                  w = $(".magazine-scroll-navi a").length * 14;
+                |
+                }
+
+                |
+                $(".magazine-scroll-navi").attr("style", "width: " + w + "px");
+                /!/
+                $(".magazine-scroll-navi").attr("style", "width: " + $(".magazine-scroll-navi a").length * 14 + "px");
+                |
+                $(".magazine-item").click(function () {
+                  |
+                  $(".magazine-image img").attr("src", $(this).attr("href"));
+                  |
+                  $(".magazine-item.active").removeClass("active");
+                  |
+                  $(this).addClass("active");
+                  |
+                  window.location.hash = $(this).attr("rel");
+
+                  |
+                  ya_share_init(window.location.href, "Журнал Л'Этуаль. Май 2016", $(".magazine-image img").attr("src"));
+
+                  |
+                  return false;
+                  |
+                });
+
+                |
+                var api = $(".magazine-scroll").data("scrollable");
+                |
+                var items_in_block = 6;
+                |
+                var active_item;
+                |
+                $(".magazine-image").click(function () {
+                  |
+                  var active_item_number = parseInt(window.location.hash.split("#")[1]);
+                  |
+                  active_item = $(".magazine-item[rel='" + ((isNaN(active_item_number) ? 0 : active_item_number) + 1) + "']");
+                  |
+                  if (active_item.length) {
+                  |
+                    active_item.click();
+                  |
+                    api.seekTo(Math.floor((active_item.attr("rel") - 1) / items_in_block));
+                  |
+                  }
+                  |
+                });
+
+                |
+                if (window.location.hash && (active_item = $(".magazine-item[rel='" + window.location.hash.split("#")[1] + "']"))) {
+                |
+                  $(".magazine-image img").attr("src", active_item.attr("href"));
+                |
+                  active_item.addClass("active");
+                |
+                  api.seekTo(Math.floor((active_item.attr("rel") - 1) / items_in_block));
+                |
+                }
+                |
+              });
+            .magazine
+              a.magazine-control-prev.prev href="javascript:;"
+              .magazine-scroll
+                .magazine-scroll-items style=("left: -1072px;")
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/00001.jpg" rel="1"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.00001.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/0001.jpg" rel="2"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.0001.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/001.jpg" rel="3"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.001.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/002.jpg" rel="4"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.002.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/003.jpg" rel="5"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.003.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/004.jpg" rel="6"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.004.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/005.jpg" rel="7"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.005.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/006.jpg" rel="8"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.006.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/007.jpg" rel="9"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.007.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/008.jpg" rel="10"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.008.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/009.jpg" rel="11"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.009.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/010.jpg" rel="12"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.010.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/011.jpg" rel="13"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.011.160x205.jpg" /
+                    a.magazine-item.active href="/uploads/letmag/letoile_mag/2016_05/012.jpg" rel="14"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.012.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/013.jpg" rel="15"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.013.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/014.jpg" rel="16"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.014.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/015.jpg" rel="17"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.015.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/016.jpg" rel="18"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.016.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/017.jpg" rel="19"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.017.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/018.jpg" rel="20"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.018.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/019.jpg" rel="21"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.019.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/020.jpg" rel="22"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.020.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/021.jpg" rel="23"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.021.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/022.jpg" rel="24"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.022.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/023.jpg" rel="25"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.023.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/024.jpg" rel="26"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.024.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/025.jpg" rel="27"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.025.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/026.jpg" rel="28"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.026.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/027.jpg" rel="29"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.027.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/028.jpg" rel="30"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.028.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/029.jpg" rel="31"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.029.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/030.jpg" rel="32"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.030.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/031.jpg" rel="33"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.031.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/032.jpg" rel="34"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.032.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/033.jpg" rel="35"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.033.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/034.jpg" rel="36"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.034.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/035.jpg" rel="37"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.035.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/036.jpg" rel="38"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.036.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/037.jpg" rel="39"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.037.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/038.jpg" rel="40"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.038.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/039.jpg" rel="41"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.039.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/040.jpg" rel="42"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.040.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/041.jpg" rel="43"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.041.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/042.jpg" rel="44"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.042.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/043.jpg" rel="45"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.043.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/044.jpg" rel="46"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.044.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/045.jpg" rel="47"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.045.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/046.jpg" rel="48"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.046.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/047.jpg" rel="49"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.047.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/048.jpg" rel="50"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.048.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/049.jpg" rel="51"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.049.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/050.jpg" rel="52"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.050.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/051.jpg" rel="53"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.051.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/052.jpg" rel="54"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.052.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/053.jpg" rel="55"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.053.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/054.jpg" rel="56"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.054.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/055.jpg" rel="57"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.055.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/056.jpg" rel="58"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.056.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/057.jpg" rel="59"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.057.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/058.jpg" rel="60"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.058.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/059.jpg" rel="61"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.059.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/060.jpg" rel="62"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.060.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/061.jpg" rel="63"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.061.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/062.jpg" rel="64"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.062.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/063.jpg" rel="65"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.063.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/064.jpg" rel="66"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.064.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/065.jpg" rel="67"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.065.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/066.jpg" rel="68"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.066.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/067.jpg" rel="69"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.067.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/068.jpg" rel="70"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.068.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/069.jpg" rel="71"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.069.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/070.jpg" rel="72"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.070.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/071.jpg" rel="73"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.071.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/072.jpg" rel="74"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.072.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/073.jpg" rel="75"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.073.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/074.jpg" rel="76"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.074.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/075.jpg" rel="77"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.075.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/076.jpg" rel="78"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.076.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/077.jpg" rel="79"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.077.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/078.jpg" rel="80"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.078.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/079.jpg" rel="81"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.079.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/080.jpg" rel="82"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.080.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/081.jpg" rel="83"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.081.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/082.jpg" rel="84"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.082.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/083.jpg" rel="85"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.083.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/084.jpg" rel="86"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.084.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/085.jpg" rel="87"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.085.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/086.jpg" rel="88"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.086.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/087.jpg" rel="89"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.087.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/088.jpg" rel="90"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.088.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/089.jpg" rel="91"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.089.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/090.jpg" rel="92"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.090.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/091.jpg" rel="93"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.091.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/092.jpg" rel="94"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.092.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/093.jpg" rel="95"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.093.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/094.jpg" rel="96"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.094.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/095.jpg" rel="97"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.095.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/096.jpg" rel="98"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.096.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/097.jpg" rel="99"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.097.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/098.jpg" rel="100"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.098.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/099.jpg" rel="101"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.099.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/100.jpg" rel="102"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.100.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/101.jpg" rel="103"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.101.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/102.jpg" rel="104"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.102.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/103.jpg" rel="105"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.103.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/104.jpg" rel="106"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.104.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/105.jpg" rel="107"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.105.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/106.jpg" rel="108"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.106.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/107.jpg" rel="109"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.107.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/108.jpg" rel="110"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.108.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/109.jpg" rel="111"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.109.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/110.jpg" rel="112"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.110.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/111.jpg" rel="113"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.111.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/112.jpg" rel="114"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.112.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/113.jpg" rel="115"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.113.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/114.jpg" rel="116"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.114.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/115.jpg" rel="117"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.115.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/116.jpg" rel="118"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.116.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/117.jpg" rel="119"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.117.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/118.jpg" rel="120"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.118.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/119.jpg" rel="121"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.119.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/120.jpg" rel="122"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.120.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/121.jpg" rel="123"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.121.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/122.jpg" rel="124"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.122.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/123.jpg" rel="125"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.123.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/124.jpg" rel="126"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.124.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/125.jpg" rel="127"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.125.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/126.jpg" rel="128"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.126.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/127.jpg" rel="129"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.127.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/128.jpg" rel="130"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.128.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/129.jpg" rel="131"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.129.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/130.jpg" rel="132"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.130.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/131.jpg" rel="133"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.131.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/132.jpg" rel="134"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.132.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/133.jpg" rel="135"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.133.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/134.jpg" rel="136"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.134.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/135.jpg" rel="137"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.135.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/136.jpg" rel="138"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.136.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/137.jpg" rel="139"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.137.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/138.jpg" rel="140"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.138.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/139.jpg" rel="141"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.139.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/140.jpg" rel="142"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.140.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/141.jpg" rel="143"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.141.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/142.jpg" rel="144"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.142.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/143.jpg" rel="145"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.143.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/144.jpg" rel="146"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.144.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/145.jpg" rel="147"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.145.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/146.jpg" rel="148"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.146.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/147.jpg" rel="149"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.147.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/148.jpg" rel="150"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.148.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/149.jpg" rel="151"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.149.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/150.jpg" rel="152"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.150.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/151.jpg" rel="153"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.151.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/152.jpg" rel="154"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.152.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/153.jpg" rel="155"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.153.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/154.jpg" rel="156"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.154.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/155.jpg" rel="157"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.155.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/156.jpg" rel="158"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.156.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/157.jpg" rel="159"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.157.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/158.jpg" rel="160"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.158.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/159.jpg" rel="161"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.159.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/160.jpg" rel="162"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.160.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/161.jpg" rel="163"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.161.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/162.jpg" rel="164"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.162.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/163.jpg" rel="165"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.163.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/164.jpg" rel="166"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.164.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/165.jpg" rel="167"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.165.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/166.jpg" rel="168"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.166.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/167.jpg" rel="169"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.167.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/168.jpg" rel="170"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.168.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/169.jpg" rel="171"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.169.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/170.jpg" rel="172"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.170.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/171.jpg" rel="173"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.171.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/172.jpg" rel="174"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.172.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/173.jpg" rel="175"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.173.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/174.jpg" rel="176"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.174.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/175.jpg" rel="177"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.175.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/176.jpg" rel="178"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.176.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/177.jpg" rel="179"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.177.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/178.jpg" rel="180"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.178.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/179.jpg" rel="181"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.179.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/180.jpg" rel="182"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.180.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/181.jpg" rel="183"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.181.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/182.jpg" rel="184"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.182.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/183.jpg" rel="185"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.183.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/184.jpg" rel="186"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.184.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/185.jpg" rel="187"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.185.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/186.jpg" rel="188"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.186.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/187.jpg" rel="189"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.187.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/188.jpg" rel="190"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.188.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/189.jpg" rel="191"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.189.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/190.jpg" rel="192"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.190.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/191.jpg" rel="193"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.191.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/192.jpg" rel="194"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.192.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/193.jpg" rel="195"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.193.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/194.jpg" rel="196"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.194.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/195.jpg" rel="197"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.195.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/196.jpg" rel="198"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.196.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/197.jpg" rel="199"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.197.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/198.jpg" rel="200"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.198.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/199.jpg" rel="201"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.199.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/200.jpg" rel="202"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.200.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/201.jpg" rel="203"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.201.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/202.jpg" rel="204"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.202.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/203.jpg" rel="205"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.203.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/204.jpg" rel="206"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.204.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/205.jpg" rel="207"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.205.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/206.jpg" rel="208"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.206.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/207.jpg" rel="209"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.207.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/208.jpg" rel="210"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.208.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/209.jpg" rel="211"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.209.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/210.jpg" rel="212"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.210.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/211.jpg" rel="213"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.211.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/212.jpg" rel="214"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.212.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/213.jpg" rel="215"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.213.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/214.jpg" rel="216"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.214.160x205.jpg" /
+                  div
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/215.jpg" rel="217"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.215.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/216.jpg" rel="218"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.216.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/217.jpg" rel="219"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.217.160x205.jpg" /
+                    a.magazine-item href="/uploads/letmag/letoile_mag/2016_05/218.jpg" rel="220"
+                      img alt="" src="/uploads/letmag/letoile_mag/2016_05/.thumbs/.218.160x205.jpg" /
+              a.magazine-control-next.next href="javascript:;"
+              .g-clear
+              .magazine-scroll-navi.navi style=("width: 518px")
+                a href="#0"
+                a href="#1"
+                a.active href="#2"
+                a href="#3"
+                a href="#4"
+                a href="#5"
+                a href="#6"
+                a href="#7"
+                a href="#8"
+                a href="#9"
+                a href="#10"
+                a href="#11"
+                a href="#12"
+                a href="#13"
+                a href="#14"
+                a href="#15"
+                a href="#16"
+                a href="#17"
+                a href="#18"
+                a href="#19"
+                a href="#20"
+                a href="#21"
+                a href="#22"
+                a href="#23"
+                a href="#24"
+                a href="#25"
+                a href="#26"
+                a href="#27"
+                a href="#28"
+                a href="#29"
+                a href="#30"
+                a href="#31"
+                a href="#32"
+                a href="#33"
+                a href="#34"
+                a href="#35"
+                a href="#36"
+      .main-right-banner
+      /! /* OpenX Javascript Tag v2.8.10 */
+        javascript:
+
+        script src="https://www.letoile.ru/openx/www/delivery/ajs.php?zoneid=5&amp;cb=96666844576&amp;charset=windows-1251&amp;loc=https%3A//www.letoile.ru/company/letmag/%3Fnews%3D4747&amp;referer=https%3A//www.letoile.ru/company/letmag/&amp;zone_id=1" type="text/javascript"
+        noscript &lt;a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a448fcf0&amp;amp;cb=8790' target='_blank'&gt;&lt;img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=5&amp;amp;cb=8790&amp;amp;n=a448fcf0' border='0' alt='' /&gt;&lt;/a&gt;
+    .g-clear
+    .main-links
+      .main-links-item.main-links-item-shop style=("padding-top: 34px;")
+        a href="http://letu.ru/" /
+        div style=("width:190px; height:128px;")
+        .main-links-item-title Интернет-магазин
+        ul.g-layout
+          li
+            a href="http://www.letu.ru/browse/brandProducts.jsp?q_facetTrail=9004%3arootCategory%3a1002%3a%D0%9B%27%D0%AD%D1%82%D1%83%D0%B0%D0%BB%D1%8C+selection&amp;q_pageSize=24&amp;q_brandId=1743" target="_blank"  Л'Этуаль sélection на letu.ru
+          li
+            a href="http://www.letu.ru/" target="_blank"  24 часа красоты в интернет-магазине letu.ru
+      .main-links-item.main-links-item-ps
+        .main-links-item-title Подарочные сертификаты
+        ul.g-layout
+          li
+            a href="http://www.letu.ru/giftcertificates/" target="_blank"  Л’Этуаль eCARDS
+          li
+            a href="/company/ps"  Сертификаты CLASSIC
+          li
+            a href="/club/gifts/"  Корпоративные сертификаты
+      .main-links-item.main-links-item-personal
+        .main-links-item-title Личный кабинет
+        ul.g-layout
+          li
+            a href="/company/subscribe/"  SMS/E-MAIL подписка
+          li
+            a href="/services/unsubscribe.phtml"  Отказаться от e-mail / смс рассылки
+      .main-links-item.main-links-item-special
+        .main-links-item-title Рекомендуем
+        ul.g-layout
+          li
+            a href="/club/new"  Новинки
+          li
+            a href="/recommend/tags/Dlya-zhenschin"  Женщинам
+          li
+            a href="/recommend/tags/Dlya-muzhchin"  Мужчинам
+      .main-links-item.main-links-item-events
+        .main-links-item-title Акции
+        ul.g-layout
+          li
+            a href="/club/events?news=4597"  Акция "Именинники"
+          li
+            a href="/club/events?news=4763"  Прекрасные недели весь июль!
+      .g-clear
+    .main-subscription
+      .main-subscription-title.main-links-item-title
+        a href="/company/subscribe/" style=("color: white")  Подписка на новости (SMS / E-MAIL)
+
+    .main-footer
+      .main-footer-left
+        .main-footer-left-copyright © 2006–2016, L'etoile.
+        .main-footer-left-social
+          a href="https://vk.com/letoile_official" target="_blank"
+            = image_tag 'letmag/icon_vkontakte.png', title: 'В Контакте'
+          a href="http://www.odnoklassniki.ru/#/group/43115736727627" target="_blank"
+            = image_tag 'letmag/icon_odnoklassniki.png', title: 'Одноклассники'
+          a href="https://www.facebook.com/letoile.ru" target="_blank"
+            = image_tag 'letmag/icon_facebook.png', title: 'Facebook'
+          a href="http://letoile-ru.livejournal.com/" target="_blank"
+            = image_tag 'letmag/icon_lj.png', title: 'LiveJournal'
+          a href="http://twitter.com/letoile_ru" target="_blank"
+            = image_tag 'letmag/icon_twitter.png', title: 'Twitter'
+          a href="http://instagram.com/letoile_official" target="_blank"
+            = image_tag 'letmag/icon_instagram.png', title: 'Instagram'
+      .main-footer-right
+        .main-footer-right-rss
+          a href="/feedback/"
+            = image_tag 'letmag/icon_feedback.png', title: 'Обратная связь'
+        | Support by
+        a href="http://bix.ru" target="_blank"  BIX
+      .g-clear
