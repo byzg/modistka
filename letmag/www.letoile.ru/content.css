@@ -1,0 +1,38 @@
+p {margin-bottom: 1.5em; line-height: 1.5em;}
+
+h1 {color: #c28012; font-size: 22px; margin-bottom: .6em; font-weight: normal;}
+h2, h3, h4, h5, h6 {color: #010000; font-size: 18px; margin-bottom: .8em; font-weight: normal;}
+
+.text-content {font-size: 12px;}
+.text-content ul {margin: 1.5em 0 2em 0; list-style: none;}
+.text-content ul li {padding-left: 1.8em; margin-bottom: .5em; color: #4e4e4e; background: url(images/bullet.gif) no-repeat 2px .4em;}
+.text-content ol {margin: 1em 0 1.5em 0;}
+.text-content ol li {margin-left: 1.8em; margin-bottom: .5em;}
+.text-content blockquote {padding-left: 25px; margin-bottom: 1.3em; color: #0c529f; background: url(images/quote_pad.gif) repeat-y;}
+.text-content hr {color: #e0e0e0; background-color: #e0e0e0; height: 1px; border: 0; margin-bottom: 1.5em;}
+
+/* comes from FCK Editor */
+big {font-size: 1.2em; line-height: 1.3em;} 
+small {font-size: .8em; line-height: 1.4em;}
+
+/* replacements from html content filter */
+.g-content-left {float: left; margin: 0 20px 15px 0;}
+.g-content-right {float: right; margin: 0 0 15px 20px;}
+.pad5 td {padding: 5px;}
+.pad7 td {padding: 7px;}
+.pad8 td {padding: 8px;}
+.pad10 td {padding: 10px;}
+.pad12 td {padding: 12px;}
+.pad13 td {padding: 13px;}
+.pad15 td {padding: 15px;}
+.pad20 td {padding: 20px;}
+
+/* foto gallery plugin */
+.fotoset-item-box {display: inline-block; margin-right: 2px; margin-bottom: 10px; vertical-align: top;}
+.fotoset-item img {border: 1px solid #e4e4e4;}
+a.fotoset-item, a.fotoset-item:hover {border: 0;}
+.fotoset-stop br {clear: left;} /* obsolete */
+.fotoset-single .fotoset-item {display: block; margin-right: 0;}
+.fotoset-item-vote {height: 24px;}
+.fotoset-item-vote {margin-top: 8px; margin-bottom: 15px; padding-left: 13px; background: url(images/bullet_star.gif) no-repeat 0 4px;}
+.fotoset-item-vote img {border: 0;}

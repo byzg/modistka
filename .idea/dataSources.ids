@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails modistka: development" uuid="9bb48a82-d811-495d-8ec4-5a94a45ddfa4">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails modistka: test" uuid="af5d39d0-63f6-408f-82f9-50dfe2abd501">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails modistka: production" uuid="d04e071d-226c-4fa1-9a1d-80e8d8401057">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
