@@ -1,5 +1,5 @@
 html {min-height: 100%;}
-body {font-size: 12px; color: #000000; background: #42012d url(letmag/bgr_bot.gif) no-repeat 50% 100%;}
+body {font-size: 12px; color: #000000; background: #42012d image-url('letmag/bgr_bot.gif') no-repeat 50% 100%;}
 body, input, textarea, select {font-family: Tahoma, Verdana, sans-serif;}
 
 input, textarea, select {font-size: 100%;}
@@ -14,12 +14,12 @@ a {color: #0c529f;}
 ul.g-layout {list-style: none;}
 .g-clear {clear: both; height: 0; overflow: hidden;}
 
-.g-link {display: block; float: left; margin-right: 20px; padding: 4px 15px 7px 19px; color: #ffffff; background: #1a4dba url(letmag/bullet_link.gif) no-repeat 10px 10px; text-decoration: none;}
+.g-link {display: block; float: left; margin-right: 20px; padding: 4px 15px 7px 19px; color: #ffffff; background: #1a4dba image-url('letmag/bullet_link.gif') no-repeat 10px 10px; text-decoration: none;}
 
 .g-none {text-decoration: none;}
 .g-underline {font-size: 12px; color: #000000; text-decoration: underline;}
-.g-item {padding: 4px 0 6px 16px; background: url(letmag/bullet_star.gif) no-repeat 3px 8px;}
-.g-item-24 {background-image: url(letmag/bullet_star_24.gif);}
+.g-item {padding: 4px 0 6px 16px; background: image-url('letmag/bullet_star.gif') no-repeat 3px 8px;}
+.g-item-24 {background-image: image-url('letmag/bullet_star_24.gif');}
 .g-big {font-size: 22px;}
 .g-input {width: 308px; padding: 7px 12px 8px;}
 .g-select {width: 334px; height: 31px; padding: 0; padding-left: 12px;}
@@ -43,7 +43,7 @@ ul.g-layout {list-style: none;}
 .g-anchor {padding-top: 1em;}
 
 .g-captcha-image {padding-right: 10px;}
-.g-captcha-image-box {width: 120px; height: 60px; background: url(/letmag/ajax_loader.gif) no-repeat center;}
+.g-captcha-image-box {width: 120px; height: 60px; background: image-url('/letmag/ajax_loader.gif') no-repeat center;}
 .g-captcha-input .g-input {width: 80px;}
 .g-captcha-input-label {margin-bottom: 3px; margin-top: -2px;}
 
@@ -51,7 +51,7 @@ ul.g-layout {list-style: none;}
 
 .g-buttons-hint {margin-bottom: 1em;}
 
-.g-item-li {clear: left; padding-left: 9px; padding-right: 12px; margin-bottom: 7px; background: url(letmag/bullet_item.gif) no-repeat 0 5px;}
+.g-item-li {clear: left; padding-left: 9px; padding-right: 12px; margin-bottom: 7px; background: image-url('letmag/bullet_item.gif') no-repeat 0 5px;}
 .g-item-li-active {font-weight: bold;}
 
 .g-checkbox {float: left; margin: -3px 0 0 -3px\9}/* ie */
@@ -68,22 +68,22 @@ ul.g-layout {list-style: none;}
 
 .g-noborder {border: 0 !important;}
 
-.g-load {background: url(letmag/load.gif) no-repeat;}
+.g-load {background: image-url('letmag/load.gif') no-repeat;}
 .g-load * {visibility: hidden;}
 
 .g-highlight {color: #d4006c;}
 
-.g-item-pad {float: left; padding-left: 19px; padding-right: 12px; background: url(letmag/bullet_item.gif) no-repeat 10px 5px;}
-.g-item-pad-active {padding-top: 4px; padding-bottom: 7px; margin-top: -4px; background: #1a4dba url(letmag/bullet_link.gif) no-repeat 10px 10px !important;}
+.g-item-pad {float: left; padding-left: 19px; padding-right: 12px; background: image-url('letmag/bullet_item.gif') no-repeat 10px 5px;}
+.g-item-pad-active {padding-top: 4px; padding-bottom: 7px; margin-top: -4px; background: #1a4dba image-url('letmag/bullet_link.gif') no-repeat 10px 10px !important;}
 .g-item-pad-active a {color: #ffffff; text-decoration: none; cursor: default;}
 .g-item-pad-title {float: left; margin-right: .5em; color: #970097;}
 
 .g-new {margin: 5px 0; color: #d4006c;}
 
 .info {position: absolute; display: none; width: 233px; background-color: #ffffff;}
-.info-top {height: 4px; overflow: hidden; background: url(letmag/info_top.gif) no-repeat;}
+.info-top {height: 4px; overflow: hidden; background: image-url('letmag/info_top.gif') no-repeat;}
 .info-content {padding: 0 8px; border-width: 0 1px; border-style: solid; border-color: #dfdfdf;}
-.info-bottom {height: 8px; overflow: hidden; background: url(letmag/info_bottom.gif) no-repeat;}
+.info-bottom {height: 8px; overflow: hidden; background: image-url('letmag/info_bottom.gif') no-repeat;}
 .info-close {float: right; clear: right; margin-top: 6px;}
 .info-content-title {border-bottom: 1px solid #dfdfdf; padding-bottom: 2px;}
 .info-content-body {padding: 7px 0 7px 16px;}
@@ -94,10 +94,10 @@ ul.g-layout {list-style: none;}
 .info-content-load {margin: 50px 0 45px 90px;}
 
 /* layout */
-.body-box {background: url(letmag/bgr_top.gif) no-repeat 50% 0;}
-.main {width: 956px; margin: 0 auto; padding-top: 64px; background: url(letmag/bgr_top_main.gif) no-repeat;}
-.main-header {color: #6e86af; background: #093277 url(letmag/header_bgr.gif) no-repeat;}
-.main-header-box {height: 110px; background: url(letmag/header_line.gif) repeat-x 30px 31px;}
+.body-box {background: image-url('letmag/bgr_top.gif') no-repeat 50% 0;}
+.main {width: 956px; margin: 0 auto; padding-top: 64px; background: image-url('letmag/bgr_top_main.gif') no-repeat;}
+.main-header {color: #6e86af; background: #093277 image-url('letmag/header_bgr.gif') no-repeat;}
+.main-header-box {height: 110px; background: image-url('letmag/header_line.gif') repeat-x 30px 31px;}
 
 .main-header-logo {position: absolute; margin: 14px 0 0 35px;}
 .main-header-phone {position: absolute; margin: 14px 0 0 516px;}
@@ -109,8 +109,8 @@ ul.g-layout {list-style: none;}
 .main-header-account {position: absolute; margin: 14px 0 0 713px;}
 .main-header-w-anons .main-header-account {margin-left: 630px;}
 .header-account-title {height: 29px; font-size: 10px; text-transform: uppercase;}
-.header-account-form-input {float: left; padding-left: 8px; margin-right: 20px; background: #00478b url(letmag/account_input_bgrs.gif) no-repeat;}
-.header-account-form-input div {float: left; height: 19px; overflow: hidden; padding-right: 8px; background: url(letmag/account_input_bgrs.gif) no-repeat 100% -19px;}
+.header-account-form-input {float: left; padding-left: 8px; margin-right: 20px; background: #00478b image-url('letmag/account_input_bgrs.gif') no-repeat;}
+.header-account-form-input div {float: left; height: 19px; overflow: hidden; padding-right: 8px; background: image-url('letmag/account_input_bgrs.gif') no-repeat 100% -19px;}
 .header-account-form-input input {width: 90px; padding: 2px; font-size: 11px; color: #ffffff; background: #00478b; border: none; outline: none;}
 .main-header-w-anons .header-account-form-input {margin-right: 8px;}
 .main-header-w-anons .header-account-form-input input {width: 80px;}
@@ -125,78 +125,78 @@ ul.g-layout {list-style: none;}
 .header-account-form-close {display: none; float: right; margin-right: 7px;}
 .header-account-form-close img {margin: 2px 0 0 3px; vertical-align: top;}
 
-.header-account-banner-title {width: 171px; overflow: hidden; padding-right: 10px; background: url(/letmag/arrow_banner.gif) no-repeat 100% 3px;}
+.header-account-banner-title {width: 171px; overflow: hidden; padding-right: 10px; background: image-url('/letmag/arrow_banner.gif') no-repeat 100% 3px;}
 .header-account-banner-title a {color: #ffecbb; text-decoration: none;}
 .header-account-banner-title-shadow {margin-top: -1px; margin-left: 1px; color: #001a44;}
 .header-account-banner-title, .header-account-banner-title-shadow {position: absolute; top: 77px; font-size: 10px; white-space: nowrap; text-transform: uppercase;}
 
-.main-menu {padding: 6px 0 18px; background: url(letmag/menu_bgr.jpg) no-repeat;}
-.main-menu-box {padding-left: 7px; background: #fcde92 url(letmag/menu_bgrs.gif) no-repeat; text-align: center;}
-.main-menu-box2 {padding-right: 7px; background: url(letmag/menu_bgrs.gif) no-repeat 100% -29px;}
-.main-menu-box3 {height: 29px; overflow: hidden; background: url(letmag/menu_bgrs.gif) repeat-x 0 -58px; }
-.main-menu li {display: inline; padding: 7px 15px /* 17px */; font-size: 14px; line-height: 28px; background: url(letmag/menu_dots.gif) no-repeat 0 11px; white-space: nowrap;}
-.main-menu li:first-child {background: url(letmag/fm-bg.png) no-repeat; color: #000000; border-right: 1px solid #1d324f; }
+.main-menu {padding: 6px 0 18px; background: image-url('letmag/menu_bgr.jpg') no-repeat;}
+.main-menu-box {padding-left: 7px; background: #fcde92 image-url('letmag/menu_bgrs.gif') no-repeat; text-align: center;}
+.main-menu-box2 {padding-right: 7px; background: image-url('letmag/menu_bgrs.gif') no-repeat 100% -29px;}
+.main-menu-box3 {height: 29px; overflow: hidden; background: image-url('letmag/menu_bgrs.gif') repeat-x 0 -58px; }
+.main-menu li {display: inline; padding: 7px 15px /* 17px */; font-size: 14px; line-height: 28px; background: image-url('letmag/menu_dots.gif') no-repeat 0 11px; white-space: nowrap;}
+.main-menu li:first-child {background: image-url('letmag/fm-bg.png') no-repeat; color: #000000; border-right: 1px solid #1d324f; }
 .main-menu li:first-child a {color: #000000}
 .main-menu a {color: #000000; text-decoration: none;}
 
-.main-top-banner {padding-bottom: 11px; background: url(letmag/menu_bgr.jpg) no-repeat bottom;}
+.main-top-banner {padding-bottom: 11px; background: image-url('letmag/menu_bgr.jpg') no-repeat bottom;}
 .main-top-banner img, .main-top-banner object {margin-top: -5px;}
 
 .main-center {height: 322px;}
-.main-center-left {float: left; width: 630px; height: 321px; background: url(letmag/center_bgr.jpg) no-repeat 100% 0;}
+.main-center-left {float: left; width: 630px; height: 321px; background: image-url('letmag/center_bgr.jpg') no-repeat 100% 0;}
 .main-center-right {margin-left: 630px;}
-.right-block1 {padding-bottom: 12px; background: url(letmag/center_right_bgr.jpg) no-repeat 0 100%;}
-.right-block2 {padding-bottom: 12px; background: url(letmag/center_right_bgr2.jpg) no-repeat 0 100%;}
+.right-block1 {padding-bottom: 12px; background: image-url('letmag/center_right_bgr.jpg') no-repeat 0 100%;}
+.right-block2 {padding-bottom: 12px; background: image-url('letmag/center_right_bgr2.jpg') no-repeat 0 100%;}
 .right-block-box {background: #ffe680;}
-.right-block-item {display: block; height: 99px; overflow: hidden; background: url(letmag/center_right_block_bgr.jpg) no-repeat 100% 0; text-decoration: none;}
+.right-block-item {display: block; height: 99px; overflow: hidden; background: image-url('letmag/center_right_block_bgr.jpg') no-repeat 100% 0; text-decoration: none;}
 .right-block-item-top {display: block; height: 52px; overflow: hidden; padding: 13px 15px 0; font-size: 14px; color: #000000; line-height: 1em;}
 .right-block-item-bot {display: block; height: 30px; overflow: hidden; padding: 4px 15px 0; color: #b1c1e1; line-height: 1em;}
 
 .right-popup {position: absolute; right: -520px; z-index: 1000;}
-.right-popup-top {padding-left: 40px; background: url(letmag/p_tl.png) no-repeat;}
-.right-popup-top div {padding-right: 40px; background: url(letmag/p_tr.png) no-repeat 100% 0;}
-.right-popup-top div div {width: 460px; height: 40px; padding-right: 0; background: url(letmag/p_t.png) repeat-x;}
-.right-popup-main {padding-left: 40px; background: url(letmag/p_l.png) repeat-y;}
-.right-popup-main-box {padding-right: 40px; background: url(letmag/p_r.png) repeat-y right;}
-.right-popup-main-box2 {width: 440px; padding: 10px; background: #ffffff url(letmag/p_bgr.gif) repeat-x bottom;}
-.right-popup-bot {padding-left: 40px; background: url(letmag/p_bl.png) no-repeat;}
-.right-popup-bot div {padding-right: 40px; background: url(letmag/p_br.png) no-repeat 100% 0;}
-.right-popup-bot div div {width: 460px; height: 40px; padding-right: 0; background: url(letmag/p_b.png) repeat-x;}
+.right-popup-top {padding-left: 40px; background: image-url('letmag/p_tl.png') no-repeat;}
+.right-popup-top div {padding-right: 40px; background: image-url('letmag/p_tr.png') no-repeat 100% 0;}
+.right-popup-top div div {width: 460px; height: 40px; padding-right: 0; background: image-url('letmag/p_t.png') repeat-x;}
+.right-popup-main {padding-left: 40px; background: image-url('letmag/p_l.png') repeat-y;}
+.right-popup-main-box {padding-right: 40px; background: image-url('letmag/p_r.png') repeat-y right;}
+.right-popup-main-box2 {width: 440px; padding: 10px; background: #ffffff image-url('letmag/p_bgr.gif') repeat-x bottom;}
+.right-popup-bot {padding-left: 40px; background: image-url('letmag/p_bl.png') no-repeat;}
+.right-popup-bot div {padding-right: 40px; background: image-url('letmag/p_br.png') no-repeat 100% 0;}
+.right-popup-bot div div {width: 460px; height: 40px; padding-right: 0; background: image-url('letmag/p_b.png') repeat-x;}
 .right-popup-main-pic { padding-right: 20px;}
 .right-popup-main-text-title {margin-bottom: 1em; padding-right: 80px; font-size: 16px;}
 .right-popup-main-text-title a {color: #333333;}
 .right-popup-main-text-desc {line-height: 1.3em;}
-.right-popup-close {position: absolute; right: 40px; width: 40px; height: 40px; background: url(letmag/p_close.gif) no-repeat;}
+.right-popup-close {position: absolute; right: 40px; width: 40px; height: 40px; background: image-url('letmag/p_close.gif') no-repeat;}
 
 .main-nav {clear: both;}
 .main-nav-share {float: right;}
 .nav-prev {float: left; width: 115px;}
 .nav-prev, .nav-next {font-size: 15px; color: #a1a1a1;}
 .nav-prev a, .nav-next a {display: block; color: #f3b71e; text-decoration: none;}
-.nav-prev a {float: left; padding-left: 15px; background: url(letmag/nav_prev.gif) no-repeat 0 4px;}
-.nav-next a {float: right; padding-right: 15px; background: url(letmag/nav_next2.gif) no-repeat 100% 4px;}
+.nav-prev a {float: left; padding-left: 15px; background: image-url('letmag/nav_prev.gif') no-repeat 0 4px;}
+.nav-next a {float: right; padding-right: 15px; background: image-url('letmag/nav_next2.gif') no-repeat 100% 4px;}
 .nav-body {float: left; width: 332px; text-align: center;}
 .nav-item {display: inline-block; font-size: 14px; vertical-align: middle;}
 .nav-item a {display: inline-block; padding: 3px 8px 5px; color: #a1a1a1; text-decoration: none;}
 .nav-item-active {margin-left: -1px; background-color: #f3b71e;}
 .nav-item-active a {color: #000000;}
-.nav-slash {display: inline-block; width: 1px; height: 19px; ovesrflow: hidden; background: url(letmag/nav_slash.gif) no-repeat; vertical-align: middle;	}
+.nav-slash {display: inline-block; width: 1px; height: 19px; ovesrflow: hidden; background: image-url('letmag/nav_slash.gif') no-repeat; vertical-align: middle;	}
 .nav-next {float: right; width: 115px;}
 
 .main-links {padding-bottom: 13px;}
 .main-links-item {float: left; padding-top: 163px;}
 .main-links-item-title {margin-bottom: 7px; font-size: 15px; color: #ffad14;}
-.main-links-item li {margin-bottom: 5px; padding-left: 11px; background: url(letmag/bullet_main.gif) no-repeat 0 5px; line-height: 1.4em;}
+.main-links-item li {margin-bottom: 5px; padding-left: 11px; background: image-url('letmag/bullet_main.gif') no-repeat 0 5px; line-height: 1.4em;}
 .main-links-item a {color: #ffffff;}
-.main-links-item-shop {width: 190px; padding-right: 18px; background: url(letmag/links_shop.jpg) no-repeat;}
-.main-links-item-ps {width: 196px; background: url(letmag/links_ps.jpg) no-repeat;}
-.main-links-item-personal {width: 160px; padding-left: 37px; background: url(letmag/links_personal.jpg) no-repeat;}
-.main-links-item-special {width: 113px; padding-left: 37px; padding-right: 18px; background: url(letmag/links_special.jpg) no-repeat;}
-.main-links-item-events {width: 169px; padding-left: 18px; background: url(letmag/links_events.jpg) no-repeat;}
+.main-links-item-shop {width: 190px; padding-right: 18px; background: image-url('letmag/links_shop.jpg') no-repeat;}
+.main-links-item-ps {width: 196px; background: image-url('letmag/links_ps.jpg') no-repeat;}
+.main-links-item-personal {width: 160px; padding-left: 37px; background: image-url('letmag/links_personal.jpg') no-repeat;}
+.main-links-item-special {width: 113px; padding-left: 37px; padding-right: 18px; background: image-url('letmag/links_special.jpg') no-repeat;}
+.main-links-item-events {width: 169px; padding-left: 18px; background: image-url('letmag/links_events.jpg') no-repeat;}
 
-.main-events {padding-top: 1px; background: #281d52 url(letmag/main_pad_top.gif) no-repeat;}
-.main-events-box {background: url(letmag/main_pad_bgr.gif) repeat-y;}
-.main-events-box2 {padding: 18px 36px 32px; background: url(letmag/main_pad_bot.jpg) no-repeat 0 100%;}
+.main-events {padding-top: 1px; background: #281d52 image-url('letmag/main_pad_top.gif') no-repeat;}
+.main-events-box {background: image-url('letmag/main_pad_bgr.gif') repeat-y;}
+.main-events-box2 {padding: 18px 36px 32px; background: image-url('letmag/main_pad_bot.jpg') no-repeat 0 100%;}
 .main-events-title {margin-bottom: 18px;}
 .main-events-title, .main-events-title a {font-size: 18px; color: #ffad14;}
 .main-events-body {clear: left;}
@@ -210,17 +210,17 @@ ul.g-layout {list-style: none;}
 .main-events-item-link {margin-top: 18px;}
 .main-events-block-loader {padding-top: 20px;}
 
-.main-left {float: left; width: 220px; min-height: 165px; padding-right: 16px; background: url(letmag/left_bgr.gif) no-repeat}
-.main-left-title {padding: 10px 15px 10px 27px; font-size: 17px; color: #000104; background: #ffe992 url(letmag/left_title_bgr.gif) no-repeat 100% 100%;}
+.main-left {float: left; width: 220px; min-height: 165px; padding-right: 16px; background: image-url('letmag/left_bgr.gif') no-repeat}
+.main-left-title {padding: 10px 15px 10px 27px; font-size: 17px; color: #000104; background: #ffe992 image-url('letmag/left_title_bgr.gif') no-repeat 100% 100%;}
 .main-left-menu {margin-bottom: 16px; color: #000104; background: #ffffff;}
-.left-menu-item {background: url(letmag/left_menu_bgr.gif) repeat-x bottom;}
-.left-menu-item-link {display: block; padding: 12px 27px 14px; color: #000104; background: url(letmag/bullet_menu.gif) no-repeat 13px 17px;}
-.left-menu-item-active {color: #ffffff; background: #1b4ebb url(letmag/left_menu_bgr_active.gif) repeat-x bottom;}
-.left-menu-item-active .left-menu-item-link {color: #ffffff; background-image: url(letmag/bullet_menu_active.gif);}
+.left-menu-item {background: image-url('letmag/left_menu_bgr.gif') repeat-x bottom;}
+.left-menu-item-link {display: block; padding: 12px 27px 14px; color: #000104; background: image-url('letmag/bullet_menu.gif') no-repeat 13px 17px;}
+.left-menu-item-active {color: #ffffff; background: #1b4ebb image-url('letmag/left_menu_bgr_active.gif') repeat-x bottom;}
+.left-menu-item-active .left-menu-item-link {color: #ffffff; background-image: image-url('letmag/bullet_menu_active.gif');}
 .main-left-submenu {margin-top: -8px; padding-bottom: 8px;}
-.left-submenu-item {padding: 0 10px 5px 50px; background: url(letmag/bullet_submenu.gif) no-repeat 39px 4px;}
+.left-submenu-item {padding: 0 10px 5px 50px; background: image-url('letmag/bullet_submenu.gif') no-repeat 39px 4px;}
 .left-submenu-item-link {color: #000104; text-decoration: none;}
-.left-menu-item-active .left-submenu-item {background-image: url(letmag/bullet_menu_active.gif);}
+.left-menu-item-active .left-submenu-item {background-image: image-url('letmag/bullet_menu_active.gif');}
 .left-menu-item-active .left-submenu-item-link {color: #ffffff;}
 .left-submenu-item-active {font-weight: bold;}
 
@@ -247,7 +247,7 @@ ul.g-layout {list-style: none;}
 .main-right-title {margin-bottom: 33px;}
 .main-right-title-left {float: left;}
 .main-right-title h1 {margin-bottom: 0; padding-left: 24px;}
-.main-right-title-pad {position: absolute; width: 9px; height: 31px; background: #932698 url(letmag/title_pad.gif) no-repeat 0 50%;}
+.main-right-title-pad {position: absolute; width: 9px; height: 31px; background: #932698 image-url('letmag/title_pad.gif') no-repeat 0 50%;}
 .main-right-title-right {float: right;}
 
 .main-right-banner {float: left; padding-top: 16px; background-color: #43022d;}
@@ -274,13 +274,13 @@ ul.g-layout {list-style: none;}
 /* index */
 .page-index .main-links-item {padding-top: 128px; background-position: 0 -35px;}
 
-.main-content-promo-left-frame {position: absolute; width: 621px; height: 321px; overflow: hidden; background: #ffffff url(letmag/load.gif) no-repeat center 46%;}
+.main-content-promo-left-frame {position: absolute; width: 621px; height: 321px; overflow: hidden; background: #ffffff image-url('letmag/load.gif') no-repeat center 46%;}
 .main-content-promo-left-nav {position: absolute; z-index: 1; width: 621px; height: 45px; overflow: hidden; margin-top: 296px; text-align: center;}
 .main-content-promo-left-prev, .main-content-promo-left-next {position: absolute; z-index: 1; display: block; width: 40px; height: 40px; margin-top: 139px; visibility: hidden;}
-.main-content-promo-left-prev {background: url(letmag/banner_main_prev.png) no-repeat;}
-.main-content-promo-left-next {margin-left: 581px; background: url(letmag/banner_main_next.png) no-repeat;}
+.main-content-promo-left-prev {background: image-url('letmag/banner_main_prev.png') no-repeat;}
+.main-content-promo-left-next {margin-left: 581px; background: image-url('letmag/banner_main_next.png') no-repeat;}
 
-.frame-nav-link {display: inline-block; width: 17px; height: 16px; font-size: 11px; line-height: 15px; color: #ffffff; background: url(letmag/banner_main_pin.png) no-repeat; text-decoration: none; letter-spacing: 1px;}
+.frame-nav-link {display: inline-block; width: 17px; height: 16px; font-size: 11px; line-height: 15px; color: #ffffff; background: image-url('letmag/banner_main_pin.png') no-repeat; text-decoration: none; letter-spacing: 1px;}
 .frame-nav-link-active {background-position: 0 -16px;}
 
 /* news */
@@ -336,7 +336,7 @@ ul.g-layout {list-style: none;}
 
 .select-dropdown {position: absolute; display: none; z-index: 10; min-width: 150px; max-height: 498px; overflow: auto; padding: 5px; border: 2px solid #cecece;  background-color: #f6f6f6; line-height: normal; /*
 border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px;*/}
-.select-dropdown-toggle {float: left; padding-right: 13px; background: url(letmag/arrow_gray.gif) no-repeat 100% 7px; white-space: nowrap;}
+.select-dropdown-toggle {float: left; padding-right: 13px; background: image-url('letmag/arrow_gray.gif') no-repeat 100% 7px; white-space: nowrap;}
 .select-dropdown-toggle a {color: #0066cc; text-decoration: none; border-bottom: 1px dotted #0066cc;}
 .select-dropdown div {margin-bottom: 5px; white-space: nowrap;}
 .select-dropdown a {position: relative; color: #0066cc; text-decoration: underline;}
@@ -371,8 +371,8 @@ div.select-dropdown-all {margin-bottom: 10px;}
 .shop-event-more-block {display: none;}
 
 .map-events {max-width: 400px; padding: 20px 0 5px 15px;}
-.map-events-sale {background: url(letmag/point_sale.gif) no-repeat 0 23px;}
-.map-events-consultation {background: url(letmag/point_consultation.gif) no-repeat 0 23px;}
+.map-events-sale {background: image-url('letmag/point_sale.gif') no-repeat 0 23px;}
+.map-events-consultation {background: image-url('letmag/point_consultation.gif') no-repeat 0 23px;}
 
 
 /* anketa */
@@ -423,7 +423,7 @@ div.select-dropdown-all {margin-bottom: 10px;}
 .fotokonkurs-item-right {margin-right: 0;}
 .fotokonkurs-item-image img {display: block;}
 .fotokonkurs-item-info {padding: 10px 0;}
-.fotokonkurs-item-nick {padding-left: 13px; padding-bottom: 5px; font-weight: bold; background: url(letmag/bullet_star.gif) no-repeat 0 3px;}
+.fotokonkurs-item-nick {padding-left: 13px; padding-bottom: 5px; font-weight: bold; background: image-url('letmag/bullet_star.gif') no-repeat 0 3px;}
 .fotokonkurs-item .fotokonkurs-item-rating {padding-left: 13px;}
 .fotokonkurs-single-image {margin: 1em 0;}
 .fotokonkurs-single-desc {margin-bottom: 2em;}
@@ -434,11 +434,11 @@ div.select-dropdown-all {margin-bottom: 10px;}
 .fotokonkurs-item .fotokonkurs-item-rating-votes {display: block; margin-top: 3px;}
 
 /* new shops */
-.content-banners-bar {position: relative; height: 69px; padding-bottom: 20px; background: url(letmag/menu_bgr.jpg) -170px 100%;}
-.content-banners-left {position: absolute; width: 17px; height: 69px; background: url(letmag/banner_scroll_left_bgr.gif) no-repeat;}
-.content-banners {position: absolute; width: 918px; height: 67px; overflow: hidden; left: 17px; border-top: 1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; background: #efefef url(letmag/banner_scroll_bgr.gif) repeat-x; white-space: nowrap;}
-.content-banners-box {height: 36px; padding: 17px 0 15px 107px; background: url(letmag/banner_scroll_pic.gif) no-repeat 11px 13px;}
-.content-banners-right {position: absolute; width: 21px; height: 69px; left: 935px; background: url(letmag/banner_scroll_right_bgr.gif) no-repeat;}
+.content-banners-bar {position: relative; height: 69px; padding-bottom: 20px; background: image-url('letmag/menu_bgr.jpg') -170px 100%;}
+.content-banners-left {position: absolute; width: 17px; height: 69px; background: image-url('letmag/banner_scroll_left_bgr.gif') no-repeat;}
+.content-banners {position: absolute; width: 918px; height: 67px; overflow: hidden; left: 17px; border-top: 1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; background: #efefef image-url('letmag/banner_scroll_bgr.gif') repeat-x; white-space: nowrap;}
+.content-banners-box {height: 36px; padding: 17px 0 15px 107px; background: image-url('letmag/banner_scroll_pic.gif') no-repeat 11px 13px;}
+.content-banners-right {position: absolute; width: 21px; height: 69px; left: 935px; background: image-url('letmag/banner_scroll_right_bgr.gif') no-repeat;}
 .content-banners-item {display: inline-block; border-left: 1px solid #d7d7d7; padding-left: 14px; padding-right: 23px;}
 .content-banners-item-title {margin-bottom: 2px; color: #242424;}
 .content-banners-item-link a {color: #9b9b9b; text-decoration: underline;}
@@ -455,8 +455,8 @@ a.content-banners-item-link-inactive {text-decoration: none;}
 .magazine-item.active img {border: 0;}
 .magazine-control-prev, .magazine-control-next, .magazine-scroll {float: left;}
 .magazine-control-prev, .magazine-control-next {width: 11px; height: 21px; margin-top: 35px;}
-.magazine-control-prev {margin-right: 45px; background: url(letmag/magazine_prev.gif) no-repeat;}
-.magazine-control-next {margin-left: 29px; background: url(letmag/magazine_next.gif) no-repeat;}
+.magazine-control-prev {margin-right: 45px; background: image-url('letmag/magazine_prev.gif') no-repeat;}
+.magazine-control-next {margin-left: 29px; background: image-url('letmag/magazine_next.gif') no-repeat;}
 .magazine-control-prev.disabled, .magazine-control-next.disabled {visibility: hidden;}
 
 .magazine-scroll {position: relative; overflow: hidden; height: 94px; padding-top: 1px;}
@@ -465,7 +465,7 @@ a.content-banners-item-link-inactive {text-decoration: none;}
 .magazine-scroll-items div {float: left;}
 
 .magazine-scroll-navi {height:20px; margin: 0 auto; margin-top: 2em;}
-.magazine-scroll-navi a {width:8px;	height:8px;	float:left;	margin:3px;	background: url(letmag/navigator.png) 0 0 no-repeat; display:block; font-size:1px;}
+.magazine-scroll-navi a {width:8px;	height:8px;	float:left;	margin:3px;	background: image-url('letmag/navigator.png') 0 0 no-repeat; display:block; font-size:1px;}
 .magazine-scroll-navi a:hover {background-position:0 -8px;}
 .magazine-scroll-navi a.active {background-position:0 -16px;}
 
@@ -481,11 +481,11 @@ a.content-banners-item-link-inactive {text-decoration: none;}
 
 .fader { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 25; background: black;}
 .faderIn { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 26;}
-.geo { position: relative; left: 50%; top: 50%; width: 550px; height: 311px; margin-left: -275px; margin-top: -155px;  background: url(/letmag/geo_back.png) no-repeat;}
+.geo { position: relative; left: 50%; top: 50%; width: 550px; height: 311px; margin-left: -275px; margin-top: -155px;  background: image-url('/letmag/geo_back.png') no-repeat;}
 .geo-close {float: right; clear: right; margin-top: 15px; margin-right: 15px;}
 .geo-title { padding-top: 35px; padding-left: 15px; }
 .geo-cities { padding-left: 10px; padding-top: 10px; }
-.geo-city { padding: 4px 40px 8px 40px; background: url(letmag/bullet_star.gif) no-repeat 25px 8px;}
+.geo-city { padding: 4px 40px 8px 40px; background: image-url('letmag/bullet_star.gif') no-repeat 25px 8px;}
 .geo-detected a{ color: #df001a; font-size: 14px;}
 .geo-choice { position: absolute; top: 20px; z-index: 2; font-size: 14px; color: white; font-size: 14px;}
 .geo-choice a { color: white; }
@@ -499,8 +499,8 @@ a.content-banners-item-link-inactive {text-decoration: none;}
 .acResults { padding: 0px; border: 1px solid WindowFrame; background-color: Window; overflow: hidden; z-index: 100; }
 .acResults ul { margin: 0px; padding: 0px;list-style-position: outside; list-style: none;}
 .acResults ul li { margin: 0px; padding: 2px 5px; cursor: pointer; display: block; font: menu; font-size: 14px; overflow: hidden;}
-.acLoading { background : url('/letmag/indicator.gif') right center no-repeat;}
+.acLoading { background : image-url('/letmag/indicator.gif') right center no-repeat;}
 .acSelect { background-color: Highlight; color: HighlightText;}
 #btn-geo { cursor: pointer;}
 .acAlert { border: 1px solid red; -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 0, 0, 1); -moz-box-shadow: 0px 0px 10px 0px rgba(255, 0, 0, 1); box-shadow: 0px 0px 10px 0px rgba(255, 0, 0, 1); }
-.grayscale { -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); filter: url(/letmag/grayscale.svg#grayscale); filter: gray;}
+.grayscale { -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); filter: image-url('/letmag/grayscale.svg#grayscale'); filter: gray;}
