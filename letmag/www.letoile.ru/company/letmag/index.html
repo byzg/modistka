@@ -1,1432 +1,781 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<title>Журнал Л'Этуаль - Л'Этуаль</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="../../favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="../../styles.css?hello_nginx=1673527799" /> <!--?hello_nginx=657691761-->
-	<link rel="stylesheet" type="text/css" href="../../content.css" />
-	<link rel="stylesheet" type="text/css" href="../../jquery.lightbox-0.5.css" media="screen" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="/ie.css" />
-	<![endif]-->
-    <script type="text/javascript" src="../../jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../../jquery.lightbox-0.5.min.js"></script>
-	<script type="text/javascript" src="../../ajaxroutine.js"></script>
-	<script type="text/javascript" src="https://yandex.st/share/share.js" charset="utf-8"></script>
-	<script type="text/javascript" src="../../script4.js"></script>
-    <script type="text/javascript" src="../../jquery.autocomplete.min.js"></script>
-	<script type="text/javascript">
-		var geoKeyHandler = function( e ) {
-			if( e.which == 27 )
-			{
-				changeCityClose();
-			}
-		};
+    <title>Журнал Л'Этуаль - Л'Этуаль</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/styles.css?hello_nginx=1196179132" /> <!--?hello_nginx=386450161-->
+    <link rel="stylesheet" type="text/css" href="/content.css" />
+    <link rel="stylesheet" type="text/css" href="/jquery.lightbox-0.5.css" media="screen" />
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href="/ie.css" />
+    <![endif]-->
+    <script type="text/javascript" src="/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/jquery.lightbox-0.5.min.js"></script>
+    <script type="text/javascript" src="/ajaxroutine.js"></script>
+    <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/script4.js"></script>
+    <script type="text/javascript" src="/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript">
+        var geoKeyHandler = function( e ) {
+            if( e.which == 27 )
+            {
+                changeCityClose();
+            }
+        };
 
-		function changeCity()
-		{
-			$.get( "/ajax/geolocation.php?nocache=" + new Date().getTime(), function( data ) {
-				$( ".faderIn" ).html( data );
-			});
-			showGeo();
-		}
-		function showGeo()
-		{
-			$( ".fader" ).fadeTo( "fast", 0.4, function() {
+        function changeCity()
+        {
+            $.get( "/ajax/geolocation.php?nocache=" + new Date().getTime(), function( data ) {
+                $( ".faderIn" ).html( data );
+            });
+            showGeo();
+        }
+        function showGeo()
+        {
+            $( ".fader" ).fadeTo( "fast", 0.4, function() {
 
-				$( ".fader" ).height( $( "body" ).height() );
+                $( ".fader" ).height( $( "body" ).height() );
 
-				$( ".faderIn" ).fadeIn( "fast", function() {
-					$( "body" ).bind( "keyup", geoKeyHandler );
-				});
-			  });
-		}
-		function changeCityClose()
-		{
-				$( ".fader" ).fadeOut( "fast", function() {});
-				$( ".faderIn" ).fadeOut( "fast", function() {});
-				$( "body" ).unbind( "keyup", geoKeyHandler );
-		}
+                $( ".faderIn" ).fadeIn( "fast", function() {
+                    $( "body" ).bind( "keyup", geoKeyHandler );
+                });
+            });
+        }
+        function changeCityClose()
+        {
+            $( ".fader" ).fadeOut( "fast", function() {});
+            $( ".faderIn" ).fadeOut( "fast", function() {});
+            $( "body" ).unbind( "keyup", geoKeyHandler );
+        }
 
 
-	</script>
+    </script>
     <script charset="utf-8" src="https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru_RU" type="text/javascript"></script>
 
-<script charset="utf-8" type="text/javascript">
-
-function initGeo() {
-	var geolocation = ymaps.geolocation;
-	$.get( "/ajax/geolocation.php?country=" + encodeURIComponent(geolocation.country) + "&region=" + encodeURIComponent(geolocation.region) + '&city=' + encodeURIComponent(geolocation.city) + '&nocache=' + new Date().getTime(), function( data ) {
-		$( ".faderIn" ).html( data );
-		showGeo();	});
-    //alert( geolocation.country + geolocation.city + geolocation.region );
-}
-
-ymaps.ready(initGeo);
-</script>
-  <script type="text/javascript">
-	$(function() {
-		$(".fotoset").each(function() {
-			$(".fotoset-item", this).lightBox();
-			if (this.length == 1)
-				this.addClass("fotoset-single");
-		});
-	});
-  </script>
+    <script type="text/javascript">
+        $(function() {
+            $(".fotoset").each(function() {
+                $(".fotoset-item", this).lightBox();
+                if (this.length == 1)
+                    this.addClass("fotoset-single");
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="fader" style="display: none;"></div>
 <div class="faderIn" style="display: none;"></div>
 <div class="body-box page-magazine">
-    <div class="main">
-	<div class="geo-choice">
-	Мой город:
-		<a href="index.html" onClick="changeCity(); return false">
-		не выбран		</a>
-	</div>
+<div class="main">
+<div class="geo-choice">
+    Мой город:
+    <a href="" onClick="changeCity(); return false">
+        МОСКВА		</a>
+</div>
 
-    
-        <div class="main-header main-header-w-anons"><div class="main-header-box">
-                	<div class="main-header-anons">
-				<object type="application/x-shockwave-flash" data="../../images/anons/217x200_Letoile_Journal.swf?journalPic=%252Fuploads%252Fimages%252Fletoile_mag%252F2016_06%252Fmini.jpg&amp;link1=%252Fcompany%252Fletmag%252F" width="217" height="200">
-					<param name="movie" value="/images/anons/217x200_Letoile_Journal.swf?journalPic=/uploads/images/letoile_mag/2016_06/mini.jpg&amp;link1=/company/letmag/" />
-					<param name="bgcolor" value="#ffffff" />
-					<param name="wmode" value="transparent" />
-				</object>
-            </div>
-                	<div class="main-header-logo">
-            	<a href="https://www.letoile.ru/"><img src="../../images/letoile_logo2.gif" alt="Л'Этуаль" /></a>
-            </div>
-            <div class="main-header-phone">
-            	<div class="header-phone-top">
-	            	Телефон горячей линии
-                </div>
-            	<div class="header-phone-mid">
-	            	8 800 200 2345
-                </div>
-            	<div class="header-phone-bot">
-	            	Звонок по России бесплатный
-                </div>
-            </div>
-            <div class="main-header-account">
-            	<div class="header-account-title">
-                	Проверка баланса
-                </div>
-                <div class="header-account-form">
-					<script>
-                        $(function() {
-							var f = $("form[name='quick_account_form']");
-							var num_input = $("input[name='card_number']", f);
-							var num_text = num_input.val();
-							num_input
-							.click(function(event) {
-								event.stopPropagation();
-								if (!ieie) {
-									if ("header-account-form-popup" != f.parent().attr("class")) {
-										f.wrap('<div class="header-account-form-popup" />');
-									}
-									$(".header-account-form-popup").click(function(event) {
-										event.stopPropagation();
-									});
-									$(".header-account-form-close").show();
-									$(".header-account-form-extra").slideDown();
-									this.focus();
-								}
-								if (num_text == this.value) this.value = "";
-							})
-							.blur(function() {
-								if ("" == this.value) this.value = num_text;
-							});
-							if (!ieie) {
-								$(".header-account-form-close").click(function() {
-									if ("header-account-form-popup" == f.parent().attr("class")) {
-										$(".header-account-form-close").hide();
-										$(".header-account-form-extra").hide();
-										f.unwrap();
-									}
-									return false;
-								});
-								$("body").click(function() {
-									$(".header-account-form-close").triggerHandler("click");
-								});
-							}
+
+<div class="main-header main-header-w-anons"><div class="main-header-box">
+    <div class="main-header-anons">
+        <object type="application/x-shockwave-flash" data="/images/anons/217x200_Letoile_Journal.swf?journalPic=/uploads/images/letoile_mag/2016_06/mini.jpg&amp;link1=/company/letmag/" width="217" height="200">
+            <param name="movie" value="/images/anons/217x200_Letoile_Journal.swf?journalPic=/uploads/images/letoile_mag/2016_06/mini.jpg&amp;link1=/company/letmag/" />
+            <param name="bgcolor" value="#ffffff" />
+            <param name="wmode" value="transparent" />
+        </object>
+    </div>
+    <div class="main-header-logo">
+        <a href="/"><img src="/images/letoile_logo2.gif" alt="Л'Этуаль" /></a>
+    </div>
+    <div class="main-header-phone">
+        <div class="header-phone-top">
+            Телефон горячей линии
+        </div>
+        <div class="header-phone-mid">
+            8 800 200 2345
+        </div>
+        <div class="header-phone-bot">
+            Звонок по России бесплатный
+        </div>
+    </div>
+    <div class="main-header-account">
+        <div class="header-account-title">
+            Проверка баланса
+        </div>
+        <div class="header-account-form">
+            <script>
+                $(function() {
+                    var f = $("form[name='quick_account_form']");
+                    var num_input = $("input[name='card_number']", f);
+                    var num_text = num_input.val();
+                    num_input
+                            .click(function(event) {
+                                event.stopPropagation();
+                                if (!ieie) {
+                                    if ("header-account-form-popup" != f.parent().attr("class")) {
+                                        f.wrap('<div class="header-account-form-popup" />');
+                                    }
+                                    $(".header-account-form-popup").click(function(event) {
+                                        event.stopPropagation();
+                                    });
+                                    $(".header-account-form-close").show();
+                                    $(".header-account-form-extra").slideDown();
+                                    this.focus();
+                                }
+                                if (num_text == this.value) this.value = "";
+                            })
+                            .blur(function() {
+                                if ("" == this.value) this.value = num_text;
+                            });
+                    if (!ieie) {
+                        $(".header-account-form-close").click(function() {
+                            if ("header-account-form-popup" == f.parent().attr("class")) {
+                                $(".header-account-form-close").hide();
+                                $(".header-account-form-extra").hide();
+                                f.unwrap();
+                            }
+                            return false;
                         });
-                    </script>
-                	<form action="https://www.letoile.ru/club/cards/account#account-check-block" method="get" name="quick_account_form">
-    	            	<div class="header-account-form-input"><div>
-	                    	<input type="text" name="card_number" value="Номер карты" />
-        	            </div></div>
-            	        <input type="image" src="../../images/account_button.gif" alt="Проверить" />
+                        $("body").click(function() {
+                            $(".header-account-form-close").triggerHandler("click");
+                        });
+                    }
+                });
+            </script>
+            <form action="/club/cards/account#account-check-block" method="get" name="quick_account_form">
+                <div class="header-account-form-input"><div>
+                    <input type="text" name="card_number" value="Номер карты" />
+                </div></div>
+                <input type="image" src="/images/account_button.gif" alt="Проверить" />
                         <span class="header-account-form-close">
-                            <a href="index.html#"><img src="../../images/dialog_close_gray.gif" alt="Закрыть" /></a>
+                            <a href="#"><img src="/images/dialog_close_gray.gif" alt="Закрыть" /></a>
                         </span>
-                        <div class="header-account-form-extra" style="display: none;">
-                        	<div class="header-account-form-extra-title">Выберите цвет Вашей карты:</div>
-                            <div class="header-account-form-extra-left">
-	                            <div><input type="radio" name="card_type" value="2" id="card1" class="g-radio" /><label for="card1">рубиновая</label></div>
-	                            <div><input type="radio" name="card_type" value="3" id="card2" class="g-radio" /><label for="card2">сапфировая</label></div>
-	                            <div><input type="radio" name="card_type" value="4" id="card3" class="g-radio" /><label for="card3">аметистовая</label></div>
-	                            <div><input type="radio" name="card_type" value="5" id="card4" class="g-radio" /><label for="card4">бриллиантовая</label></div>
-                            </div>
-                            <div class="header-account-form-extra-right">
-	                            <div><input type="radio" name="card_type" value="1_old" id="card0_old" class="g-radio" /><label for="card0_old">зеленая</label></div>
-	                            <div><input type="radio" name="card_type" value="2_old" id="card1_old" class="g-radio" /><label for="card1_old">красная</label></div>
-	                            <div><input type="radio" name="card_type" value="3_old" id="card2_old" class="g-radio" /><label for="card2_old">синяя</label></div>
-	                            <div><input type="radio" name="card_type" value="4_old" id="card3_old" class="g-radio" /><label for="card3_old">серебряная</label></div>
-	                            <div><input type="radio" name="card_type" value="5_old" id="card4_old" class="g-radio" /><label for="card4_old">золотая</label></div>
-                            </div>
-                        </div>
-                    </form>
+                <div class="header-account-form-extra" style="display: none;">
+                    <div class="header-account-form-extra-title">Выберите цвет Вашей карты:</div>
+                    <div class="header-account-form-extra-left">
+                        <div><input type="radio" name="card_type" value="2" id="card1" class="g-radio" /><label for="card1">рубиновая</label></div>
+                        <div><input type="radio" name="card_type" value="3" id="card2" class="g-radio" /><label for="card2">сапфировая</label></div>
+                        <div><input type="radio" name="card_type" value="4" id="card3" class="g-radio" /><label for="card3">аметистовая</label></div>
+                        <div><input type="radio" name="card_type" value="5" id="card4" class="g-radio" /><label for="card4">бриллиантовая</label></div>
+                    </div>
+                    <div class="header-account-form-extra-right">
+                        <div><input type="radio" name="card_type" value="1_old" id="card0_old" class="g-radio" /><label for="card0_old">зеленая</label></div>
+                        <div><input type="radio" name="card_type" value="2_old" id="card1_old" class="g-radio" /><label for="card1_old">красная</label></div>
+                        <div><input type="radio" name="card_type" value="3_old" id="card2_old" class="g-radio" /><label for="card2_old">синяя</label></div>
+                        <div><input type="radio" name="card_type" value="4_old" id="card3_old" class="g-radio" /><label for="card3_old">серебряная</label></div>
+                        <div><input type="radio" name="card_type" value="5_old" id="card4_old" class="g-radio" /><label for="card4_old">золотая</label></div>
+                    </div>
                 </div>
-                            <div class="header-account-banner-title-shadow">Журнал Л’Этуаль</div>
-                <div class="header-account-banner-title"><a href="index.html">Журнал Л’Этуаль</a></div>
-                        </div>
-        </div></div>
-        <div class="main-menu">
-        	<div class="main-menu-box"><div class="main-menu-box2"><div class="main-menu-box3">
-            	<ul class="g-layout">
-                	            		<li><a href="http://letu.ru" target="_blank">Интернет-магазин</a></li>
-                	            		<li><a href="https://www.letoile.ru/retail/">Магазины</a></li>
-                	            		<li><a href="https://www.letoile.ru/club/events/?menu=72">Акции</a></li>
-                	            		<li><a href="https://www.letoile.ru/recommend/">Рекомендуем</a></li>
-                	            		<li><a href="https://www.letoile.ru/company/carrier/vacancies/?menu=62">Работа</a></li>
-                	            		<li><a href="https://www.letoile.ru/news/news/">Новости</a></li>
-                	            		<li><a href="https://www.letoile.ru/company/history/">О нас</a></li>
-                	            		<li><a href="https://www.letoile.ru/company/supply/?menu=388">Поставщикам/Suppliers</a></li>
-                                </ul>
-	        </div></div></div>
+            </form>
         </div>
-            <div class="main-top-banner">
-        <!--/* OpenX Javascript Tag v2.8.10 */-->
-<script type='text/javascript'><!--//<![CDATA[
-   var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
-   var m3_r = Math.floor(Math.random()*99999999999);
-   if (!document.MAX_used) document.MAX_used = ',';
-   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-   document.write ("?zoneid=4");
-   document.write ('&amp;cb=' + m3_r);
-   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
-   document.write ("&amp;loc=" + escape(window.location));
-   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
-   if (document.context) document.write ("&context=" + escape(document.context));
-   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-   document.write ("&amp;zone_id=");
-   document.write ("'><\/scr"+"ipt>");
-//]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a81caf20&amp;cb=892370' target='_blank'><img src='../../openx/www/delivery/avw.php?zoneid=4&amp;cb=892370&amp;n=a81caf20' border='0' alt='' /></a></noscript>
-                </div>
-            <div class="main-left">
-                <div class="main-left-title">
-                    О нас                </div>
-                <ul class="main-left-menu g-layout">
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/beauty_studio/" class="left-menu-item-link">Студия КРАСОТЫ Л’Этуаль</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/subscribe/" class="left-menu-item-link">Подписка на новости</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/history/" class="left-menu-item-link">История</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/ndk/" class="left-menu-item-link">Условия получения Дисконтной Карты Л’Этуаль</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/obmenkart/" class="left-menu-item-link">Обмен Карт</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/supply/" class="left-menu-item-link">Поставщикам/Suppliers</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/tenders/" class="left-menu-item-link">Тендеры</a>
-                                    <ul class="main-left-submenu g-layout">
-                                                        <li class="left-submenu-item">
-                                    <a href="https://www.letoile.ru/company/tenders/current/" class="left-submenu-item-link">Текущие тендеры</a>
-                                </li>
-                                                        <li class="left-submenu-item">
-                                    <a href="https://www.letoile.ru/company/tenders/archive/" class="left-submenu-item-link">Архив тендеров</a>
-                                </li>
-                                                    </ul>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/exclusive/" class="left-menu-item-link">Эксклюзивно в Л'Этуаль</a>
-                            </li>
-                            <li class="left-menu-item left-menu-item-active">
-                        <a href="index.html" class="left-menu-item-link">Журнал Л'Этуаль</a>
-                                    <ul class="main-left-submenu g-layout">
-                                                        <li class="left-submenu-item">
-                                    <a href="https://www.letoile.ru/company/letmag/advertizing_rus/" class="left-submenu-item-link">Для рекламодателей</a>
-                                </li>
-                                                        <li class="left-submenu-item">
-                                    <a href="https://www.letoile.ru/company/letmag/advertizing_eng/" class="left-submenu-item-link">For advertisers</a>
-                                </li>
-                                                    </ul>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/carrier/" class="left-menu-item-link">Карьера</a>
-                                    <ul class="main-left-submenu g-layout">
-                                                        <li class="left-submenu-item">
-                                    <a href="https://www.letoile.ru/company/carrier/vacancies/" class="left-submenu-item-link">Вакансии</a>
-                                </li>
-                                                    </ul>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/services/unsubscribe.phtml" class="left-menu-item-link">Отказаться от e-mail / смс рассылки</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/company/contacts/" class="left-menu-item-link">Контакты</a>
-                            </li>
-                            <li class="left-menu-item">
-                        <a href="https://www.letoile.ru/feedback/" class="left-menu-item-link">Обратная связь</a>
-                            </li>
-        
-                </ul>
+        <div class="header-account-banner-title-shadow">Журнал Л’Этуаль</div>
+        <div class="header-account-banner-title"><a href="/company/letmag/">Журнал Л’Этуаль</a></div>
+    </div>
+</div></div>
+<div class="main-menu">
+    <div class="main-menu-box"><div class="main-menu-box2"><div class="main-menu-box3">
+        <ul class="g-layout">
+            <li><a href="http://letu.ru" target="_blank">Интернет-магазин</a></li>
+            <li><a href="/retail/">Магазины</a></li>
+            <li><a href="/club/events/?menu=72">Акции</a></li>
+            <li><a href="/recommend/">Рекомендуем</a></li>
+            <li><a href="/company/carrier/vacancies/?menu=62">Работа</a></li>
+            <li><a href="/news/news/">Новости</a></li>
+            <li><a href="/company/history/">О нас</a></li>
+            <li><a href="/company/supply/?menu=388">Поставщикам/Suppliers</a></li>
+        </ul>
+    </div></div></div>
+</div>
+<div class="main-top-banner">
+    <!--/* OpenX Javascript Tag v2.8.10 */-->
+    <script type='text/javascript'><!--//<![CDATA[
+    var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
+    var m3_r = Math.floor(Math.random()*99999999999);
+    if (!document.MAX_used) document.MAX_used = ',';
+    document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+    document.write ("?zoneid=4");
+    document.write ('&amp;cb=' + m3_r);
+    if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+    document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+    document.write ("&amp;loc=" + escape(window.location));
+    if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+    if (document.context) document.write ("&context=" + escape(document.context));
+    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+    document.write ("&amp;zone_id=1");
+    document.write ("'><\/scr"+"ipt>");
+    //]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a81caf20&amp;cb=816706' target='_blank'><img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=4&amp;cb=816706&amp;n=a81caf20' border='0' alt='' /></a></noscript>
+</div>
+<div class="main-left">
+    <div class="main-left-title">
+        О нас                </div>
+    <ul class="main-left-menu g-layout">
+        <li class="left-menu-item">
+            <a href="/company/beauty_studio/" class="left-menu-item-link">Студия КРАСОТЫ Л’Этуаль</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/subscribe/" class="left-menu-item-link">Подписка на новости</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/history/" class="left-menu-item-link">История</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/ndk/" class="left-menu-item-link">Условия получения Дисконтной Карты Л’Этуаль</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/obmenkart/" class="left-menu-item-link">Обмен Карт</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/supply/" class="left-menu-item-link">Поставщикам/Suppliers</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/tenders/" class="left-menu-item-link">Тендеры</a>
+            <ul class="main-left-submenu g-layout">
+                <li class="left-submenu-item">
+                    <a href="/company/tenders/current/" class="left-submenu-item-link">Текущие тендеры</a>
+                </li>
+                <li class="left-submenu-item">
+                    <a href="/company/tenders/archive/" class="left-submenu-item-link">Архив тендеров</a>
+                </li>
+            </ul>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/exclusive/" class="left-menu-item-link">Эксклюзивно в Л'Этуаль</a>
+        </li>
+        <li class="left-menu-item left-menu-item-active">
+            <a href="/company/letmag/" class="left-menu-item-link">Журнал Л'Этуаль</a>
+            <ul class="main-left-submenu g-layout">
+                <li class="left-submenu-item">
+                    <a href="/company/letmag/advertizing_rus/" class="left-submenu-item-link">Для рекламодателей</a>
+                </li>
+                <li class="left-submenu-item">
+                    <a href="/company/letmag/advertizing_eng/" class="left-submenu-item-link">For advertisers</a>
+                </li>
+            </ul>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/carrier/" class="left-menu-item-link">Карьера</a>
+            <ul class="main-left-submenu g-layout">
+                <li class="left-submenu-item">
+                    <a href="/company/carrier/vacancies/" class="left-submenu-item-link">Вакансии</a>
+                </li>
+            </ul>
+        </li>
+        <li class="left-menu-item">
+            <a href="/services/unsubscribe.phtml" class="left-menu-item-link">Отказаться от e-mail / смс рассылки</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/company/contacts/" class="left-menu-item-link">Контакты</a>
+        </li>
+        <li class="left-menu-item">
+            <a href="/feedback/" class="left-menu-item-link">Обратная связь</a>
+        </li>
 
-<div class="main-left-banner">
+    </ul>
+
+    <div class="main-left-banner">
         <!--/* OpenX Javascript Tag v2.8.10 */-->
-<script type='text/javascript'><!--//<![CDATA[
-   var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
-   var m3_r = Math.floor(Math.random()*99999999999);
-   if (!document.MAX_used) document.MAX_used = ',';
-   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-   document.write ("?zoneid=2");
-   document.write ('&amp;cb=' + m3_r);
-   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
-   document.write ("&amp;loc=" + escape(window.location));
-   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
-   if (document.context) document.write ("&context=" + escape(document.context));
-   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-   document.write ("&amp;zone_id=");
-   document.write ("'><\/scr"+"ipt>");
-//]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a688b6c2&amp;cb=576089' target='_blank'><img src='../../openx/www/delivery/avw.php?zoneid=2&amp;cb=576089&amp;n=a688b6c2' border='0' alt='' /></a></noscript>
+        <script type='text/javascript'><!--//<![CDATA[
+        var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
+        var m3_r = Math.floor(Math.random()*99999999999);
+        if (!document.MAX_used) document.MAX_used = ',';
+        document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+        document.write ("?zoneid=2");
+        document.write ('&amp;cb=' + m3_r);
+        if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+        document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+        document.write ("&amp;loc=" + escape(window.location));
+        if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+        if (document.context) document.write ("&context=" + escape(document.context));
+        if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+        document.write ("&amp;zone_id=1");
+        document.write ("'><\/scr"+"ipt>");
+        //]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a688b6c2&amp;cb=168733' target='_blank'><img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=2&amp;cb=168733&amp;n=a688b6c2' border='0' alt='' /></a></noscript>
     </div>
 
-                <div class="main-left-tags"></div>
+    <div class="main-left-tags"></div>
 
-<div class="main-left-banner">
+    <div class="main-left-banner">
         <!--/* OpenX Javascript Tag v2.8.10 */-->
-<script type='text/javascript'><!--//<![CDATA[
-   var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
-   var m3_r = Math.floor(Math.random()*99999999999);
-   if (!document.MAX_used) document.MAX_used = ',';
-   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-   document.write ("?zoneid=3");
-   document.write ('&amp;cb=' + m3_r);
-   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
-   document.write ("&amp;loc=" + escape(window.location));
-   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
-   if (document.context) document.write ("&context=" + escape(document.context));
-   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-   document.write ("&amp;zone_id=");
-   document.write ("'><\/scr"+"ipt>");
-//]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=acb41b3e&amp;cb=216508' target='_blank'><img src='../../openx/www/delivery/avw.php?zoneid=3&amp;cb=216508&amp;n=acb41b3e' border='0' alt='' /></a></noscript>
+        <script type='text/javascript'><!--//<![CDATA[
+        var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
+        var m3_r = Math.floor(Math.random()*99999999999);
+        if (!document.MAX_used) document.MAX_used = ',';
+        document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+        document.write ("?zoneid=3");
+        document.write ('&amp;cb=' + m3_r);
+        if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+        document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+        document.write ("&amp;loc=" + escape(window.location));
+        if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+        if (document.context) document.write ("&context=" + escape(document.context));
+        if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+        document.write ("&amp;zone_id=1");
+        document.write ("'><\/scr"+"ipt>");
+        //]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=acb41b3e&amp;cb=344123' target='_blank'><img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=3&amp;cb=344123&amp;n=acb41b3e' border='0' alt='' /></a></noscript>
     </div>
 
-            </div>
-    <div class="main-right">
-    	<div class="main-right-box"><div class="main-right-box2">
+</div>
+<div class="main-right">
+<div class="main-right-box"><div class="main-right-box2">
 
-		
-		<div class="main-right-title">
-            <div class="main-right-title-left">
-                <div class="main-right-title-pad"></div>
-                            <h1>Журнал Л'Этуаль</h1>
-                    </div>
-            <div class="main-right-title-right">
-            </div>
-            <div class="g-clear"></div>
-        </div>
-        <div class="news news-narrow">
-	                <div class="news-folder-title">2016 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4759" class="magazine-popup-show" rel="popup_4759" title="Июнь 2016">Июнь 2016</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4759" class="magazine-popup-show" rel="popup_4759" title="Июнь 2016"><img src="../../uploads/images/letoile_mag/2016_06/mini.jpg" alt="" rel="mag_image_4759"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4759" class="magazine-popup-show g-link" rel="popup_4759" title="Июнь 2016">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4747" class="magazine-popup-show" rel="popup_4747" title="Май 2016">Май 2016</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4747" class="magazine-popup-show" rel="popup_4747" title="Май 2016"><img src="../../uploads/images/letoile_mag/2016_05/mini.jpg" alt="" rel="mag_image_4747"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4747" class="magazine-popup-show g-link" rel="popup_4747" title="Май 2016">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4737" class="magazine-popup-show" rel="popup_4737" title="Апрель 2016">Апрель 2016</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4737" class="magazine-popup-show" rel="popup_4737" title="Апрель 2016"><img src="../../uploads/images/letoile_mag/2016_04/mini.jpg" alt="" rel="mag_image_4737"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4737" class="magazine-popup-show g-link" rel="popup_4737" title="Апрель 2016">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4706" class="magazine-popup-show" rel="popup_4706" title="Март 2016">Март 2016</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4706" class="magazine-popup-show" rel="popup_4706" title="Март 2016"><img src="../../uploads/images/letoile_mag/2016_03/mini.jpg" alt="" rel="mag_image_4706"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4706" class="magazine-popup-show g-link" rel="popup_4706" title="Март 2016">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4674" class="magazine-popup-show" rel="popup_4674" title="Февраль 2016">Февраль 2016</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4674" class="magazine-popup-show" rel="popup_4674" title="Февраль 2016"><img src="../../uploads/images/letoile_mag/2016_02/mini.jpg" alt="" rel="mag_image_4674"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4674" class="magazine-popup-show g-link" rel="popup_4674" title="Февраль 2016">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4673" class="magazine-popup-show" rel="popup_4673" title="Январь 2016">Январь 2016</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4673" class="magazine-popup-show" rel="popup_4673" title="Январь 2016"><img src="../../uploads/images/letoile_mag/2016_01/mini.jpg" alt="" rel="mag_image_4673"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4673" class="magazine-popup-show g-link" rel="popup_4673" title="Январь 2016">читать</a>
-                </div>
-	                <div class="news-folder-title">2015 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4655" class="magazine-popup-show" rel="popup_4655" title="Декабрь 2015">Декабрь 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4655" class="magazine-popup-show" rel="popup_4655" title="Декабрь 2015"><img src="../../uploads/images/letoile_mag/2015_12/mini.jpg" alt="" rel="mag_image_4655"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4655" class="magazine-popup-show g-link" rel="popup_4655" title="Декабрь 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4651" class="magazine-popup-show" rel="popup_4651" title="Ноябрь 2015">Ноябрь 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4651" class="magazine-popup-show" rel="popup_4651" title="Ноябрь 2015"><img src="../../uploads/images/letoile_mag/2015_11/mini.jpg" alt="" rel="mag_image_4651"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4651" class="magazine-popup-show g-link" rel="popup_4651" title="Ноябрь 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4627" class="magazine-popup-show" rel="popup_4627" title="Октябрь 2015">Октябрь 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4627" class="magazine-popup-show" rel="popup_4627" title="Октябрь 2015"><img src="../../uploads/images/letoile_mag/2015_10/small.jpg" alt="" rel="mag_image_4627"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4627" class="magazine-popup-show g-link" rel="popup_4627" title="Октябрь 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4604" class="magazine-popup-show" rel="popup_4604" title="Cентябрь 2015">Cентябрь 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4604" class="magazine-popup-show" rel="popup_4604" title="Cентябрь 2015"><img src="../../uploads/images/letoile_mag/2015_09/mini.jpg" alt="" rel="mag_image_4604"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4604" class="magazine-popup-show g-link" rel="popup_4604" title="Cентябрь 2015">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4592" class="magazine-popup-show" rel="popup_4592" title="Август 2015">Август 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4592" class="magazine-popup-show" rel="popup_4592" title="Август 2015"><img src="../../uploads/images/letoile_mag/2015_08/mini.jpg" alt="" rel="mag_image_4592"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4592" class="magazine-popup-show g-link" rel="popup_4592" title="Август 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4546" class="magazine-popup-show" rel="popup_4546" title="Июль 2015">Июль 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4546" class="magazine-popup-show" rel="popup_4546" title="Июль 2015"><img src="../../uploads/images/letoile_mag/2015_07/mini.jpg" alt="" rel="mag_image_4546"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4546" class="magazine-popup-show g-link" rel="popup_4546" title="Июль 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4518" class="magazine-popup-show" rel="popup_4518" title="Июнь 2015">Июнь 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4518" class="magazine-popup-show" rel="popup_4518" title="Июнь 2015"><img src="../../uploads/images/letoile_mag/2015_06/small.jpg" alt="" rel="mag_image_4518"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4518" class="magazine-popup-show g-link" rel="popup_4518" title="Июнь 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4512" class="magazine-popup-show" rel="popup_4512" title="Май 2015">Май 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4512" class="magazine-popup-show" rel="popup_4512" title="Май 2015"><img src="../../uploads/images/letoile_mag/2015_05/mini.jpg" alt="" rel="mag_image_4512"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4512" class="magazine-popup-show g-link" rel="popup_4512" title="Май 2015">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4494" class="magazine-popup-show" rel="popup_4494" title="Апрель 2015">Апрель 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4494" class="magazine-popup-show" rel="popup_4494" title="Апрель 2015"><img src="../../uploads/images/letoile_mag/2015_04/mini.jpg" alt="" rel="mag_image_4494"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4494" class="magazine-popup-show g-link" rel="popup_4494" title="Апрель 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4479" class="magazine-popup-show" rel="popup_4479" title="Март 2015">Март 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4479" class="magazine-popup-show" rel="popup_4479" title="Март 2015"><img src="../../uploads/images/letoile_mag/2015_03/mini.jpg" alt="" rel="mag_image_4479"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4479" class="magazine-popup-show g-link" rel="popup_4479" title="Март 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4453" class="magazine-popup-show" rel="popup_4453" title="Февраль 2015">Февраль 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4453" class="magazine-popup-show" rel="popup_4453" title="Февраль 2015"><img src="../../uploads/images/letoile_mag/2015_02/small.jpg" alt="" rel="mag_image_4453"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4453" class="magazine-popup-show g-link" rel="popup_4453" title="Февраль 2015">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4435" class="magazine-popup-show" rel="popup_4435" title="Январь 2015">Январь 2015</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4435" class="magazine-popup-show" rel="popup_4435" title="Январь 2015"><img src="../../uploads/images/letoile_mag/2015_01/small.jpg" alt="" rel="mag_image_4435"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4435" class="magazine-popup-show g-link" rel="popup_4435" title="Январь 2015">читать</a>
-                </div>
-					<div class="g-clear"></div>
-	                <div class="news-folder-title">2014 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4430" class="magazine-popup-show" rel="popup_4430" title="Декабрь 2014">Декабрь 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4430" class="magazine-popup-show" rel="popup_4430" title="Декабрь 2014"><img src="../../uploads/images/letoile_mag/2014_12/cover-mini.jpg" alt="" rel="mag_image_4430"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4430" class="magazine-popup-show g-link" rel="popup_4430" title="Декабрь 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4394" class="magazine-popup-show" rel="popup_4394" title="Ноябрь 2014">Ноябрь 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4394" class="magazine-popup-show" rel="popup_4394" title="Ноябрь 2014"><img src="../../uploads/images/letoile_mag/2014_11/Cover-small.jpg" alt="" rel="mag_image_4394"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4394" class="magazine-popup-show g-link" rel="popup_4394" title="Ноябрь 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4368" class="magazine-popup-show" rel="popup_4368" title="Октябрь 2014">Октябрь 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4368" class="magazine-popup-show" rel="popup_4368" title="Октябрь 2014"><img src="../../uploads/images/letoile_mag/2014_10/small-cover.jpg" alt="" rel="mag_image_4368"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4368" class="magazine-popup-show g-link" rel="popup_4368" title="Октябрь 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4348" class="magazine-popup-show" rel="popup_4348" title="Сентябрь 2014">Сентябрь 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4348" class="magazine-popup-show" rel="popup_4348" title="Сентябрь 2014"><img src="../../uploads/images/letoile_mag/2014_09/cover-micro.jpg" alt="" rel="mag_image_4348"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4348" class="magazine-popup-show g-link" rel="popup_4348" title="Сентябрь 2014">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4302" class="magazine-popup-show" rel="popup_4302" title="Август 2014">Август 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4302" class="magazine-popup-show" rel="popup_4302" title="Август 2014"><img src="../../uploads/images/letoile_mag/2014_08/cover-s.jpg" alt="" rel="mag_image_4302"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4302" class="magazine-popup-show g-link" rel="popup_4302" title="Август 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4240" class="magazine-popup-show" rel="popup_4240" title="Июль 2014">Июль 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4240" class="magazine-popup-show" rel="popup_4240" title="Июль 2014"><img src="../../uploads/images/letoile_mag/2014_07/cover-s.jpg" alt="" rel="mag_image_4240"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4240" class="magazine-popup-show g-link" rel="popup_4240" title="Июль 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4205" class="magazine-popup-show" rel="popup_4205" title="Июнь 2014">Июнь 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4205" class="magazine-popup-show" rel="popup_4205" title="Июнь 2014"><img src="../../uploads/images/letoile_mag/2014_06/cover.jpg" alt="" rel="mag_image_4205"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4205" class="magazine-popup-show g-link" rel="popup_4205" title="Июнь 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4182" class="magazine-popup-show" rel="popup_4182" title="Май 2014">Май 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4182" class="magazine-popup-show" rel="popup_4182" title="Май 2014"><img src="../../uploads/images/letoile_mag/2014_05/cover-small.jpg" alt="" rel="mag_image_4182"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4182" class="magazine-popup-show g-link" rel="popup_4182" title="Май 2014">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4129" class="magazine-popup-show" rel="popup_4129" title="Апрель 2014">Апрель 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4129" class="magazine-popup-show" rel="popup_4129" title="Апрель 2014"><img src="../../uploads/images/letoile_mag/2014_04/cover-04-small.jpg" alt="" rel="mag_image_4129"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4129" class="magazine-popup-show g-link" rel="popup_4129" title="Апрель 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4083" class="magazine-popup-show" rel="popup_4083" title="Март 2014">Март 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4083" class="magazine-popup-show" rel="popup_4083" title="Март 2014"><img src="../../uploads/images/letoile_mag/2014_03/Cover-01s2.jpg" alt="" rel="mag_image_4083"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4083" class="magazine-popup-show g-link" rel="popup_4083" title="Март 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=4033" class="magazine-popup-show" rel="popup_4033" title="Февраль 2014">Февраль 2014</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=4033" class="magazine-popup-show" rel="popup_4033" title="Февраль 2014"><img src="../../uploads/images/letoile_mag/2014_02/Cover1-s.jpg" alt="" rel="mag_image_4033"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=4033" class="magazine-popup-show g-link" rel="popup_4033" title="Февраль 2014">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3978" class="magazine-popup-show" rel="popup_3978" title="Январь 2014.">Январь 2014.</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3978" class="magazine-popup-show" rel="popup_3978" title="Январь 2014."><img src="../../uploads/images/letoile_mag/2014_01/Cover-01-s.jpg" alt="" rel="mag_image_3978"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3978" class="magazine-popup-show g-link" rel="popup_3978" title="Январь 2014.">читать</a>
-                </div>
-					<div class="g-clear"></div>
-	                <div class="news-folder-title">2013 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3961" class="magazine-popup-show" rel="popup_3961" title="Декабрь 2013">Декабрь 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3961" class="magazine-popup-show" rel="popup_3961" title="Декабрь 2013"><img src="../../uploads/images/letoile_mag/2013_12/001s.jpg" alt="" rel="mag_image_3961"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3961" class="magazine-popup-show g-link" rel="popup_3961" title="Декабрь 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3925" class="magazine-popup-show" rel="popup_3925" title="Ноябрь 2013">Ноябрь 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3925" class="magazine-popup-show" rel="popup_3925" title="Ноябрь 2013"><img src="../../uploads/images/letoile_mag/2013_11/001-120x150.jpg" alt="" rel="mag_image_3925"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3925" class="magazine-popup-show g-link" rel="popup_3925" title="Ноябрь 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3833" class="magazine-popup-show" rel="popup_3833" title="Октябрь 2013">Октябрь 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3833" class="magazine-popup-show" rel="popup_3833" title="Октябрь 2013"><img src="../../uploads/images/letoile_mag/2013_10/001-inter.jpg" alt="" rel="mag_image_3833"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3833" class="magazine-popup-show g-link" rel="popup_3833" title="Октябрь 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3832" class="magazine-popup-show" rel="popup_3832" title="Cентябрь 2013">Cентябрь 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3832" class="magazine-popup-show" rel="popup_3832" title="Cентябрь 2013"><img src="../../uploads/images/letoile_mag/2013-09-new/001-intro.jpg" alt="" rel="mag_image_3832"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3832" class="magazine-popup-show g-link" rel="popup_3832" title="Cентябрь 2013">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3791" class="magazine-popup-show" rel="popup_3791" title="Август 2013">Август 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3791" class="magazine-popup-show" rel="popup_3791" title="Август 2013"><img src="../../uploads/images/letoile_mag/2013_08/001s.jpg" alt="" rel="mag_image_3791"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3791" class="magazine-popup-show g-link" rel="popup_3791" title="Август 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3739" class="magazine-popup-show" rel="popup_3739" title="Июль 2013">Июль 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3739" class="magazine-popup-show" rel="popup_3739" title="Июль 2013"><img src="../../uploads/images/letoile_mag/2013_07/001s.jpg" alt="" rel="mag_image_3739"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3739" class="magazine-popup-show g-link" rel="popup_3739" title="Июль 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3704" class="magazine-popup-show" rel="popup_3704" title="Июнь 2013">Июнь 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3704" class="magazine-popup-show" rel="popup_3704" title="Июнь 2013"><img src="../../uploads/images/letoile_mag/2013_06/001s.jpg" alt="" rel="mag_image_3704"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3704" class="magazine-popup-show g-link" rel="popup_3704" title="Июнь 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3672" class="magazine-popup-show" rel="popup_3672" title="Май 2013">Май 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3672" class="magazine-popup-show" rel="popup_3672" title="Май 2013"><img src="../../uploads/images/letoile_mag/2013_05/001s.jpg" alt="" rel="mag_image_3672"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3672" class="magazine-popup-show g-link" rel="popup_3672" title="Май 2013">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3572" class="magazine-popup-show" rel="popup_3572" title="Апрель 2013">Апрель 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3572" class="magazine-popup-show" rel="popup_3572" title="Апрель 2013"><img src="../../uploads/images/letoile_mag/2013_04/001s.jpg" alt="" rel="mag_image_3572"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3572" class="magazine-popup-show g-link" rel="popup_3572" title="Апрель 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3570" class="magazine-popup-show" rel="popup_3570" title="Март 2013">Март 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3570" class="magazine-popup-show" rel="popup_3570" title="Март 2013"><img src="../../uploads/images/letoile_mag/2013_03/001s.jpg" alt="" rel="mag_image_3570"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3570" class="magazine-popup-show g-link" rel="popup_3570" title="Март 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3433" class="magazine-popup-show" rel="popup_3433" title="Февраль 2013">Февраль 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3433" class="magazine-popup-show" rel="popup_3433" title="Февраль 2013"><img src="../../uploads/images/letoile_mag/2013_02/001s.jpg" alt="" rel="mag_image_3433"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3433" class="magazine-popup-show g-link" rel="popup_3433" title="Февраль 2013">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3393" class="magazine-popup-show" rel="popup_3393" title="Январь 2013">Январь 2013</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3393" class="magazine-popup-show" rel="popup_3393" title="Январь 2013"><img src="../../uploads/images/letoile_mag/2013_01/001s.jpg" alt="" rel="mag_image_3393"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                                            </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3393" class="magazine-popup-show g-link" rel="popup_3393" title="Январь 2013">читать</a>
-                </div>
-					<div class="g-clear"></div>
-	                <div class="news-folder-title">2012 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3379" class="magazine-popup-show" rel="popup_3379" title="Декабрь 2012">Декабрь 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3379" class="magazine-popup-show" rel="popup_3379" title="Декабрь 2012"><img src="../../uploads/images/letoile_mag/2012_12/001s.jpg" alt="" rel="mag_image_3379"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3379" class="magazine-popup-show g-link" rel="popup_3379" title="Декабрь 2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3327" class="magazine-popup-show" rel="popup_3327" title="Ноябрь 2012">Ноябрь 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3327" class="magazine-popup-show" rel="popup_3327" title="Ноябрь 2012"><img src="../../uploads/images/letoile_mag/2012_11/001s.jpg" alt="" rel="mag_image_3327"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3327" class="magazine-popup-show g-link" rel="popup_3327" title="Ноябрь 2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3279" class="magazine-popup-show" rel="popup_3279" title="Октябрь 2012">Октябрь 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3279" class="magazine-popup-show" rel="popup_3279" title="Октябрь 2012"><img src="../../uploads/images/letoile_mag/2012_10/001s.jpg" alt="" rel="mag_image_3279"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3279" class="magazine-popup-show g-link" rel="popup_3279" title="Октябрь 2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3181" class="magazine-popup-show" rel="popup_3181" title="Сентябрь 2012">Сентябрь 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3181" class="magazine-popup-show" rel="popup_3181" title="Сентябрь 2012"><img src="../../uploads/images/letoile_mag/2012_09/001_s.jpg" alt="" rel="mag_image_3181"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3181" class="magazine-popup-show g-link" rel="popup_3181" title="Сентябрь 2012">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3106" class="magazine-popup-show" rel="popup_3106" title="Июль-август 2012">Июль-август 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3106" class="magazine-popup-show" rel="popup_3106" title="Июль-август 2012"><img src="../../uploads/images/letoile_mag/2012_07/001s.jpg" alt="" rel="mag_image_3106"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3106" class="magazine-popup-show g-link" rel="popup_3106" title="Июль-август 2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=3007" class="magazine-popup-show" rel="popup_3007" title="Июнь 2012">Июнь 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=3007" class="magazine-popup-show" rel="popup_3007" title="Июнь 2012"><img src="../../uploads/images/letoile_mag/2012_06/001s.jpg" alt="" rel="mag_image_3007"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=3007" class="magazine-popup-show g-link" rel="popup_3007" title="Июнь 2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2898" class="magazine-popup-show" rel="popup_2898" title="Май 2012">Май 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2898" class="magazine-popup-show" rel="popup_2898" title="Май 2012"><img src="../../uploads/images/letoile_mag/2012_05/001s.jpg" alt="" rel="mag_image_2898"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2898" class="magazine-popup-show g-link" rel="popup_2898" title="Май 2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2818" class="magazine-popup-show" rel="popup_2818" title="Апрель 2012">Апрель 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2818" class="magazine-popup-show" rel="popup_2818" title="Апрель 2012"><img src="../../uploads/images/letoile_mag/2012_04/2012_04/001s.jpg" alt="" rel="mag_image_2818"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2818" class="magazine-popup-show g-link" rel="popup_2818" title="Апрель 2012">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2702" class="magazine-popup-show" rel="popup_2702" title="Март 2012">Март 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2702" class="magazine-popup-show" rel="popup_2702" title="Март 2012"><img src="../../uploads/images/letoile_mag/2012_03/001s.jpg" alt="" rel="mag_image_2702"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2702" class="magazine-popup-show g-link" rel="popup_2702" title="Март 2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2630" class="magazine-popup-show" rel="popup_2630" title="Февраль 2012">Февраль 2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2630" class="magazine-popup-show" rel="popup_2630" title="Февраль 2012"><img src="../../uploads/images/letoile_mag/2012_02/001s.jpg" alt="" rel="mag_image_2630"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2630" class="magazine-popup-show g-link" rel="popup_2630" title="Февраль 2012">читать</a>
-                </div>
-	                <div class="news-folder-title">2011 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2453" class="magazine-popup-show" rel="popup_2453" title="Декабрь-январь 2011-2012">Декабрь-январь 2011-2012</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2453" class="magazine-popup-show" rel="popup_2453" title="Декабрь-январь 2011-2012"><img src="../../uploads/images/letoile_mag/2011_12/001s.jpg" alt="" rel="mag_image_2453"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2453" class="magazine-popup-show g-link" rel="popup_2453" title="Декабрь-январь 2011-2012">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2316" class="magazine-popup-show" rel="popup_2316" title="Ноябрь 2011">Ноябрь 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2316" class="magazine-popup-show" rel="popup_2316" title="Ноябрь 2011"><img src="../../uploads/images/letoile_mag/2011_11/001s.jpg" alt="" rel="mag_image_2316"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2316" class="magazine-popup-show g-link" rel="popup_2316" title="Ноябрь 2011">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2212" class="magazine-popup-show" rel="popup_2212" title="Октябрь 2011">Октябрь 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2212" class="magazine-popup-show" rel="popup_2212" title="Октябрь 2011"><img src="../../uploads/images/letoile_mag/2011_10/001s.jpg" alt="" rel="mag_image_2212"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2212" class="magazine-popup-show g-link" rel="popup_2212" title="Октябрь 2011">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=2078" class="magazine-popup-show" rel="popup_2078" title="Сентябрь 2011">Сентябрь 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=2078" class="magazine-popup-show" rel="popup_2078" title="Сентябрь 2011"><img src="../../uploads/images/letoile_mag/2011_09/001s.jpg" alt="" rel="mag_image_2078"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=2078" class="magazine-popup-show g-link" rel="popup_2078" title="Сентябрь 2011">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1902" class="magazine-popup-show" rel="popup_1902" title="Июль-Август 2011">Июль-Август 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1902" class="magazine-popup-show" rel="popup_1902" title="Июль-Август 2011"><img src="../../uploads/images/letoile_mag/2011_07-08/001s.jpg" alt="" rel="mag_image_1902"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1902" class="magazine-popup-show g-link" rel="popup_1902" title="Июль-Август 2011">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1800" class="magazine-popup-show" rel="popup_1800" title="Июнь 2011">Июнь 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1800" class="magazine-popup-show" rel="popup_1800" title="Июнь 2011"><img src="../../uploads/images/letoile_mag/2011_06/001s.jpg" alt="" rel="mag_image_1800"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1800" class="magazine-popup-show g-link" rel="popup_1800" title="Июнь 2011">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1707" class="magazine-popup-show" rel="popup_1707" title="Май 2011">Май 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1707" class="magazine-popup-show" rel="popup_1707" title="Май 2011"><img src="../../uploads/images/letoile_mag/2011_05/001s.jpg" alt="" rel="mag_image_1707"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1707" class="magazine-popup-show g-link" rel="popup_1707" title="Май 2011">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1581" class="magazine-popup-show" rel="popup_1581" title="Апрель 2011">Апрель 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1581" class="magazine-popup-show" rel="popup_1581" title="Апрель 2011"><img src="../../uploads/images/letoile_mag/2011_04/001s.jpg" alt="" rel="mag_image_1581"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1581" class="magazine-popup-show g-link" rel="popup_1581" title="Апрель 2011">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1569" class="magazine-popup-show" rel="popup_1569" title="Март 2011">Март 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1569" class="magazine-popup-show" rel="popup_1569" title="Март 2011"><img src="../../uploads/images/letoile_mag/2011_03/001_s.jpg" alt="" rel="mag_image_1569"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1569" class="magazine-popup-show g-link" rel="popup_1569" title="Март 2011">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1568" class="magazine-popup-show" rel="popup_1568" title="Февраль 2011">Февраль 2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1568" class="magazine-popup-show" rel="popup_1568" title="Февраль 2011"><img src="../../uploads/images/letoile_mag/2011_02/001_s.jpg" alt="" rel="mag_image_1568"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1568" class="magazine-popup-show g-link" rel="popup_1568" title="Февраль 2011">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1422" class="magazine-popup-show" rel="popup_1422" title="Декабрь-январь 2010-2011">Декабрь-январь 2010-2011</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1422" class="magazine-popup-show" rel="popup_1422" title="Декабрь-январь 2010-2011"><img src="../../uploads/images/letoile_mag/2010_12/001_s.jpg" alt="" rel="mag_image_1422"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1422" class="magazine-popup-show g-link" rel="popup_1422" title="Декабрь-январь 2010-2011">читать</a>
-                </div>
-	                <div class="news-folder-title">2010 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1421" class="magazine-popup-show" rel="popup_1421" title="Ноябрь 2010">Ноябрь 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1421" class="magazine-popup-show" rel="popup_1421" title="Ноябрь 2010"><img src="../../uploads/images/letoile_mag/2010_11/001_s.jpg" alt="" rel="mag_image_1421"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1421" class="magazine-popup-show g-link" rel="popup_1421" title="Ноябрь 2010">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1251" class="magazine-popup-show" rel="popup_1251" title="Октябрь 2010">Октябрь 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1251" class="magazine-popup-show" rel="popup_1251" title="Октябрь 2010"><img src="../../uploads/images/letoile_mag/2010_10/001_s.jpg" alt="" rel="mag_image_1251"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1251" class="magazine-popup-show g-link" rel="popup_1251" title="Октябрь 2010">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1250" class="magazine-popup-show" rel="popup_1250" title="Сентябрь 2010">Сентябрь 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1250" class="magazine-popup-show" rel="popup_1250" title="Сентябрь 2010"><img src="../../uploads/images/letoile_mag/2010_09/001_s.jpg" alt="" rel="mag_image_1250"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1250" class="magazine-popup-show g-link" rel="popup_1250" title="Сентябрь 2010">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1112" class="magazine-popup-show" rel="popup_1112" title="Июль-Август 2010">Июль-Август 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1112" class="magazine-popup-show" rel="popup_1112" title="Июль-Август 2010"><img src="../../uploads/images/letoile_mag/2010_07/001_s.jpg" alt="" rel="mag_image_1112"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1112" class="magazine-popup-show g-link" rel="popup_1112" title="Июль-Август 2010">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1111" class="magazine-popup-show" rel="popup_1111" title="Июнь 2010">Июнь 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1111" class="magazine-popup-show" rel="popup_1111" title="Июнь 2010"><img src="../../uploads/images/letoile_mag/2010_06/001_s.jpg" alt="" rel="mag_image_1111"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1111" class="magazine-popup-show g-link" rel="popup_1111" title="Июнь 2010">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=1049" class="magazine-popup-show" rel="popup_1049" title="Май 2010">Май 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=1049" class="magazine-popup-show" rel="popup_1049" title="Май 2010"><img src="../../uploads/images/letoile_mag/2010_05/1_s.jpg" alt="" rel="mag_image_1049"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=1049" class="magazine-popup-show g-link" rel="popup_1049" title="Май 2010">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=941" class="magazine-popup-show" rel="popup_941" title="Апрель 2010">Апрель 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=941" class="magazine-popup-show" rel="popup_941" title="Апрель 2010"><img src="../../uploads/images/letoile_mag/2010_04/001_s.jpg" alt="" rel="mag_image_941"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=941" class="magazine-popup-show g-link" rel="popup_941" title="Апрель 2010">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=893" class="magazine-popup-show" rel="popup_893" title="Март 2010.">Март 2010.</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=893" class="magazine-popup-show" rel="popup_893" title="Март 2010."><img src="../../uploads/images/letoile_mag/2010_03/001_s.jpg" alt="" rel="mag_image_893"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=893" class="magazine-popup-show g-link" rel="popup_893" title="Март 2010.">читать</a>
-                </div>
-					<div class="g-clear"></div>
-                <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=894" class="magazine-popup-show" rel="popup_894" title="Февраль 2010">Февраль 2010</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=894" class="magazine-popup-show" rel="popup_894" title="Февраль 2010"><img src="../../uploads/images/letoile_mag/2010_02/001_s.jpg" alt="" rel="mag_image_894"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=894" class="magazine-popup-show g-link" rel="popup_894" title="Февраль 2010">читать</a>
-                </div>
-	                <div class="news-folder-title">2009 год</div>
-                            <div class="news-item news-item-left">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=749" class="magazine-popup-show" rel="popup_749" title="Декабрь 2009.">Декабрь 2009.</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=749" class="magazine-popup-show" rel="popup_749" title="Декабрь 2009."><img src="../../uploads/images/letoile_mag/dec_09/001_s.jpg" alt="" rel="mag_image_749"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=749" class="magazine-popup-show g-link" rel="popup_749" title="Декабрь 2009.">читать</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-item-title">
-                        <a href="https://www.letoile.ru/company/letmag/?news=895" class="magazine-popup-show" rel="popup_895" title="Ноябрь 2009.">Ноябрь 2009.</a>
-                    </div>
-    	                <div class="news-item-image">
-        	                <a href="https://www.letoile.ru/company/letmag/?news=895" class="magazine-popup-show" rel="popup_895" title="Ноябрь 2009."><img src="../../uploads/images/letoile_mag/2009_11/001_s.jpg" alt="" rel="mag_image_895"/></a>
-            	        </div>
-                    <div class="news-item-body">
-                        изысканность | стиль | шарм                    </div>
-                    <a href="https://www.letoile.ru/company/letmag/?news=895" class="magazine-popup-show g-link" rel="popup_895" title="Ноябрь 2009.">читать</a>
-                </div>
-		</div>
-        <div class="magazine-popup" style="display: none;">
-           	<div class="magazine-popup-flash"></div>
-            <div class="magazine-popup-header">
-                <div class="magazine-popup-close">
-                    <a href="javascript:;"><img src="../../images/magazine_popup_close.gif" alt="Закрыть" /></a>
-                </div>
-                <div class="magazine-popup-title"><br /></div>
-            </div>
-            <div class="magazine-popup-footer"><div class="magazine-popup-footer-box">
-            	<span id="ya_share1"></span>
-            </div></div>
-        </div>
-		<script type="text/javascript" src="../../images/mag_flash/assets/swfaddress/swfaddress.js"></script>
-		<script type="text/javascript">
-            var flag = false;
-			if (goFlash) {
-				$(".magazine-popup-show").on("click", function() {
-					mag_show($(this).attr("rel").split("popup_")[1], $(this).attr("title"), true);
-					return false;
-				});
-			}
-            $(function() {
-				if (window.location.hash.indexOf("#/mag") == 0) {
-					var mag_id = parseInt(window.location.hash.split("#/mag")[1]);
-					var mag_page = window.location.hash.split("-")[1].split("/")[0];
-					if (goFlash) {
-						mag_show(mag_id, $(".news-item-title a[rel='popup_" + mag_id + "']").text());
-					} else {
-						var page = parseInt(mag_page);
-						page = page?page*2:1;
-						window.location.href = "./?news=" + mag_id + "#" + page;
-					}
-				}
-				if (goFlash) {
-					$(".magazine-popup-close a").on("click", function() {
-						if (ie)
-							$(".magazine-popup").css("display", "none");
-						else
-							$(".magazine-popup").hide(500);
-						window.location.hash = "";
-						flag = false;
-						return false;
-					});
-				}
-            });
-
-			function mag_show(mag_id, mag_title, is_click) {
-				if (flag) return false;
-				else flag = true;
-
-				var o = {};
-				o.width = "956";
-				o.height = "646";
-				o.id = "mag_flash";
-				o.name = "/images/mag_flash/FlipBook3.swf";
-				// absolute path due to cyrillic domain
-                //o.flashvars = "xmlPath=http://letoile.ru/magazine_xml.php?news=" + mag_id + "%26rand=1018346400";
-				o.flashvars = "xmlPath=/magazine_xml.php?news=" + mag_id + "%26rand=1814203522";
-				o.wmode = "opaque";
-				o.allowScriptAccess = "sameDomain";
-				o.allowFullScreen = "true";
-				$(".magazine-popup-flash").html(showFlash(o, true));
-
-				$(".magazine-popup-title").text(mag_title);
-
-				if (is_click) {
-					window.location.hash = "/mag" + mag_id + "-0";
-				}
-
-/*                    var h = document.documentElement.clientHeight - 45;
-				var w = h * resize_koeff;
-				p.css("top", document.documentElement.scrollTop + 'px');
-				p.css("left", (Math.round((document.documentElement.clientWidth - w) / 2)) + 'px');
-				p.css("height", h + 'px');
-				p.css("width", w + 'px'); */
-				$(".magazine-popup").center().show(!is_click?0:500); // 0 is for opera
-
-				ya_share_init(window.location.href, "Журнал Л'Этуаль. " + mag_title, $("img[rel='mag_image_" + mag_id + "']").attr("src"));
-
-			}
-		</script>
+<div class="main-right-title">
+    <div class="main-right-title-pad"></div>
+    <h1>Журнал Л'Этуаль: Май 2016</h1>
+</div>
 
 
-    	</div></div>
+<div class="news-single text-content">
+<div class="magazine-image">
+    <a href="javascript:;" title="Следующая страница"><img src="/uploads/images/letoile_mag/2016_05/00001.jpg" /></a>
+</div>
+<script src="/jquery.tools.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function() {
+        ya_share_init(window.location.href, "Журнал Л'Этуаль. Май 2016", $(".magazine-image img").attr("src"));
 
-	        <div class="main-right-banner">
-        <!--/* OpenX Javascript Tag v2.8.10 */-->
-<script type='text/javascript'><!--//<![CDATA[
-   var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
-   var m3_r = Math.floor(Math.random()*99999999999);
-   if (!document.MAX_used) document.MAX_used = ',';
-   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-   document.write ("?zoneid=5");
-   document.write ('&amp;cb=' + m3_r);
-   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
-   document.write ("&amp;loc=" + escape(window.location));
-   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
-   if (document.context) document.write ("&context=" + escape(document.context));
-   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-   document.write ("&amp;zone_id=");
-   document.write ("'><\/scr"+"ipt>");
-//]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a448fcf0&amp;cb=193232' target='_blank'><img src='../../openx/www/delivery/avw.php?zoneid=5&amp;cb=193232&amp;n=a448fcf0' border='0' alt='' /></a></noscript>
-                </div>
-    
+        $(".magazine-scroll").scrollable().navigator();
+
+        if( $(".magazine-scroll-navi a").length * 14 > 660)
+        {
+            w = 660;
+        }
+        else
+        {
+            w = $(".magazine-scroll-navi a").length * 14;
+        }
+
+        $(".magazine-scroll-navi").attr("style", "width: " + w + "px");
+        //$(".magazine-scroll-navi").attr("style", "width: " + $(".magazine-scroll-navi a").length * 14 + "px");
+        $(".magazine-item").click(function() {
+            $(".magazine-image img").attr("src", $(this).attr("href"));
+            $(".magazine-item.active").removeClass("active");
+            $(this).addClass("active");
+            window.location.hash = $(this).attr("rel");
+
+            ya_share_init(window.location.href, "Журнал Л'Этуаль. Май 2016", $(".magazine-image img").attr("src"));
+
+            return false;
+        });
+
+        var api = $(".magazine-scroll").data("scrollable");
+        var items_in_block = 6;
+        var active_item;
+        $(".magazine-image").click(function() {
+            var active_item_number = parseInt(window.location.hash.split("#")[1]);
+            active_item = $(".magazine-item[rel='" + ((isNaN(active_item_number)?0:active_item_number) + 1) + "']");
+            if (active_item.length){
+                active_item.click();
+                api.seekTo(Math.floor((active_item.attr("rel") - 1) / items_in_block));
+            }
+        });
+
+        if (window.location.hash && (active_item = $(".magazine-item[rel='" + window.location.hash.split("#")[1] + "']"))) {
+            $(".magazine-image img").attr("src", active_item.attr("href"));
+            active_item.addClass("active");
+            api.seekTo(Math.floor((active_item.attr("rel") - 1) / items_in_block));
+        }
+    });
+</script>
+<div class="magazine">
+<a href="javascript:;" class="magazine-control-prev prev"></a>
+<div class="magazine-scroll">
+<div class="magazine-scroll-items"><div>
+    <a href="/uploads/images/letoile_mag/2016_05/00001.jpg" class="magazine-item" rel="1"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.00001.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/0001.jpg" class="magazine-item" rel="2"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.0001.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/001.jpg" class="magazine-item" rel="3"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.001.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/002.jpg" class="magazine-item" rel="4"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.002.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/003.jpg" class="magazine-item" rel="5"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.003.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/004.jpg" class="magazine-item" rel="6"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.004.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/005.jpg" class="magazine-item" rel="7"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.005.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/006.jpg" class="magazine-item" rel="8"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.006.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/007.jpg" class="magazine-item" rel="9"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.007.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/008.jpg" class="magazine-item" rel="10"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.008.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/009.jpg" class="magazine-item" rel="11"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.009.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/010.jpg" class="magazine-item" rel="12"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.010.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/011.jpg" class="magazine-item" rel="13"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.011.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/012.jpg" class="magazine-item" rel="14"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.012.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/013.jpg" class="magazine-item" rel="15"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.013.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/014.jpg" class="magazine-item" rel="16"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.014.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/015.jpg" class="magazine-item" rel="17"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.015.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/016.jpg" class="magazine-item" rel="18"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.016.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/017.jpg" class="magazine-item" rel="19"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.017.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/018.jpg" class="magazine-item" rel="20"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.018.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/019.jpg" class="magazine-item" rel="21"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.019.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/020.jpg" class="magazine-item" rel="22"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.020.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/021.jpg" class="magazine-item" rel="23"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.021.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/022.jpg" class="magazine-item" rel="24"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.022.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/023.jpg" class="magazine-item" rel="25"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.023.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/024.jpg" class="magazine-item" rel="26"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.024.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/025.jpg" class="magazine-item" rel="27"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.025.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/026.jpg" class="magazine-item" rel="28"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.026.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/027.jpg" class="magazine-item" rel="29"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.027.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/028.jpg" class="magazine-item" rel="30"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.028.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/029.jpg" class="magazine-item" rel="31"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.029.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/030.jpg" class="magazine-item" rel="32"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.030.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/031.jpg" class="magazine-item" rel="33"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.031.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/032.jpg" class="magazine-item" rel="34"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.032.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/033.jpg" class="magazine-item" rel="35"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.033.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/034.jpg" class="magazine-item" rel="36"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.034.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/035.jpg" class="magazine-item" rel="37"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.035.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/036.jpg" class="magazine-item" rel="38"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.036.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/037.jpg" class="magazine-item" rel="39"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.037.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/038.jpg" class="magazine-item" rel="40"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.038.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/039.jpg" class="magazine-item" rel="41"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.039.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/040.jpg" class="magazine-item" rel="42"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.040.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/041.jpg" class="magazine-item" rel="43"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.041.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/042.jpg" class="magazine-item" rel="44"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.042.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/043.jpg" class="magazine-item" rel="45"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.043.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/044.jpg" class="magazine-item" rel="46"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.044.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/045.jpg" class="magazine-item" rel="47"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.045.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/046.jpg" class="magazine-item" rel="48"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.046.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/047.jpg" class="magazine-item" rel="49"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.047.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/048.jpg" class="magazine-item" rel="50"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.048.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/049.jpg" class="magazine-item" rel="51"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.049.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/050.jpg" class="magazine-item" rel="52"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.050.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/051.jpg" class="magazine-item" rel="53"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.051.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/052.jpg" class="magazine-item" rel="54"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.052.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/053.jpg" class="magazine-item" rel="55"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.053.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/054.jpg" class="magazine-item" rel="56"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.054.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/055.jpg" class="magazine-item" rel="57"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.055.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/056.jpg" class="magazine-item" rel="58"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.056.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/057.jpg" class="magazine-item" rel="59"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.057.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/058.jpg" class="magazine-item" rel="60"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.058.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/059.jpg" class="magazine-item" rel="61"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.059.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/060.jpg" class="magazine-item" rel="62"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.060.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/061.jpg" class="magazine-item" rel="63"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.061.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/062.jpg" class="magazine-item" rel="64"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.062.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/063.jpg" class="magazine-item" rel="65"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.063.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/064.jpg" class="magazine-item" rel="66"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.064.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/065.jpg" class="magazine-item" rel="67"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.065.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/066.jpg" class="magazine-item" rel="68"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.066.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/067.jpg" class="magazine-item" rel="69"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.067.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/068.jpg" class="magazine-item" rel="70"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.068.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/069.jpg" class="magazine-item" rel="71"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.069.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/070.jpg" class="magazine-item" rel="72"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.070.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/071.jpg" class="magazine-item" rel="73"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.071.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/072.jpg" class="magazine-item" rel="74"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.072.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/073.jpg" class="magazine-item" rel="75"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.073.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/074.jpg" class="magazine-item" rel="76"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.074.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/075.jpg" class="magazine-item" rel="77"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.075.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/076.jpg" class="magazine-item" rel="78"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.076.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/077.jpg" class="magazine-item" rel="79"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.077.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/078.jpg" class="magazine-item" rel="80"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.078.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/079.jpg" class="magazine-item" rel="81"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.079.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/080.jpg" class="magazine-item" rel="82"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.080.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/081.jpg" class="magazine-item" rel="83"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.081.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/082.jpg" class="magazine-item" rel="84"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.082.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/083.jpg" class="magazine-item" rel="85"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.083.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/084.jpg" class="magazine-item" rel="86"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.084.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/085.jpg" class="magazine-item" rel="87"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.085.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/086.jpg" class="magazine-item" rel="88"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.086.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/087.jpg" class="magazine-item" rel="89"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.087.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/088.jpg" class="magazine-item" rel="90"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.088.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/089.jpg" class="magazine-item" rel="91"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.089.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/090.jpg" class="magazine-item" rel="92"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.090.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/091.jpg" class="magazine-item" rel="93"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.091.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/092.jpg" class="magazine-item" rel="94"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.092.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/093.jpg" class="magazine-item" rel="95"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.093.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/094.jpg" class="magazine-item" rel="96"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.094.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/095.jpg" class="magazine-item" rel="97"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.095.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/096.jpg" class="magazine-item" rel="98"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.096.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/097.jpg" class="magazine-item" rel="99"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.097.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/098.jpg" class="magazine-item" rel="100"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.098.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/099.jpg" class="magazine-item" rel="101"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.099.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/100.jpg" class="magazine-item" rel="102"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.100.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/101.jpg" class="magazine-item" rel="103"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.101.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/102.jpg" class="magazine-item" rel="104"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.102.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/103.jpg" class="magazine-item" rel="105"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.103.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/104.jpg" class="magazine-item" rel="106"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.104.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/105.jpg" class="magazine-item" rel="107"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.105.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/106.jpg" class="magazine-item" rel="108"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.106.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/107.jpg" class="magazine-item" rel="109"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.107.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/108.jpg" class="magazine-item" rel="110"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.108.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/109.jpg" class="magazine-item" rel="111"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.109.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/110.jpg" class="magazine-item" rel="112"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.110.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/111.jpg" class="magazine-item" rel="113"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.111.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/112.jpg" class="magazine-item" rel="114"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.112.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/113.jpg" class="magazine-item" rel="115"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.113.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/114.jpg" class="magazine-item" rel="116"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.114.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/115.jpg" class="magazine-item" rel="117"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.115.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/116.jpg" class="magazine-item" rel="118"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.116.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/117.jpg" class="magazine-item" rel="119"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.117.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/118.jpg" class="magazine-item" rel="120"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.118.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/119.jpg" class="magazine-item" rel="121"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.119.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/120.jpg" class="magazine-item" rel="122"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.120.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/121.jpg" class="magazine-item" rel="123"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.121.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/122.jpg" class="magazine-item" rel="124"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.122.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/123.jpg" class="magazine-item" rel="125"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.123.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/124.jpg" class="magazine-item" rel="126"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.124.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/125.jpg" class="magazine-item" rel="127"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.125.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/126.jpg" class="magazine-item" rel="128"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.126.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/127.jpg" class="magazine-item" rel="129"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.127.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/128.jpg" class="magazine-item" rel="130"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.128.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/129.jpg" class="magazine-item" rel="131"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.129.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/130.jpg" class="magazine-item" rel="132"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.130.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/131.jpg" class="magazine-item" rel="133"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.131.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/132.jpg" class="magazine-item" rel="134"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.132.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/133.jpg" class="magazine-item" rel="135"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.133.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/134.jpg" class="magazine-item" rel="136"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.134.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/135.jpg" class="magazine-item" rel="137"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.135.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/136.jpg" class="magazine-item" rel="138"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.136.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/137.jpg" class="magazine-item" rel="139"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.137.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/138.jpg" class="magazine-item" rel="140"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.138.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/139.jpg" class="magazine-item" rel="141"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.139.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/140.jpg" class="magazine-item" rel="142"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.140.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/141.jpg" class="magazine-item" rel="143"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.141.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/142.jpg" class="magazine-item" rel="144"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.142.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/143.jpg" class="magazine-item" rel="145"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.143.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/144.jpg" class="magazine-item" rel="146"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.144.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/145.jpg" class="magazine-item" rel="147"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.145.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/146.jpg" class="magazine-item" rel="148"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.146.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/147.jpg" class="magazine-item" rel="149"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.147.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/148.jpg" class="magazine-item" rel="150"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.148.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/149.jpg" class="magazine-item" rel="151"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.149.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/150.jpg" class="magazine-item" rel="152"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.150.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/151.jpg" class="magazine-item" rel="153"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.151.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/152.jpg" class="magazine-item" rel="154"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.152.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/153.jpg" class="magazine-item" rel="155"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.153.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/154.jpg" class="magazine-item" rel="156"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.154.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/155.jpg" class="magazine-item" rel="157"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.155.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/156.jpg" class="magazine-item" rel="158"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.156.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/157.jpg" class="magazine-item" rel="159"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.157.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/158.jpg" class="magazine-item" rel="160"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.158.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/159.jpg" class="magazine-item" rel="161"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.159.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/160.jpg" class="magazine-item" rel="162"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.160.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/161.jpg" class="magazine-item" rel="163"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.161.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/162.jpg" class="magazine-item" rel="164"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.162.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/163.jpg" class="magazine-item" rel="165"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.163.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/164.jpg" class="magazine-item" rel="166"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.164.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/165.jpg" class="magazine-item" rel="167"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.165.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/166.jpg" class="magazine-item" rel="168"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.166.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/167.jpg" class="magazine-item" rel="169"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.167.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/168.jpg" class="magazine-item" rel="170"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.168.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/169.jpg" class="magazine-item" rel="171"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.169.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/170.jpg" class="magazine-item" rel="172"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.170.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/171.jpg" class="magazine-item" rel="173"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.171.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/172.jpg" class="magazine-item" rel="174"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.172.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/173.jpg" class="magazine-item" rel="175"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.173.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/174.jpg" class="magazine-item" rel="176"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.174.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/175.jpg" class="magazine-item" rel="177"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.175.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/176.jpg" class="magazine-item" rel="178"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.176.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/177.jpg" class="magazine-item" rel="179"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.177.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/178.jpg" class="magazine-item" rel="180"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.178.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/179.jpg" class="magazine-item" rel="181"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.179.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/180.jpg" class="magazine-item" rel="182"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.180.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/181.jpg" class="magazine-item" rel="183"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.181.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/182.jpg" class="magazine-item" rel="184"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.182.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/183.jpg" class="magazine-item" rel="185"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.183.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/184.jpg" class="magazine-item" rel="186"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.184.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/185.jpg" class="magazine-item" rel="187"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.185.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/186.jpg" class="magazine-item" rel="188"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.186.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/187.jpg" class="magazine-item" rel="189"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.187.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/188.jpg" class="magazine-item" rel="190"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.188.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/189.jpg" class="magazine-item" rel="191"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.189.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/190.jpg" class="magazine-item" rel="192"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.190.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/191.jpg" class="magazine-item" rel="193"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.191.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/192.jpg" class="magazine-item" rel="194"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.192.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/193.jpg" class="magazine-item" rel="195"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.193.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/194.jpg" class="magazine-item" rel="196"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.194.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/195.jpg" class="magazine-item" rel="197"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.195.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/196.jpg" class="magazine-item" rel="198"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.196.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/197.jpg" class="magazine-item" rel="199"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.197.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/198.jpg" class="magazine-item" rel="200"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.198.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/199.jpg" class="magazine-item" rel="201"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.199.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/200.jpg" class="magazine-item" rel="202"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.200.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/201.jpg" class="magazine-item" rel="203"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.201.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/202.jpg" class="magazine-item" rel="204"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.202.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/203.jpg" class="magazine-item" rel="205"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.203.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/204.jpg" class="magazine-item" rel="206"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.204.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/205.jpg" class="magazine-item" rel="207"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.205.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/206.jpg" class="magazine-item" rel="208"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.206.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/207.jpg" class="magazine-item" rel="209"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.207.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/208.jpg" class="magazine-item" rel="210"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.208.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/209.jpg" class="magazine-item" rel="211"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.209.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/210.jpg" class="magazine-item" rel="212"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.210.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/211.jpg" class="magazine-item" rel="213"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.211.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/212.jpg" class="magazine-item" rel="214"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.212.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/213.jpg" class="magazine-item" rel="215"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.213.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/214.jpg" class="magazine-item" rel="216"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.214.160x205.jpg" alt="" /></a>
+</div><div>                            <a href="/uploads/images/letoile_mag/2016_05/215.jpg" class="magazine-item" rel="217"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.215.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/216.jpg" class="magazine-item" rel="218"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.216.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/217.jpg" class="magazine-item" rel="219"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.217.160x205.jpg" alt="" /></a>
+    <a href="/uploads/images/letoile_mag/2016_05/218.jpg" class="magazine-item" rel="220"><img src="/uploads/images/letoile_mag/2016_05/.thumbs/.218.160x205.jpg" alt="" /></a>
+</div></div>
+</div>
+<a href="javascript:;" class="magazine-control-next next"></a>
+<div class="g-clear"></div>
+<div class="magazine-scroll-navi navi"></div>
+</div>
+<div class="magazine-share">
+    <span id="ya_share1"></span>
+</div>
+</div>
+
+</div></div>
+
+<div class="main-right-banner">
+    <!--/* OpenX Javascript Tag v2.8.10 */-->
+    <script type='text/javascript'><!--//<![CDATA[
+    var m3_u = (location.protocol=='https:'?'https://www.letoile.ru/openx/www/delivery/ajs.php':'http://www.letoile.ru/openx/www/delivery/ajs.php');
+    var m3_r = Math.floor(Math.random()*99999999999);
+    if (!document.MAX_used) document.MAX_used = ',';
+    document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+    document.write ("?zoneid=5");
+    document.write ('&amp;cb=' + m3_r);
+    if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+    document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+    document.write ("&amp;loc=" + escape(window.location));
+    if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+    if (document.context) document.write ("&context=" + escape(document.context));
+    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+    document.write ("&amp;zone_id=1");
+    document.write ("'><\/scr"+"ipt>");
+    //]]>--></script><noscript><a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a448fcf0&amp;cb=169309' target='_blank'><img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=5&amp;cb=169309&amp;n=a448fcf0' border='0' alt='' /></a></noscript>
+</div>
+
+</div>
+<div class="g-clear"></div>
+<div class="main-links">
+    <div class="main-links-item main-links-item-shop" style="padding-top: 34px;">
+        <a href="http://letu.ru/"><div style="width:190px; height:128px;"></div></a>
+        <div class="main-links-item-title">Интернет-магазин</div>
+        <ul class="g-layout">
+            <li>
+                <a href="http://www.letu.ru/browse/brandProducts.jsp?q_facetTrail=9004%3arootCategory%3a1002%3a%D0%9B%27%D0%AD%D1%82%D1%83%D0%B0%D0%BB%D1%8C+selection&q_pageSize=24&q_brandId=1743" target="_blank">Л'Этуаль s&#233;lection на letu.ru</a>
+            </li>
+            <li>
+                <a href="http://www.letu.ru/" target="_blank">24 часа красоты в интернет-магазине letu.ru</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-links-item main-links-item-ps">
+        <div class="main-links-item-title">Подарочные сертификаты</div>
+        <ul class="g-layout">
+            <li>
+                <a href="http://www.letu.ru/giftcertificates/" target="_blank">Л’Этуаль eCARDS</a>
+            </li>
+            <li>
+                <a href="/company/ps">Сертификаты CLASSIC</a>
+            </li>
+            <li>
+                <a href="/club/gifts/">Корпоративные сертификаты</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-links-item main-links-item-personal">
+        <div class="main-links-item-title">Личный кабинет</div>
+        <ul class="g-layout">
+            <li>
+                <a href="/club/cards/account/">Проверка баланса</a>
+            </li>
+            <li>
+                <a href="/company/subscribe/">SMS/E-MAIL подписка</a>
+            </li>
+            <li>
+                <a href="/services/unsubscribe.phtml">Отказаться от e-mail / смс рассылки</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-links-item main-links-item-special">
+        <div class="main-links-item-title">Рекомендуем</div>
+        <ul class="g-layout">
+            <li>
+                <a href="/club/new">Новинки</a>
+            </li>
+            <li>
+                <a href="/recommend/tags/Dlya-zhenschin">Женщинам</a>
+            </li>
+            <li>
+                <a href="/recommend/tags/Dlya-muzhchin">Мужчинам</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-links-item main-links-item-events">
+        <div class="main-links-item-title">Акции</div>
+        <ul class="g-layout">
+            <li>
+                <a href="/club/events?news=4597">Акция "Именинники"</a>
+            </li>
+            <li>
+                <a href="/club/events?news=4763">Прекрасные недели весь июль!</a>
+            </li>
+        </ul>
     </div>
     <div class="g-clear"></div>
-            <div class="main-links">
-        	                <div class="main-links-item main-links-item-shop" style="padding-top: 34px;">
-                                            <a href="http://letu.ru/"><div style="width:190px; height:128px;"></div></a>
-                    	                    <div class="main-links-item-title">Интернет-магазин</div>
-                    		                    <ul class="g-layout">
-		                        <li>
-                                                                        <a href="http://www.letu.ru/browse/brandProducts.jsp?q_facetTrail=9004%3arootCategory%3a1002%3a%D0%9B%27%D0%AD%D1%82%D1%83%D0%B0%D0%BB%D1%8C+selection&q_pageSize=24&q_brandId=1743" target="_blank">Л'Этуаль s&#233;lection на letu.ru</a>
-                                                                </li>
-                                            	<li>
-                                        <a href="http://www.letu.ru/" target="_blank">24 часа красоты в интернет-магазине letu.ru</a>
-                                </li>
-            	                    </ul>
-                	                </div>
-                	                <div class="main-links-item main-links-item-ps">
-                    	                    <div class="main-links-item-title">Подарочные сертификаты</div>
-                    		                    <ul class="g-layout">
-		                        <li>
-                                                                        <a href="http://www.letu.ru/giftcertificates/" target="_blank">Л’Этуаль eCARDS</a>
-                                                                </li>
-                                            	<li>
-                                        <a href="https://www.letoile.ru/company/ps">Сертификаты CLASSIC</a>
-                                </li>
-                        	<li>
-                                        <a href="https://www.letoile.ru/club/gifts/">Корпоративные сертификаты</a>
-                                </li>
-            	                    </ul>
-                	                </div>
-                	                <div class="main-links-item main-links-item-personal">
-                    	                    <div class="main-links-item-title">Личный кабинет</div>
-                    		                    <ul class="g-layout">
-		                        <li>
-                                                                        <a href="https://www.letoile.ru/club/cards/account/">Проверка баланса</a>
-                                                                </li>
-                                            	<li>
-                                        <a href="https://www.letoile.ru/company/subscribe/">SMS/E-MAIL подписка</a>
-                                </li>
-                        	<li>
-                                        <a href="https://www.letoile.ru/services/unsubscribe.phtml">Отказаться от e-mail / смс рассылки</a>
-                                </li>
-            	                    </ul>
-                	                </div>
-                	                <div class="main-links-item main-links-item-special">
-                    	                    <div class="main-links-item-title">Рекомендуем</div>
-                    		                    <ul class="g-layout">
-		                        <li>
-                                                                        <a href="https://www.letoile.ru/club/new">Новинки</a>
-                                                                </li>
-                                            	<li>
-                                        <a href="https://www.letoile.ru/recommend/tags/Dlya-zhenschin">Женщинам</a>
-                                </li>
-                        	<li>
-                                        <a href="https://www.letoile.ru/recommend/tags/Dlya-muzhchin">Мужчинам</a>
-                                </li>
-            	                    </ul>
-                	                </div>
-                	                <div class="main-links-item main-links-item-events">
-                    	                    <div class="main-links-item-title">Акции</div>
-                    		                    <ul class="g-layout">
-		                        <li>
-                                                                        <a href="https://www.letoile.ru/club/events?news=4597">Акция "Именинники"</a>
-                                                                </li>
-                                            	<li>
-                                        <a href="https://www.letoile.ru/club/events?news=4769">Выиграй фотосессию с Антонио Бандерасом</a>
-                                </li>
-                            </ul>
-                    </div>
-            <div class="g-clear"></div>
-        </div>
-    		<div class="main-subscription">
-        	<div class="main-subscription-title main-links-item-title">
-            	<a href="https://www.letoile.ru/company/subscribe/" style="color: white">Подписка на новости (SMS / E-MAIL)</a>
-            </div>
-        	<!-- form action="/subscription" name="subscription_form" method="get">
-            	<input type="hidden" name="register" value="1" />
-            	<input type="text" name="email" class="g-input" value="Введите Ваш e-mail" onfocus="if(this.value=='Введите Ваш e-mail') {this.value = ''; $(this).addClass('g-input-focused')}" onblur="if(this.value=='') {this.value = 'Введите Ваш e-mail';$(this).removeClass('g-input-focused')}" />
-                <script type="text/javascript">
-					document.write('<a href="javascript:;" class="g-link" onclick="subscription_form.submit()">Подписаться</a>')
-				</script>
-				<noscript>
-	                <input type="submit" class="g-link" value="Подписаться" />
-				</noscript>
-            </form -->
-        </div>
-        <div class="main-footer">
-        	<div class="main-footer-left">
-            	<div class="main-footer-left-copyright">© 2006&ndash;2016, L'etoile.</div>
-                <div class="main-footer-left-social">
-                    <a href="https://vk.com/letoile_official" target="_blank"><img src="../../images/icon_vkontakte.png" alt="В Контакте" title="В Контакте" /></a>
-                    <a href="http://www.odnoklassniki.ru/#/group/43115736727627" target="_blank"><img src="../../images/icon_odnoklassniki.png" alt="Одноклассники" title="Одноклассники" /></a>
-                    <a href="https://www.facebook.com/letoile.ru" target="_blank"><img src="../../images/icon_facebook.png" alt="Facebook" title="Facebook" /></a>
-                    <a href="http://letoile-ru.livejournal.com/" target="_blank"><img src="../../images/icon_lj.png" alt="LiveJournal" title="LiveJournal" /></a>
-                    <a href="http://twitter.com/letoile_ru" target="_blank"><img src="../../images/icon_twitter.png" alt="Twitter" title="Twitter" /></a>
-                    <a href="http://instagram.com/letoile_official" target="_blank"><img src="../../images/icon_instagram.png" alt="Instagram" title="Instagram" /></a>
-            	</div>
-            </div>
-            <div class="main-footer-right">
-            	<div class="main-footer-right-rss">
-                	<a href="https://www.letoile.ru/feedback/"><img src="../../images/icon_feedback.png" alt="Обратная связь" title="Обратная связь" /></a>
-	            	<a href="https://www.letoile.ru/rss.php" target="_blank"><img src="../../images/icon_rss.png" alt="RSS" title="RSS" class="main-footer-right-rss-img" /><span>RSS</span></a>
-                </div>
-            	Support by <a href="http://bix.ru" target="_blank">BIX</a>
-            </div>
-            <div class="g-clear"></div>
+</div>
+<div class="main-subscription">
+    <div class="main-subscription-title main-links-item-title">
+        <a href="/company/subscribe/" style="color: white">Подписка на новости (SMS / E-MAIL)</a>
+    </div>
+    <!-- form action="/subscription" name="subscription_form" method="get">
+        <input type="hidden" name="register" value="1" />
+        <input type="text" name="email" class="g-input" value="Введите Ваш e-mail" onfocus="if(this.value=='Введите Ваш e-mail') {this.value = ''; $(this).addClass('g-input-focused')}" onblur="if(this.value=='') {this.value = 'Введите Ваш e-mail';$(this).removeClass('g-input-focused')}" />
+        <script type="text/javascript">
+            document.write('<a href="javascript:;" class="g-link" onclick="subscription_form.submit()">Подписаться</a>')
+        </script>
+        <noscript>
+            <input type="submit" class="g-link" value="Подписаться" />
+        </noscript>
+    </form -->
+</div>
+<div class="main-footer">
+    <div class="main-footer-left">
+        <div class="main-footer-left-copyright">© 2006&ndash;2016, L'etoile.</div>
+        <div class="main-footer-left-social">
+            <a href="https://vk.com/letoile_official" target="_blank"><img src="/images/icon_vkontakte.png" alt="В Контакте" title="В Контакте" /></a>
+            <a href="http://www.odnoklassniki.ru/#/group/43115736727627" target="_blank"><img src="/images/icon_odnoklassniki.png" alt="Одноклассники" title="Одноклассники" /></a>
+            <a href="https://www.facebook.com/letoile.ru" target="_blank"><img src="/images/icon_facebook.png" alt="Facebook" title="Facebook" /></a>
+            <a href="http://letoile-ru.livejournal.com/" target="_blank"><img src="/images/icon_lj.png" alt="LiveJournal" title="LiveJournal" /></a>
+            <a href="http://twitter.com/letoile_ru" target="_blank"><img src="/images/icon_twitter.png" alt="Twitter" title="Twitter" /></a>
+            <a href="http://instagram.com/letoile_official" target="_blank"><img src="/images/icon_instagram.png" alt="Instagram" title="Instagram" /></a>
         </div>
     </div>
+    <div class="main-footer-right">
+        <div class="main-footer-right-rss">
+            <a href="/feedback/"><img src="/images/icon_feedback.png" alt="Обратная связь" title="Обратная связь" /></a>
+            <a href="/rss.php" target="_blank"><img src="/images/icon_rss.png" alt="RSS" title="RSS" class="main-footer-right-rss-img" /><span>RSS</span></a>
+        </div>
+        Support by <a href="http://bix.ru" target="_blank">BIX</a>
+    </div>
+    <div class="g-clear"></div>
+</div>
+</div>
 </div>
 
 <script type="text/javascript">
-var _gaq = _gaq || [];
- _gaq.push(['_setAccount', 'UA-11464757-1']);
- _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11464757-1']);
+    _gaq.push(['_trackPageview']);
 
- (function() {
- var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
- ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
- var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
- })();
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 </script>
 <div style="position: absolute; visibility: hidden;">
-<!--  AdRiver code START. Type:counter(zeropixel) Site: letoile PZ: 0 BN: 0 -->
-<script language="javascript" type="text/javascript"><!--
-var RndNum4NoCash = Math.round(Math.random() * 1000000000);
-var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
-document.write('<img src="//ad.adriver.ru/cgi-bin/rle.cgi?' + 'sid=171030&bt=21&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail + '" border=0 width=1 height=1>')
-//--></script>
-<noscript><img src="https://ad.adriver.ru/cgi-bin/rle.cgi?sid=171030&amp;bt=21&amp;pz=0&amp;rnd=1368969689" border=0 width=1 height=1></noscript><!--  AdRiver code END  -->
-<!-- Yandex.Metrika counter -->
-<div style="display:none;"><script type="text/javascript">
-(function(w, c) {
-    (w[c] = w[c] || []).push(function() {
-        try {
-            w.yaCounter11168734 = new Ya.Metrika({id:11168734, enableAll: true});
-        }
-        catch(e) { }
-    });
-})(window, "yandex_metrika_callbacks");
-</script></div>
-<script src="https://mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
-<noscript><div><img src="https://mc.yandex.ru/watch/11168734" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-<img src="https://adfocus.ru/banner/logo.php" alt="" />
+    <!--  AdRiver code START. Type:counter(zeropixel) Site: letoile PZ: 0 BN: 0 -->
+    <script language="javascript" type="text/javascript"><!--
+    var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+    var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+    document.write('<img src="//ad.adriver.ru/cgi-bin/rle.cgi?' + 'sid=171030&bt=21&pz=0&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail + '" border=0 width=1 height=1>')
+    //--></script>
+    <noscript><img src="//ad.adriver.ru/cgi-bin/rle.cgi?sid=171030&bt=21&pz=0&rnd=1368969689" border=0 width=1 height=1></noscript><!--  AdRiver code END  -->
+    <!-- Yandex.Metrika counter -->
+    <div style="display:none;"><script type="text/javascript">
+        (function(w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter11168734 = new Ya.Metrika({id:11168734, enableAll: true});
+                }
+                catch(e) { }
+            });
+        })(window, "yandex_metrika_callbacks");
+    </script></div>
+    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+    <noscript><div><img src="//mc.yandex.ru/watch/11168734" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <img src="//adfocus.ru/banner/logo.php" alt="" />
 </body>
 </html>
