@@ -12,7 +12,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'slim-rails'
+gem 'carrierwave'
+gem 'fog-aws'
 
 
 group :development, :test do
