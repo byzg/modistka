@@ -1,0 +1,28 @@
+= render 'left'
+.main-right
+  .main-right-box
+    .main-right-box2
+      .main-right-title
+        .main-right-title-pad
+        h1
+          | Журнал Л'Этуаль:
+          =< l(@magazine.released_at)
+      .news-single.text-content
+        .magazine-image
+          a href="javascript:;" title=("Следующая страница")
+            = image_tag(@sheets.first.image.page.url)
+        .magazine
+          a.magazine-control-prev.prev href="javascript:;"
+          .magazine-scroll
+            .magazine-scroll-items
+              div
+                - @sheets.each_with_index do |sheet, index|
+                  = link_to sheet.image.page.url, rel: (index + 1), class: 'magazine-item' do
+                    = image_tag sheet.image.thumb.url
+          a.magazine-control-next.next href="javascript:;"
+          .g-clear
+          .magazine-scroll-navi.navi style=("width: 518px")
+            a.active href="#0"
+            a href="#1"
+            a href="#2"
+.g-clear

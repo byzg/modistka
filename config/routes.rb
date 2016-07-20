@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'pages#index'
-  resources :pages, only: :index
+  root 'magazines#index'
+  resources :magazines, only: [:index, :show]
 end

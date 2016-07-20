@@ -15,12 +15,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'slim-rails'
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog-aws'
-
+gem 'rails-i18n', '~> 4.0.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'quiet_assets'
 end
 
 group :development do

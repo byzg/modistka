@@ -1,0 +1,22 @@
+= render 'left'
+.main-right
+  .main-right-box
+    .main-right-box2
+      .main-right-title
+        .main-right-title-left
+          .main-right-title-pad
+          h1 Журнал Л'Этуаль
+        .main-right-title-right
+        .g-clear
+      .news.news-narrow
+        - @magazines.each do |year, magazines|
+          .news-folder-title= t('year', year: year)
+          - magazines.each_with_index do |magazine, index|
+            .news-item class=(index % 4 == 0 ? 'news-item-left' : '')
+              .news-item-title
+                = link_to l(magazine.released_at), magazine_path(magazine), title: l(magazine.released_at)
+              .news-item-image
+                = link_to magazine_path(magazine), title: l(magazine.released_at) do
+                  = image_tag(magazine.cover.image.cover.url)
+              = link_to 'Читать', magazine_path(magazine), title: l(magazine.released_at), class: 'g-link'
+.g-clear
