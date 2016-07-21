@@ -5,16 +5,16 @@ $(document).ready ->
     $('.magazine-image img').attr 'src', activeItem.attr('href')
     activeItem.addClass 'active'
 
-    $('.magazine-scroll').scrollable().navigator()
-    scrollable = $('.magazine-scroll').data('scrollable')
-    scrollable.seekTo Math.floor((activeItem.attr('rel') - 1) / itemsInBlock)
-  
-    if $('.magazine-scroll-navi a').length * 14 > 660
-      w = 660
-    else
-      w = $('.magazine-scroll-navi a').length * 14
-    $('.magazine-scroll-navi').attr 'style', "width: #{w}px"
-    $(".magazine-scroll-navi").attr("style", "width: #{$('.magazine-scroll-navi a').length * 14}px");
+  $('.magazine-scroll').scrollable().navigator()
+  scrollable = $('.magazine-scroll').data('scrollable')
+  scrollable.seekTo Math.floor((activeItem.attr('rel') - 1) / itemsInBlock)
+
+  if $('.magazine-scroll-navi a').length * 14 > 660
+    w = 660
+  else
+    w = $('.magazine-scroll-navi a').length * 14
+  $('.magazine-scroll-navi').attr 'style', "width: #{w}px"
+  $(".magazine-scroll-navi").attr("style", "width: #{$('.magazine-scroll-navi a').length * 14}px");
 
 $(document).on 'click', '.magazine-item', (e)->
   e.preventDefault()
