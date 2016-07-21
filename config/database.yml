@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  username: oem
+  username: <%= ENV['DB_USERNAME'] %>
   password:
   database: modistka_development
 
