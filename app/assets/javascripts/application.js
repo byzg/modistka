@@ -11,6 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-tools/scrollable/scrollable
+//= require jquery-tools/scrollable/scrollable.navigator
+
 //= require_tree .
+
+//= require turbolinks
+

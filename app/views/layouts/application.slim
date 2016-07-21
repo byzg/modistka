@@ -28,83 +28,10 @@ html
                 | Звонок по России бесплатный
             .main-header-account
               .header-account-form
-                javascript:
-                  |
-                  $(function () {
-                    |
-                    var f = $("form[name='quick_account_form']");
-                    |
-                    var num_input = $("input[name='card_number']", f);
-                    |
-                    var num_text = num_input.val();
-                    |
-                    num_input
-                            .click(function (event) {
-                              |
-                              event.stopPropagation();
-                              |
-                              if (!ieie) {
-                              |
-                                if ("header-account-form-popup" != f.parent().attr("class")) {
-                                |
-                                  f.wrap('<div class="header-account-form-popup" />');
-                                |
-                                }
-                              |
-                                $(".header-account-form-popup").click(function (event) {
-                                  |
-                                  event.stopPropagation();
-                                  |
-                                });
-                              |
-                                $(".header-account-form-close").show();
-                              |
-                                $(".header-account-form-extra").slideDown();
-                              |
-                                this.focus();
-                              |
-                              }
-                              |
-                              if (num_text == this.value) this.value = "";
-                              |
-                            })
-                            .blur(function () {
-                              |
-                              if ("" == this.value) this.value = num_text;
-                              |
-                            });
-                    |
-                    if (!ieie) {
-                    |
-                      $(".header-account-form-close").click(function () {
-                        |
-                        if ("header-account-form-popup" == f.parent().attr("class")) {
-                        |
-                          $(".header-account-form-close").hide();
-                        |
-                          $(".header-account-form-extra").hide();
-                        |
-                          f.unwrap();
-                        |
-                        }
-                        |
-                        return false;
-                        |
-                      });
-                    |
-                      $("body").click(function () {
-                        |
-                        $(".header-account-form-close").triggerHandler("click");
-                        |
-                      });
-                    |
-                    }
-                    |
-                  });
                 form action="/club/cards/account#account-check-block" method="get" name="quick_account_form"
                   span.header-account-form-close
                     a href="#"
-                      img alt="Закрыть" src="/letmag/dialog_close_gray.gif" /
+                      = image_tag 'letmag/dialog_close_gray.gif'
                   .header-account-form-extra style=("display: none;")
                     .header-account-form-extra-title Выберите цвет Вашей карты:
                     .header-account-form-extra-left

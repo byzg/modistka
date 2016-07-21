@@ -15,14 +15,17 @@
           a.magazine-control-prev.prev href="javascript:;"
           .magazine-scroll
             .magazine-scroll-items
-              div
-                - @sheets.each_with_index do |sheet, index|
-                  = link_to sheet.image.page.url, rel: (index + 1), class: 'magazine-item' do
-                    = image_tag sheet.image.thumb.url
+              - index = 0
+              - groups = @sheets.each_slice(6).to_a
+              - groups.each do |group|
+                div
+                  - group.each do |sheet|
+                    - index += 1
+                    = link_to sheet.image.page.url, rel: index, class: 'magazine-item' do
+                      = image_tag sheet.image.thumb.url
           a.magazine-control-next.next href="javascript:;"
           .g-clear
           .magazine-scroll-navi.navi style=("width: 518px")
-            a.active href="#0"
-            a href="#1"
-            a href="#2"
+            - groups.each_index do |index|
+              a href=("##{index}")
 .g-clear

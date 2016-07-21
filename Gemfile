@@ -19,6 +19,8 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'rails-i18n', '~> 4.0.0'
+gem 'jquery-turbolinks'
+gem 'jquery-tools'
 
 group :development, :test do
   gem 'byebug'
