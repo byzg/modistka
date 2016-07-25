@@ -21,6 +21,12 @@ gem 'fog-aws'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'jquery-turbolinks'
 gem 'jquery-tools'
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'devise'
+gem 'devise-i18n'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug'

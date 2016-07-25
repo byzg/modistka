@@ -1,5 +1,6 @@
 Magazine.destroy_all
 Sheet.destroy_all
+AdminUser.destroy_all
 
 monthes = Dir.glob(File.join('public/seeds', "*#{File::Separator}")).map {|folder| folder.split('/')[-1] }
 puts "Creation magazines for #{monthes}"
@@ -14,3 +15,4 @@ Dir.glob(File.join('public/seeds', "*#{File::Separator}")).map {|folder| folder.
   end
   magazine.update(cover: magazine.sheets.first)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
