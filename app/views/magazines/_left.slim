@@ -1,56 +1,6 @@
 .main-left
-  .main-left-title
-    | О нас
+  .main-left-title= t('.headline')
   ul.main-left-menu.g-layout
-    li.left-menu-item
-      a.left-menu-item-link href="/company/beauty_studio/"  Студия КРАСОТЫ Л’Этуаль
-    li.left-menu-item
-      a.left-menu-item-link href="/company/subscribe/"  Подписка на новости
-    li.left-menu-item
-      a.left-menu-item-link href="/company/history/"  История
-    li.left-menu-item
-      a.left-menu-item-link href="/company/ndk/"  Условия получения Дисконтной Карты Л’Этуаль
-    li.left-menu-item
-      a.left-menu-item-link href="/company/obmenkart/"  Обмен Карт
-    li.left-menu-item
-      a.left-menu-item-link href="/company/supply/"  Поставщикам/Suppliers
-    li.left-menu-item
-      a.left-menu-item-link href="/company/tenders/"  Тендеры
-      ul.main-left-submenu.g-layout
-        li.left-submenu-item
-          a.left-submenu-item-link href="/company/tenders/current/"  Текущие тендеры
-        li.left-submenu-item
-          a.left-submenu-item-link href="/company/tenders/archive/"  Архив тендеров
-    li.left-menu-item
-      a.left-menu-item-link href="/company/exclusive/"  Эксклюзивно в Л'Этуаль
-    li.left-menu-item.left-menu-item-active
-      a.left-menu-item-link href="/company/letmag/"  Журнал Л'Этуаль
-      ul.main-left-submenu.g-layout
-        li.left-submenu-item
-          a.left-submenu-item-link href="/company/letmag/advertizing_rus/"  Для рекламодателей
-        li.left-submenu-item
-          a.left-submenu-item-link href="/company/letmag/advertizing_eng/"  For advertisers
-    li.left-menu-item
-      a.left-menu-item-link href="/company/carrier/"  Карьера
-      ul.main-left-submenu.g-layout
-        li.left-submenu-item
-          a.left-submenu-item-link href="/company/carrier/vacancies/"  Вакансии
-    li.left-menu-item
-      a.left-menu-item-link href="/services/unsubscribe.phtml"  Отказаться от e-mail / смс рассылки
-    li.left-menu-item
-      a.left-menu-item-link href="/company/contacts/"  Контакты
-    li.left-menu-item
-      a.left-menu-item-link href="/feedback/"  Обратная связь
-  .main-left-banner
-  /! /* OpenX Javascript Tag v2.8.10 */
-                  javascript:
-
-    script src="https://www.letoile.ru/openx/www/delivery/ajs.php?zoneid=2&amp;cb=79493695686&amp;charset=windows-1251&amp;loc=https%3A//www.letoile.ru/company/letmag/%3Fnews%3D4747&amp;referer=https%3A//www.letoile.ru/company/letmag/&amp;zone_id=1" type="text/javascript"
-    noscript &lt;a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=a688b6c2&amp;amp;cb=379531' target='_blank'&gt;&lt;img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=2&amp;amp;cb=379531&amp;amp;n=a688b6c2' border='0' alt='' /&gt;&lt;/a&gt;
-  .main-left-tags
-  .main-left-banner
-  /! /* OpenX Javascript Tag v2.8.10 */
-                  javascript:
-
-    script src="https://www.letoile.ru/openx/www/delivery/ajs.php?zoneid=3&amp;cb=10223956485&amp;charset=windows-1251&amp;loc=https%3A//www.letoile.ru/company/letmag/%3Fnews%3D4747&amp;referer=https%3A//www.letoile.ru/company/letmag/&amp;zone_id=1" type="text/javascript"
-    noscript &lt;a href='http://www.letoile.ru/openx/www/delivery/ck.php?n=acb41b3e&amp;amp;cb=124932' target='_blank'&gt;&lt;img src='http://www.letoile.ru/openx/www/delivery/avw.php?zoneid=3&amp;amp;cb=124932&amp;amp;n=acb41b3e' border='0' alt='' /&gt;&lt;/a&gt;
+    - %w(team for_cooperation video subscription).each do |link|
+      li.left-menu-item
+        a.left-menu-item-link href='#'= t(".#{link}")

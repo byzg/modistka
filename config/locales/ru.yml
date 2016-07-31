@@ -17,3 +17,11 @@ ru:
     - Октябрь
     - Ноябрь
     - Декабрь
+
+  magazines:
+    left:
+      headline: 'О нас'
+      team: 'Наша команда'
+      for_cooperation: 'Для сотрудничества'
+      video: 'Видео'
+      subscription: 'Подписка'
