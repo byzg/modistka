@@ -3,4 +3,4 @@
   ul.main-left-menu.g-layout
     - %w(team for_cooperation video subscription).each do |link|
       li.left-menu-item
-        a.left-menu-item-link href='#'= t(".#{link}")
+        = link_to t(".#{link}"), video_path, class: 'left-menu-item-link'

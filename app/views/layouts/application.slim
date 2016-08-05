@@ -67,7 +67,10 @@ html
               .header-account-banner-title
                 a href="/company/letmag/"  Журнал Л’Этуаль
 
-        = yield
+        = render partial: 'layouts/left'
+        .main-right
+          .main-right-box
+            .main-right-box2= yield
 
         .main-links
           .main-links-item.main-links-item-shop style=("padding-top: 34px;")

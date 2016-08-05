@@ -18,10 +18,19 @@ ru:
     - Ноябрь
     - Декабрь
 
-  magazines:
+  errors:
+    connection_refused: 'connection_refused'
+
+  layouts:
     left:
       headline: 'О нас'
       team: 'Наша команда'
       for_cooperation: 'Для сотрудничества'
       video: 'Видео'
       subscription: 'Подписка'
+
+  pages:
+    video:
+      headline: "MODIST'KA : Открытие онлайн журнала"
+      from: 'from'
+      channel: 'Arthur Novoslov'
