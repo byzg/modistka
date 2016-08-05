@@ -1,0 +1,8 @@
+= headline
+.block
+  = simple_form_for @user, html: { class: 'form-horizontal' }, wrapper: :horizontal_form_5_7 do |f|
+    = f.input :phone
+    = f.input :email
+    = f.input :firstname
+    = f.input :lastname
+    = f.button :submit

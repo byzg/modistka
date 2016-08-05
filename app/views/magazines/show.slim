@@ -1,8 +1,4 @@
-.main-right-title
-  .main-right-title-pad
-  h1
-    | Журнал Л'Этуаль:
-    =< l(@magazine.released_at)
+= headline("Журнал Л'Этуаль: #{l(@magazine.released_at)}")
 .news-single.text-content
   .magazine-image
     a href="javascript:;" title=("Следующая страница")

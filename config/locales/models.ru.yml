@@ -1,0 +1,9 @@
+ru:
+  activerecord:
+    user: 'Подписчик'
+    attributes:
+      user:
+        email: 'E-mail'
+        firstname: 'Имя'
+        lastname: 'Фамилия'
+        phone: 'Телефон'

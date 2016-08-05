@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725191633) do
+ActiveRecord::Schema.define(version: 20160805143712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,5 +66,15 @@ ActiveRecord::Schema.define(version: 20160725191633) do
   end
 
   add_index "sheets", ["magazine_id"], name: "index_sheets_on_magazine_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "phone",                     null: false
+    t.string   "firstname",                 null: false
+    t.string   "lastname"
+    t.string   "email",                     null: false
+    t.boolean  "subscribed", default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
 end

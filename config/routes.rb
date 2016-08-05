@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   root 'magazines#index'
   resources :magazines, only: [:index, :show]
+  resources :users, only: [:new, :create]
 end

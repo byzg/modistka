@@ -1,9 +1,4 @@
-.main-right-title
-  .main-right-title-left
-    .main-right-title-pad
-    h1 Журнал Л'Этуаль
-  .main-right-title-right
-  .g-clear
+= headline("Журнал Л'Этуаль")
 .news.news-narrow
   - @magazines.each do |year, magazines|
     .news-folder-title= t('year', year: year)
