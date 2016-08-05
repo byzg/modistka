@@ -27,6 +27,7 @@ gem 'devise-i18n'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   gem 'byebug'

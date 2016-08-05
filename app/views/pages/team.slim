@@ -1,0 +1,15 @@
+.main-right-title
+  .main-right-title-pad
+  h1= t('.headline')
+.news.news-narrow
+  - %w(yana boris ruslan maria artur kirill).each do |person|
+    .media
+      .col-xs-4
+        .media-left
+          = image_tag "pages/team/#{person}.png", class: 'img-responsive'
+      .col-xs-8
+        .media-body
+          .col-xs-12
+            h4.media-heading= t(".#{person}.name")
+            = t(".#{person}.position")
+

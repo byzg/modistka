@@ -8,137 +8,14 @@ html
   body
     .fader style=("display: none;")
     .faderIn style=("display: none;")
-    .body-box.page-magazine
+    .body-box.container
       .main
-        .geo-choice
-          | Мой город:
-          a href="" onclick=("changeCity(); return false")
-            | МОСКВА
-        .main-header.main-header-w-anons
-          .main-header-box
-            .main-header-logo
-              a href="/"
-                = image_tag 'letmag/letoile_logo2.gif'
-            .main-header-phone
-              .header-phone-top
-                | Телефон горячей линии
-              .header-phone-mid
-                | 8 800 200 2345
-              .header-phone-bot
-                | Звонок по России бесплатный
-            .main-header-account
-              .header-account-form
-                form action="/club/cards/account#account-check-block" method="get" name="quick_account_form"
-                  span.header-account-form-close
-                    a href="#"
-                      = image_tag 'letmag/dialog_close_gray.gif'
-                  .header-account-form-extra style=("display: none;")
-                    .header-account-form-extra-title Выберите цвет Вашей карты:
-                    .header-account-form-extra-left
-                      div
-                        input#card1.g-radio name="card_type" type="radio" value="2" /
-                        label for="card1"  рубиновая
-                      div
-                        input#card2.g-radio name="card_type" type="radio" value="3" /
-                        label for="card2"  сапфировая
-                      div
-                        input#card3.g-radio name="card_type" type="radio" value="4" /
-                        label for="card3"  аметистовая
-                      div
-                        input#card4.g-radio name="card_type" type="radio" value="5" /
-                        label for="card4"  бриллиантовая
-                    .header-account-form-extra-right
-                      div
-                        input#card0_old.g-radio name="card_type" type="radio" value="1_old" /
-                        label for="card0_old"  зеленая
-                      div
-                        input#card1_old.g-radio name="card_type" type="radio" value="2_old" /
-                        label for="card1_old"  красная
-                      div
-                        input#card2_old.g-radio name="card_type" type="radio" value="3_old" /
-                        label for="card2_old"  синяя
-                      div
-                        input#card3_old.g-radio name="card_type" type="radio" value="4_old" /
-                        label for="card3_old"  серебряная
-                      div
-                        input#card4_old.g-radio name="card_type" type="radio" value="5_old" /
-                        label for="card4_old"  золотая
-              .header-account-banner-title-shadow Журнал Л’Этуаль
-              .header-account-banner-title
-                a href="/company/letmag/"  Журнал Л’Этуаль
+        = render partial: 'layouts/header'
+        .col-xs-12.skip-padding
+          .col-xs-3.skip-padding-left
+            = render partial: 'layouts/left'
+          .main-right.col-xs-9.skip-padding.pull-right
+            .main-right-box
+              .main-right-box2= yield
 
-        = render partial: 'layouts/left'
-        .main-right
-          .main-right-box
-            .main-right-box2= yield
-
-        .main-links
-          .main-links-item.main-links-item-shop style=("padding-top: 34px;")
-            a href="http://letu.ru/" /
-            div style=("width:190px; height:128px;")
-            .main-links-item-title Интернет-магазин
-            ul.g-layout
-              li
-                a href="http://www.letu.ru/browse/brandProducts.jsp?q_facetTrail=9004%3arootCategory%3a1002%3a%D0%9B%27%D0%AD%D1%82%D1%83%D0%B0%D0%BB%D1%8C+selection&amp;q_pageSize=24&amp;q_brandId=1743" target="_blank"  Л'Этуаль sélection на letu.ru
-              li
-                a href="http://www.letu.ru/" target="_blank"  24 часа красоты в интернет-магазине letu.ru
-          .main-links-item.main-links-item-ps
-            .main-links-item-title Подарочные сертификаты
-            ul.g-layout
-              li
-                a href="http://www.letu.ru/giftcertificates/" target="_blank"  Л’Этуаль eCARDS
-              li
-                a href="/company/ps"  Сертификаты CLASSIC
-              li
-                a href="/club/gifts/"  Корпоративные сертификаты
-          .main-links-item.main-links-item-personal
-            .main-links-item-title Личный кабинет
-            ul.g-layout
-              li
-                a href="/company/subscribe/"  SMS/E-MAIL подписка
-              li
-                a href="/services/unsubscribe.phtml"  Отказаться от e-mail / смс рассылки
-          .main-links-item.main-links-item-special
-            .main-links-item-title Рекомендуем
-            ul.g-layout
-              li
-                a href="/club/new"  Новинки
-              li
-                a href="/recommend/tags/Dlya-zhenschin"  Женщинам
-              li
-                a href="/recommend/tags/Dlya-muzhchin"  Мужчинам
-          .main-links-item.main-links-item-events
-            .main-links-item-title Акции
-            ul.g-layout
-              li
-                a href="/club/events?news=4597"  Акция "Именинники"
-              li
-                a href="/club/events?news=4763"  Прекрасные недели весь июль!
-          .g-clear
-        .main-subscription
-          .main-subscription-title.main-links-item-title
-            a href="/company/subscribe/" style=("color: white")  Подписка на новости (SMS / E-MAIL)
-
-        .main-footer
-          .main-footer-left
-            .main-footer-left-copyright © 2006–2016, L'etoile.
-            .main-footer-left-social
-              a href="https://vk.com/letoile_official" target="_blank"
-                = image_tag 'letmag/icon_vkontakte.png', title: 'В Контакте'
-              a href="http://www.odnoklassniki.ru/#/group/43115736727627" target="_blank"
-                = image_tag 'letmag/icon_odnoklassniki.png', title: 'Одноклассники'
-              a href="https://www.facebook.com/letoile.ru" target="_blank"
-                = image_tag 'letmag/icon_facebook.png', title: 'Facebook'
-              a href="http://letoile-ru.livejournal.com/" target="_blank"
-                = image_tag 'letmag/icon_lj.png', title: 'LiveJournal'
-              a href="http://twitter.com/letoile_ru" target="_blank"
-                = image_tag 'letmag/icon_twitter.png', title: 'Twitter'
-              a href="http://instagram.com/letoile_official" target="_blank"
-                = image_tag 'letmag/icon_instagram.png', title: 'Instagram'
-          .main-footer-right
-            .main-footer-right-rss
-              a href="/feedback/"
-                = image_tag 'letmag/icon_feedback.png', title: 'Обратная связь'
-            | Support by
-            a href="http://bix.ru" target="_blank"  BIX
-          .g-clear
+        = render partial: 'layouts/footer'

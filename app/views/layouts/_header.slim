@@ -1,0 +1,52 @@
+.main-header.main-header-w-anons
+  .main-header-box
+    .main-header-logo
+      a href="/"
+        = image_tag 'letmag/letoile_logo2.gif'
+    .main-header-phone
+      .header-phone-top
+        | Телефон горячей линии
+      .header-phone-mid
+        | 8 800 200 2345
+      .header-phone-bot
+        | Звонок по России бесплатный
+    .main-header-account
+      .header-account-form
+        form action="/club/cards/account#account-check-block" method="get" name="quick_account_form"
+          span.header-account-form-close
+            a href="#"
+              = image_tag 'letmag/dialog_close_gray.gif'
+          .header-account-form-extra style=("display: none;")
+            .header-account-form-extra-title Выберите цвет Вашей карты:
+            .header-account-form-extra-left
+              div
+                input#card1.g-radio name="card_type" type="radio" value="2" /
+                label for="card1"  рубиновая
+              div
+                input#card2.g-radio name="card_type" type="radio" value="3" /
+                label for="card2"  сапфировая
+              div
+                input#card3.g-radio name="card_type" type="radio" value="4" /
+                label for="card3"  аметистовая
+              div
+                input#card4.g-radio name="card_type" type="radio" value="5" /
+                label for="card4"  бриллиантовая
+            .header-account-form-extra-right
+              div
+                input#card0_old.g-radio name="card_type" type="radio" value="1_old" /
+                label for="card0_old"  зеленая
+              div
+                input#card1_old.g-radio name="card_type" type="radio" value="2_old" /
+                label for="card1_old"  красная
+              div
+                input#card2_old.g-radio name="card_type" type="radio" value="3_old" /
+                label for="card2_old"  синяя
+              div
+                input#card3_old.g-radio name="card_type" type="radio" value="4_old" /
+                label for="card3_old"  серебряная
+              div
+                input#card4_old.g-radio name="card_type" type="radio" value="5_old" /
+                label for="card4_old"  золотая
+      .header-account-banner-title-shadow Журнал Л’Этуаль
+      .header-account-banner-title
+        a href="/company/letmag/"  Журнал Л’Этуаль

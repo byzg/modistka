@@ -1,6 +1,11 @@
-.main-left
+.main-left.col-xs-12.skip-padding
   .main-left-title= t('.headline')
   ul.main-left-menu.g-layout
-    - %w(team for_cooperation video subscription).each do |link|
-      li.left-menu-item
-        = link_to t(".#{link}"), video_path, class: 'left-menu-item-link'
+    li.left-menu-item
+      = link_to t('.team'), team_path, class: 'left-menu-item-link'
+    li.left-menu-item
+      = link_to t('.for_cooperation'), '#', class: 'left-menu-item-link'
+    li.left-menu-item
+      = link_to t('.video'), video_path, class: 'left-menu-item-link'
+    li.left-menu-item
+      = link_to t('.subscription'), '#', class: 'left-menu-item-link'

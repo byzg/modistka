@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   get :video, controller: :pages
+  get :team, controller: :pages
 
   root 'magazines#index'
   resources :magazines, only: [:index, :show]
