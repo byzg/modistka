@@ -24,9 +24,9 @@ ru:
            phone: 'Номер Вашего мобильного телефона'
     #     edit:
     #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
+    hints:
+      user:
+        phone: '10 цифр, без 8 или +7'
     #     password: 'No special characters, please.'
     # include_blanks:
     #   defaults:

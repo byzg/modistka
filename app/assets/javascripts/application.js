@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery-tools/scrollable/scrollable
 //= require jquery-tools/scrollable/scrollable.navigator
+//= require maskedinput
 
 //= require_tree .
 

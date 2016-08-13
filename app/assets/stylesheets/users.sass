@@ -1,11 +1,21 @@
 .users-controller
-  &.new-action
-    form
-      .form-group
-        label
-          text-align: left
-          font-weight: normal
-          abbr
-            color: red
-        input
-          border-radius: 0
+  &.new-action, &.create-action
+    .block
+      border: none
+      background: image-url('users/formbg.png')
+      background-position: 4px 0px
+      background-repeat: no-repeat
+      background-size: 99% 100%
+      margin-top: 20px
+      padding: 38px 134px 36px 143px
+      form
+        .form-group
+          label
+            text-align: left
+            font-weight: normal
+            abbr
+              color: red
+          input
+            border-radius: 0
+          .hint
+            color: #b68e44
